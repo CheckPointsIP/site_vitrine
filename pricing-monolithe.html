@@ -556,19 +556,138 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        /* ========================================
+           RESPONSIVE MEDIA QUERIES
+           ======================================== */
+
+        /* Tablette Portrait */
+        @media (max-width: 1023px) {
+            .pricing-hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Mobile et Petite Tablette */
+        @media (max-width: 767px) {
+            /* Hero Section */
+            .pricing-hero {
+                padding: 80px 15px 50px;
+            }
+
+            .pricing-hero h1 {
+                font-size: 2.5rem;
+                line-height: 1.1;
+            }
+
+            .pricing-hero .lead {
+                font-size: 1rem;
+            }
+
+            /* Tabs Navigation - Horizontal Scroll */
+            .tabs-nav {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                gap: 0.5rem;
+                padding: 0 1rem;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .tab-button {
+                min-width: 140px;
+                padding: 0.8rem 1rem;
+                font-size: 0.75rem;
+                flex-shrink: 0;
+                scroll-snap-align: start;
+            }
+
+            .tab-button svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            /* Content Sections */
+            .content-section {
+                padding: 60px 15px;
+            }
+
+            /* Features Grid */
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            /* Feature Cards */
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .feature-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .feature-title {
+                font-size: 1.2rem;
+            }
+
+            /* Subsection Title */
+            .subsection-title {
+                padding: 0.8rem 1rem;
+                font-size: 1.1rem;
+                margin-top: 2rem;
+            }
+
+            /* CTA Section */
+            .cta-section {
+                padding: 50px 15px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.75rem;
+            }
+
+            /* Hide Custom Scrollbar on Mobile */
+            #custom-scrollbar {
+                display: none;
+            }
+
+            /* Container */
+            .container {
+                padding: 0 15px;
+            }
+
+            /* Buttons */
+            .btn {
+                padding: 14px 28px;
+                font-size: 0.9rem;
+            }
+
+            /* Footer */
+            .footer {
+                padding: 2rem 15px 1rem;
+            }
+        }
+
+        /* Petit Mobile */
+        @media (max-width: 374px) {
             .pricing-hero h1 {
                 font-size: 2rem;
             }
 
-            .tabs-nav {
-                flex-direction: column;
-                padding: 0 1rem;
+            .tab-button {
+                min-width: 120px;
+                padding: 0.7rem 0.8rem;
+                font-size: 0.7rem;
             }
 
-            .tab-button {
-                width: 100%;
-                min-width: auto;
+            .feature-card {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 0 10px;
             }
 
             .features-grid {

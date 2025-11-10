@@ -66,6 +66,144 @@
         .scrollbar-thumb:hover {
             opacity: 1;
         }
+
+        /* ========================================
+           RESPONSIVE MEDIA QUERIES
+           ======================================== */
+
+        /* Tablette Portrait et Mobile */
+        @media (max-width: 1023px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Mobile et Petite Tablette */
+        @media (max-width: 767px) {
+            /* Hero Section */
+            .hero {
+                padding: 80px 15px 50px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.1;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            /* Tabs Navigation */
+            .tabs-nav {
+                justify-content: flex-start;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                gap: 0.5rem;
+                padding: 0 1rem;
+            }
+
+            .tab-button {
+                min-width: 140px;
+                padding: 0.8rem 1rem;
+                font-size: 0.75rem;
+                scroll-snap-align: start;
+                flex-shrink: 0;
+            }
+
+            .tab-button i {
+                font-size: 0.9rem;
+            }
+
+            /* Grids */
+            .features-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            /* Cards */
+            .feature-card,
+            .pricing-card {
+                padding: 1.5rem;
+            }
+
+            .feature-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            /* Sections */
+            .histoire,
+            .unique,
+            .equipe,
+            .tarifs,
+            .faq {
+                padding: 60px 15px;
+            }
+
+            /* Support Items */
+            .support-items {
+                padding: 0;
+            }
+
+            .support-btn {
+                font-size: 1rem;
+            }
+
+            /* FAQ */
+            .faq-question {
+                font-size: 1rem;
+            }
+
+            /* Hide Custom Scrollbar on Mobile */
+            #custom-scrollbar {
+                display: none;
+            }
+
+            /* Container */
+            .container {
+                padding: 0 15px;
+            }
+
+            /* Buttons */
+            .btn {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin: 0.5rem 0;
+            }
+
+            .cta-center .btn {
+                width: auto;
+                display: inline-block;
+                margin: 0.5rem;
+            }
+        }
+
+        /* Petit Mobile */
+        @media (max-width: 374px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .tab-button {
+                min-width: 120px;
+                padding: 0.7rem 0.8rem;
+                font-size: 0.7rem;
+            }
+
+            .feature-card,
+            .pricing-card {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+        }
     </style>
 </head>
 <body>

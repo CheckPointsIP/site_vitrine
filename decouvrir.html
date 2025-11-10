@@ -110,6 +110,111 @@
         .back-link:hover {
             color: var(--primary-color);
         }
+
+        /* ========================================
+           RESPONSIVE MEDIA QUERIES
+           ======================================== */
+
+        /* Mobile et Petite Tablette */
+        @media (max-width: 767px) {
+            /* Video Section */
+            .video-section {
+                padding: 60px 15px;
+            }
+
+            .video-section h1 {
+                font-size: 2rem;
+            }
+
+            .video-section .lead {
+                font-size: 1rem;
+            }
+
+            /* Video Container */
+            .video-container {
+                margin: 2rem auto;
+            }
+
+            /* Benefits Section */
+            .benefits-section {
+                padding: 50px 15px;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .lead {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            /* Benefits Grid */
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2rem auto;
+            }
+
+            /* Benefit Box */
+            .benefit-box {
+                padding: 1.5rem;
+            }
+
+            .benefit-box:hover {
+                transform: translateX(5px);
+            }
+
+            .benefit-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .benefit-box h3 {
+                font-size: 1.1rem;
+            }
+
+            /* CTA Section */
+            .cta-section {
+                padding: 50px 15px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.75rem;
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+            }
+
+            .cta-section .btn {
+                display: block;
+                margin: 0.5rem auto;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            /* Container */
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Petit Mobile */
+        @media (max-width: 374px) {
+            .video-section h1 {
+                font-size: 1.75rem;
+            }
+
+            .benefit-box {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+        }
     </style>
 </head>
 <body>

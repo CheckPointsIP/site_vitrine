@@ -150,6 +150,82 @@
             font-size: 1.2rem;
         }
 
+        /* ========================================
+           RESPONSIVE MEDIA QUERIES
+           ======================================== */
+
+        /* Mobile et Petite Tablette */
+        @media (max-width: 767px) {
+            /* Hero Section */
+            .demo-hero {
+                padding: 60px 15px 40px;
+            }
+
+            .demo-hero h1 {
+                font-size: 2rem;
+            }
+
+            .demo-hero p {
+                font-size: 1rem;
+            }
+
+            /* Form Container */
+            .form-container {
+                padding: 2rem 1.5rem;
+            }
+
+            /* Form Groups */
+            .form-group input,
+            .form-group textarea {
+                padding: 10px 14px;
+                font-size: 0.95rem;
+            }
+
+            .form-group textarea {
+                min-height: 100px;
+            }
+
+            /* Benefits List */
+            .benefits-list {
+                padding: 1.5rem;
+            }
+
+            .benefits-list li {
+                padding-left: 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            /* Submit Button */
+            .submit-btn {
+                padding: 14px;
+                font-size: 1rem;
+            }
+
+            /* Container */
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Petit Mobile */
+        @media (max-width: 374px) {
+            .demo-hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .form-container {
+                padding: 1.5rem 1rem;
+            }
+
+            .benefits-list {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+        }
+
         .success-message {
             display: none;
             background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
