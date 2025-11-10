@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan B CRM - Le CRM né de l'expérience terrain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom scrollbar styles */
+        html, body {
+            overflow: hidden;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Masquer scrollbar native */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Conteneur principal scrollable */
+        #scroll-container {
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        /* Scrollbar personnalisée - Thumb seul ARRONDI */
+        #custom-scrollbar {
+            position: fixed;
+            right: 5px;
+            top: 0;
+            width: 8px;
+            height: 100vh;
+            z-index: 9999;
+            pointer-events: none;
+            background: transparent;
+        }
+
+        .scrollbar-thumb {
+            position: absolute;
+            right: 0;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.6s ease;
+            border: none;
+            pointer-events: auto;
+        }
+
+        .scrollbar-thumb.on-blue {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .scrollbar-thumb.on-white {
+            background: #172B4D;
+        }
+
+        .scrollbar-thumb:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="custom-scrollbar">
+        <div class="scrollbar-thumb"></div>
+    </div>
+
+    <div id="scroll-container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-label">PLAN B CRM</div>
+            <h1 class="hero-title">Le CRM né de l'expérience terrain.</h1>
+            <p class="hero-subtitle">
+                Développé par ceux qui gèrent réellement des CFA, des formations et des alternances.<br>
+                Simple, fluide, et pensé pour faciliter le quotidien des équipes pédagogiques et administratives.
+            </p>
+            <a href="#histoire" class="btn btn-primary" id="discover-btn">Découvrir Plan B</a>
+        </div>
+    </section>
+
+    <!-- Système d'onglets -->
+    <div class="tabs-container">
+        <div class="tabs-nav">
+            <button class="tab-button active" onclick="switchTab('histoire')">
+                <i class="fas fa-book-open"></i> Notre Histoire
+            </button>
+            <button class="tab-button" onclick="switchTab('unique')">
+                <i class="fas fa-gem"></i> Fonctionnalités
+            </button>
+            <button class="tab-button" onclick="switchTab('equipe')">
+                <i class="fas fa-users"></i> Notre Équipe
+            </button>
+            <button class="tab-button" onclick="switchTab('tarifs')">
+                <i class="fas fa-tags"></i> Tarifs
+            </button>
+            <button class="tab-button" onclick="switchTab('faq')">
+                <i class="fas fa-question-circle"></i> FAQ
+            </button>
+        </div>
+    </div>
+
+    <!-- Histoire Tab Content -->
+    <div id="tab-histoire" class="tab-content active">
+    <section id="histoire" class="histoire">
+        <div class="container">
+            <h2 class="section-title">L'histoire d'une idée devenue solution</h2>
+            <p class="lead">Il n'y a pas de plan B. Sauf quand on décide de le créer.</p>
+
+            <div class="story-content">
+                <div class="story-block">
+                    <h3>2020 : L'aventure commence à Nice</h3>
+                    <p>Toute grande aventure commence par une conviction. La nôtre est née en 2020, au cœur de Nice, avec une ambition simple mais puissante : créer plus qu'une école, mais un véritable tremplin pour les talents de notre territoire. C'est ainsi que l'ISIM Nice a vu le jour. Ce n'était pas juste un projet ; c'était notre engagement à prouver qu'une approche locale, humaine et exigeante pouvait redéfinir la réussite. Et le succès fut au rendez-vous, porté par l'énergie de nos équipes et la confiance de nos étudiants.</p>
+                </div>
+
+                <div class="story-block">
+                    <h3>2023 : Extension à Toulon</h3>
+                    <p>Cette première victoire nous a donné des ailes. En 2023, animés par la même flamme, nous avons étendu cette vision en ouvrant l'ISIM Toulon. Nous répliquions un modèle, mais surtout, nous répondions à un besoin. Nous renforcions notre ancrage local, créant de nouvelles passerelles entre les compétences et les entreprises.</p>
+                </div>
+
+                <div class="story-block">
+                    <h3>2024 : Naissance de Perspectivia</h3>
+                    <p>Mais notre ambition ne s'est pas arrêtée là. Plus nous avancions, plus une idée devenait une évidence : nous devions rendre nos formations accessibles à un public encore plus large, briser les barrières et ouvrir les portes de l'avenir. De cette volonté est né, fin 2024, Perspectivia, notre projet le plus audacieux à ce jour, pensé pour démultiplier notre impact.</p>
+                </div>
+
+                <div class="story-block highlight">
+                    <h3>La confiance ne s'achète pas, elle se construit.</h3>
+                    <p>Pour piloter cette croissance, nous avions besoin d'un moteur. Un CRM puissant, agile, capable de comprendre nos processus uniques. Nous avons tout essayé. Les grands noms du marché, les solutions prometteuses, les outils ultra-spécialisés. Le résultat fut toujours le même : une déception. Chaque CRM nous demandait de nous adapter à sa logique, de tordre nos méthodes de travail, de sacrifier notre agilité pour rentrer dans des cases qui n'étaient pas les nôtres. Nous perdions ce qui faisait notre force : notre proximité et notre réactivité.</p>
+                    <p><strong>Alors, nous avons fait ce que nous faisons de mieux : nous avons construit notre propre solution.</strong> De zéro. Un CRM pensé par et pour des professionnels de terrain, un outil qui ne serait pas une contrainte, mais une extension de notre vision. Un système qui centralise, automatise et pilote, sans jamais trahir notre ADN. Ce CRM est devenu notre colonne vertébrale, le secret de notre efficacité et le gardien de notre qualité.</p>
+                </div>
+
+                <div class="story-block">
+                    <h3>Aujourd'hui, notre outil devient votre allié.</h3>
+                    <p>Après des années à perfectionner cet outil en interne, à le voir soutenir notre croissance et simplifier le quotidien de nos équipes, nous avons pris une décision qui s'inscrit dans la continuité de notre histoire : nous lançons la commercialisation de notre CRM.</p>
+
+                    <div class="why-list">
+                        <div class="why-item">
+                            <h4>Parce que nous le maîtrisons de l'intérieur.</h4>
+                            <p>Ce CRM n'est pas une théorie. Il a géré des milliers de candidatures, piloté des centaines d'actions de formation et accompagné notre expansion. Nous ne vous vendons pas un produit ; nous partageons un savoir-faire éprouvé, une solution que nous connaissons intimement.</p>
+                        </div>
+                        <div class="why-item">
+                            <h4>Parce que notre mission est de vous faire grandir.</h4>
+                            <p>Tout comme nous avons voulu rendre nos formations accessibles, nous voulons aujourd'hui partager l'outil qui nous a permis de réussir. Nous croyons profondément en son efficacité, et nous voulons vous faire profiter d'un levier de performance que nous avons bâti pour nous-mêmes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-cta">
+                    <p class="story-conclusion">Rejoindre nos utilisateurs, ce n'est pas simplement acheter une licence. C'est faire le choix d'un partenaire qui comprend vos défis, car il a vécu les mêmes. C'est s'équiper d'un outil qui n'a pas été conçu pour être vendu, mais pour être efficace. C'est, enfin, rejoindre une vision où la technologie est au service de l'humain, et non l'inverse.</p>
+                    <h3 class="manifesto">Ensemble, construisons votre plan A.</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- Unique Tab Content -->
+    <div id="tab-unique" class="tab-content">
+    <section id="unique" class="unique">
+        <div class="container">
+            <h2 class="section-title">Ce qui rend notre CRM unique</h2>
+            <p class="lead">Ce n'est pas un CRM parmi d'autres.<br>C'est le CRM que nous aurions aimé avoir dès le départ, celui que nous avons rêvé, conçu et affiné jour après jour pour qu'il réponde enfin aux vrais besoins des équipes pédagogiques, administratives et dirigeantes.</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-mouse-pointer"></i></div>
+                    <h3>Simplicité totale</h3>
+                    <p>Nous avons voulu un CRM que tout le monde puisse comprendre dès la première minute. Pas besoin de formation interminable, ni de jargon technique. L'interface est claire, fluide et logique : chaque bouton, chaque menu, chaque action a été pensé pour vous faire gagner du temps.</p>
+                    <p class="feature-tagline"><strong>Efficace, sans complexité.</strong></p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-sliders-h"></i></div>
+                    <h3>Personnalisation complète</h3>
+                    <p>Chaque structure est unique — et votre CRM doit le refléter. Notre solution est entièrement modulable. Vous pouvez adapter les champs, formulaires, tableaux de bord et workflows à votre propre manière de travailler, sans avoir besoin d'un technicien.</p>
+                    <p class="feature-tagline"><strong>Vous adaptez le CRM à votre structure, pas l'inverse.</strong></p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Automatisations intelligentes</h3>
+                    <p>Les tâches répétitives appartiennent au passé. Grâce à un système d'automatisation intelligent, le CRM gère pour vous les relances, rappels et suivis administratifs. Les rappels d'échéances partent automatiquement. Les emails de relance sont programmés en fonction de vos règles.</p>
+                    <p class="feature-tagline"><strong>Vous gagnez du temps, sans jamais perdre la main.</strong></p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Reporting clair et utile</h3>
+                    <p>Les chiffres ne servent à rien s'ils ne racontent pas une histoire. Nos tableaux de bord ne se contentent pas d'empiler des données : ils vous montrent ce qui compte vraiment. En un clin d'œil, vous visualisez le suivi de vos apprenants, les relances en attente, vos performances globales, et les tendances clés.</p>
+                    <p class="feature-tagline"><strong>Des indicateurs qui parlent, des décisions plus rapides.</strong></p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Sécurité et hébergement local</h3>
+                    <p>Toutes vos informations sont hébergées en France, sur des serveurs sécurisés conformes aux normes RGPD. Chaque donnée est chiffrée, protégée et sauvegardée en continu. Aucune exploitation commerciale, aucun partage tiers : vos données restent vos données.</p>
+                    <p class="feature-tagline"><strong>Un hébergement local, des données protégées, une tranquillité garantie.</strong></p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>Évolution continue</h3>
+                    <p>Le monde de la formation change vite — et notre CRM évolue avec vous. Chaque retour utilisateur est écouté, analysé et intégré dans nos mises à jour régulières. C'est une solution vivante, qui grandit grâce à ceux qui l'utilisent au quotidien.</p>
+                    <p class="feature-tagline"><strong>Votre CRM s'améliore, parce que vous l'inspirez.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- Équipe Tab Content -->
+    <div id="tab-equipe" class="tab-content">
+    <section id="equipe" class="equipe">
+        <div class="container">
+            <h2 class="section-title">Une équipe engagée à vos côtés</h2>
+            <p class="lead">Chez nous, l'accompagnement n'est pas une option : c'est notre signature. Peu importe votre formule d'abonnement, vous bénéficiez toujours d'un support humain, réactif et disponible, prêt à vous assister à chaque étape.</p>
+
+            <div class="support-items">
+                <div class="support-item">
+                    <button class="support-btn" onclick="toggleSupport(this)">
+                        <span class="support-title">Un accompagnement évolutif selon votre abonnement</span>
+                        <span class="arrow">+</span>
+                    </button>
+                    <div class="support-content">
+                        <p>Parce que chaque structure a ses besoins et son rythme, nous avons conçu un accompagnement personnalisé et progressif. Que vous soyez une petite équipe en quête de clarté ou une organisation plus large souhaitant optimiser ses performances, vous bénéficiez d'un suivi adapté à votre niveau d'engagement.</p>
+                        <p><strong>Nos équipes vous accompagnent dans :</strong></p>
+                        <ul>
+                            <li>La mise en place et la configuration du CRM</li>
+                            <li>La formation de vos collaborateurs</li>
+                            <li>Le suivi des performances et des optimisations</li>
+                            <li>L'amélioration continue de vos process internes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="support-item">
+                    <button class="support-btn" onclick="toggleSupport(this)">
+                        <span class="support-title">Support humain par messagerie – réponse en 5 minutes</span>
+                        <span class="arrow">+</span>
+                    </button>
+                    <div class="support-content">
+                        <p><strong>C'est notre promesse : jamais seul face à une difficulté.</strong></p>
+                        <p>Dès votre première connexion, vous accédez à un support par messagerie instantanée, géré exclusivement par des conseillers humains (pas d'IA impersonnelle).</p>
+                        <p><strong>Nos équipes sont disponibles pour :</strong></p>
+                        <ul>
+                            <li>Répondre à vos questions techniques</li>
+                            <li>Vous guider dans l'utilisation des fonctionnalités</li>
+                            <li>Vous aider à résoudre un blocage ou à paramétrer un module</li>
+                            <li>Vous conseiller dans vos choix d'organisation</li>
+                        </ul>
+                        <p>Nous garantissons une réponse en moins de 5 minutes pendant nos horaires d'ouverture, car nous savons que votre temps est précieux.</p>
+                    </div>
+                </div>
+
+                <div class="support-item">
+                    <button class="support-btn" onclick="toggleSupport(this)">
+                        <span class="support-title">Support téléphonique direct</span>
+                        <span class="arrow">+</span>
+                    </button>
+                    <div class="support-content">
+                        <p>Besoin d'une assistance immédiate ou d'un accompagnement plus personnalisé ? Nos conseillers sont également disponibles par téléphone, pour un contact direct et chaleureux.</p>
+                        <p>Un appel suffit pour obtenir une aide concrète, qu'il s'agisse d'une difficulté technique, d'une question stratégique ou d'un besoin de paramétrage avancé.</p>
+                        <p>Chaque échange téléphonique est l'occasion pour nos équipes de mieux comprendre votre environnement et d'ajuster nos conseils à votre réalité terrain.</p>
+                    </div>
+                </div>
+
+                <div class="support-item">
+                    <button class="support-btn" onclick="toggleSupport(this)">
+                        <span class="support-title">Audits qualité et suivi de performance</span>
+                        <span class="arrow">+</span>
+                    </button>
+                    <div class="support-content">
+                        <p>Notre engagement ne s'arrête pas à l'installation du CRM. Nous mettons en place un système d'audit qualité continu, afin de garantir la cohérence et l'efficacité de votre utilisation du logiciel.</p>
+                        <p><strong>Ces audits permettent de :</strong></p>
+                        <ul>
+                            <li>Mesurer la rentabilité de votre usage du CRM</li>
+                            <li>Identifier les points d'amélioration</li>
+                            <li>Vous proposer des actions concrètes pour optimiser votre organisation</li>
+                            <li>Renforcer la qualité de vos données et de vos process</li>
+                        </ul>
+                        <p>Selon votre formule d'abonnement, ces audits peuvent être quotidiens, mensuels ou programmés, toujours dans un seul but : vous faire progresser.</p>
+                    </div>
+                </div>
+
+                <div class="support-item">
+                    <button class="support-btn" onclick="toggleSupport(this)">
+                        <span class="support-title">Assistance dédiée par un Customer Success Manager (CSM)</span>
+                        <span class="arrow">+</span>
+                    </button>
+                    <div class="support-content">
+                        <p>Pour nos clients qui souhaitent aller plus loin, nous proposons un accompagnement stratégique sur mesure. Un CSM (Customer Success Manager) vous est attribué afin de :</p>
+                        <ul>
+                            <li>Suivre vos indicateurs clés</li>
+                            <li>Planifier une réunion hebdomadaire de 30 minutes</li>
+                            <li>Identifier les leviers d'efficacité et de rentabilité</li>
+                            <li>S'assurer que vous exploitez pleinement le potentiel du CRM</li>
+                        </ul>
+                        <p>Ce suivi personnalisé transforme votre utilisation en avantage compétitif. Votre CSM devient un véritable partenaire de croissance, toujours à vos côtés pour anticiper vos besoins et optimiser vos résultats.</p>
+                    </div>
+                </div>
+
+                <div class="support-item">
+                    <button class="support-btn" onclick="toggleSupport(this)">
+                        <span class="support-title">Notre philosophie : la proximité avant tout</span>
+                        <span class="arrow">+</span>
+                    </button>
+                    <div class="support-content">
+                        <p>Chez nous, vous n'êtes pas un "numéro client". Vous êtes une structure que nous connaissons, un partenaire que nous écoutons, et un utilisateur que nous accompagnons avec soin.</p>
+                        <p>Nous avons vécu les mêmes défis que vous. C'est pourquoi nous avons construit une équipe accessible, engagée et passionnée, qui parle votre langage et comprend vos réalités.</p>
+                        <p><strong>Parce qu'un bon CRM, c'est bien. Mais un bon CRM avec une vraie équipe derrière, c'est encore mieux.</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-center">
+                <a href="contact.html" class="btn btn-secondary">Prendre contact avec notre équipe</a>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- Tarifs Tab Content -->
+    <div id="tab-tarifs" class="tab-content">
+    <section id="tarifs" class="tarifs">
+        <div class="container">
+            <h2 class="section-title">Tarifs transparents et adaptés à votre structure</h2>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Basic</h3>
+                    <div class="pricing-price">499€<span>/mois</span></div>
+                    <p class="pricing-desc">Pour structurer et centraliser votre activité.</p>
+                    <ul class="pricing-features">
+                        <li>Intégration API Brevo, Chat GPT, Bloom, Aircall, Google map, Sirene</li>
+                        <li>Analyse des KPIs & suggestions d'optimisation</li>
+                        <li>Gestion des tâches et agendas partagés</li>
+                        <li>Campagnes Emailing en masse</li>
+                        <li>Support par messagerie (réponse en 5 min)</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Choisir Basic</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="badge">Populaire</div>
+                    <h3 class="pricing-title">Pro</h3>
+                    <div class="pricing-price">999€<span>/mois</span></div>
+                    <p class="pricing-desc">Pour les équipes qui veulent accélérer et collaborer.</p>
+                    <ul class="pricing-features">
+                        <li>Toutes les fonctionnalités du Basic</li>
+                        <li>Support téléphonique direct</li>
+                        <li>Audit qualité aléatoire quotidien</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Choisir Pro</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Entreprise</h3>
+                    <div class="pricing-price">1499€<span>/mois</span></div>
+                    <p class="pricing-desc">Pour une performance et une intégration sur-mesure.</p>
+                    <ul class="pricing-features">
+                        <li>Toutes les fonctionnalités du Pro</li>
+                        <li>Portails dédiés pour vos clients (Extranets)</li>
+                        <li>Intégration de vos API dans le CRM</li>
+                        <li>Audit programmé 2h / mois : Analyse de rentabilité par collaborateurs</li>
+                        <li>Assistance par un CSM (réunion hebdomadaire 30min)</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Choisir Entreprise</a>
+                </div>
+
+                <div class="pricing-card custom">
+                    <h3 class="pricing-title">Sur mesure</h3>
+                    <div class="pricing-price">Contactez-nous</div>
+                    <p class="pricing-desc">Pour les organisations aux processus uniques et aux exigences spécifiques.</p>
+                    <a href="contact.html" class="btn btn-outline">Nous contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- FAQ Tab Content -->
+    <div id="tab-faq" class="tab-content">
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">FAQ - Le CRM en détail</h2>
+
+            <div class="faq-category">
+                <h3 class="faq-category-title">Questions générales</h3>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>C'est quoi un CRM ?</span>
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Un CRM (Customer Relationship Management) est un logiciel qui aide à gérer et analyser les interactions avec vos clients et prospects. L'objectif est de centraliser toutes les informations pour améliorer la relation client et booster vos ventes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Combien coûte ce CRM ?</span>
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Le prix varie en fonction des options choisies. Nous proposons 4 formules :</p>
+                        <ul>
+                            <li><strong>Basic</strong> : 499€/mois</li>
+                            <li><strong>Pro</strong> : 999€/mois</li>
+                            <li><strong>Entreprise</strong> : 1499€/mois</li>
+                            <li><strong>Sur mesure</strong> : nous contacter</li>
+                        </ul>
+                        <p>Toutes nos formules incluent un nombre illimité d'utilisateurs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Est-ce que le CRM a des fonctionnalités de base ?</span>
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Oui, il inclut les fonctions essentielles d'un CRM :</p>
+                        <ul>
+                            <li>Gestion des contacts, clients et entreprises</li>
+                            <li>Suivi des opportunités de vente</li>
+                            <li>Gestion des tâches et des agendas</li>
+                            <li>Fonctionnalités de marketing (campagnes emailing, phoning)</li>
+                            <li>Tableaux de bord et rapports pour suivre votre activité</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h3 class="faq-category-title">Fonctionnalités avancées</h3>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quelles sont les fonctionnalités qui permettent d'économiser du temps ?</span>
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Plusieurs fonctionnalités sont conçues pour ça :</p>
+                        <ul>
+                            <li><strong>Centralisation des informations</strong> : Toutes les données clients sont au même endroit, ce qui évite de les chercher partout (emails, notes, fichiers).</li>
+                            <li><strong>Automatisation</strong> : Le CRM permet d'automatiser des tâches répétitives comme l'envoi de SMS (relances, rappels), la publication d'annonces sur des plateformes comme Bloom, et l'envoi de campagnes emailing via Brevo.</li>
+                            <li><strong>Génération de documents</strong> : Vous pouvez générer automatiquement des CV, des fiches de poste ou des comptes rendus en Word ou PDF.</li>
+                            <li><strong>Synchronisation</strong> : Il est possible d'importer et d'exporter des fichiers (Excel, CSV) pour mettre à jour vos bases de données rapidement.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Comment le CRM peut-il m'aider à mieux gérer mes équipes ?</span>
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Le CRM propose plusieurs outils pour le management :</p>
+                        <ul>
+                            <li><strong>Traçabilité</strong> : Il enregistre toutes les actions de chaque collaborateur (appels, tâches, modifications) pour un suivi précis.</li>
+                            <li><strong>Planning individualisé</strong> : Chaque utilisateur a un planning adapté à ses tâches et à ses priorités.</li>
+                            <li><strong>Comptes superviseurs</strong> : Les managers peuvent créer des tâches, suivre l'avancement et avoir une vue d'ensemble sur l'activité des équipes.</li>
+                            <li><strong>Pilotage de l'activité</strong> : Les tableaux de bord et les statistiques vous donnent une vue en temps réel de la performance de chaque équipe et vous aident à identifier les points à améliorer.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h3 class="faq-category-title">Outils intégrés et assistance</h3>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quels sont les outils externes qui peuvent être intégrés au CRM ?</span>
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Le CRM peut s'intégrer avec plusieurs outils via des API :</p>
+                        <ul>
+                            <li><strong>Aircall</strong> : Pour gérer les appels directement depuis le CRM, enregistrer les conversations et les associer à une fiche client.</li>
+                            <li><strong>API ChatGPT</strong> : Pour générer du contenu (annonces, messages) avec une structure cohérente et professionnelle.</li>
+                            <li><strong>API Brevo</strong> : Pour envoyer des campagnes d'emailing et des SMS automatisés.</li>
+                            <li><strong>API Bloom</strong> : Pour publier automatiquement vos annonces sur la plateforme.</li>
+                            <li><strong>Google Maps & Sirene</strong> : Pour enrichir vos données géographiques et entreprise.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Si j'ai un problème, qui puis-je contacter ?</span>
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Le service client est accessible de plusieurs manières selon votre formule :</p>
+                        <ul>
+                            <li><strong>Support par messagerie</strong> : Disponible pour tous les abonnements, avec une réponse garantie en moins de 5 minutes.</li>
+                            <li><strong>Support téléphonique</strong> : Disponible à partir de la formule Pro.</li>
+                            <li><strong>Customer Success Manager dédié</strong> : Disponible avec la formule Entreprise, pour un accompagnement stratégique personnalisé.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h3 class="faq-category-title">Données et sécurité</h3>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Comment le CRM gère-t-il les données ?</span>
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <ul>
+                            <li><strong>Centralisation</strong> : Toutes les informations sont stockées dans une base de données sécurisée.</li>
+                            <li><strong>Archivage</strong> : Vous pouvez numériser et stocker des documents importants comme des CV, des pièces d'identité ou des contrats directement sur les fiches clients.</li>
+                            <li><strong>Détection de doublons</strong> : Le système détecte et fusionne automatiquement les fiches en double pour que votre base de données reste propre et cohérente.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Comment le CRM peut-il m'aider avec la RGPD ?</span>
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Toutes vos données sont hébergées en France sur des serveurs sécurisés conformes aux normes RGPD. Chaque donnée est chiffrée, protégée et sauvegardée en continu. La fonctionnalité de traçabilité des actions et l'archivage sécurisé des documents contribuent à une meilleure gestion des données personnelles. Chaque modification ou ajout de données est enregistré.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h3 class="faq-category-title">Résoudre les problèmes courants</h3>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Comment gérer les fiches d'entreprise en double ?</span>
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Les doublons peuvent arriver quand plusieurs personnes créent des fiches pour la même entreprise. Pour résoudre ce problème, contactez un superviseur. Le superviseur décidera à qui attribuer la fiche en se basant sur la fiche de poste déjà créée, ou, si elle n'existe pas, sur le dernier appel passé.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Que faire en cas de bugs, comme un onglet "Documents" qui ne se met pas à jour ?</span>
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Certains bugs peuvent faire en sorte que les informations ne se synchronisent pas entre les différents onglets d'une fiche client. Solution : Vérifiez toujours les deux onglets liés aux documents avant de modifier les sources ou de faire quoi que ce soit d'autre. Si le problème persiste, contactez notre support qui vous répondra en moins de 5 minutes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Comment éviter la confusion lorsque plusieurs personnes travaillent sur les mêmes fiches ?</span>
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ce problème est lié à un accès trop libre aux fiches, ce qui peut créer un manque de communication et nuire à l'image de l'entreprise. La solution est de faire preuve de discipline et d'attribuer les fiches de manière claire et organisée aux personnes concernées. Notre système de traçabilité permet de voir qui a fait quoi et quand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>À propos</h4>
+                    <p>Un CRM né de l'expérience terrain, développé par des professionnels de la formation pour des professionnels de la formation.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#histoire">Notre histoire</a></li>
+                        <li><a href="#unique">Fonctionnalités</a></li>
+                        <li><a href="#tarifs">Tarifs</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="contact.html">Nous contacter</a></li>
+                        <li><a href="demo.html">Demander une démo</a></li>
+                        <li><a href="decouvrir.html">Découvrir le CRM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+    </div><!-- Fin scroll-container -->
+
+    <script src="script.js"></script>
+    <script>
+        // Custom scrollbar functionality
+        const scrollContainer = document.getElementById('scroll-container');
+        const customScrollbar = document.getElementById('custom-scrollbar');
+        const thumb = document.querySelector('.scrollbar-thumb');
+
+        let isDragging = false;
+        let startY = 0;
+        let startScrollTop = 0;
+
+        function updateCustomScrollbar() {
+            const scrollHeight = scrollContainer.scrollHeight;
+            const clientHeight = scrollContainer.clientHeight;
+            const scrollTop = scrollContainer.scrollTop;
+
+            // Calculate thumb height and position
+            const scrollRatio = scrollTop / (scrollHeight - clientHeight);
+            const thumbHeight = (clientHeight / scrollHeight) * 100;
+            const thumbTop = scrollRatio * (100 - thumbHeight);
+
+            thumb.style.height = thumbHeight + '%';
+            thumb.style.top = thumbTop + '%';
+
+            // Calculate dynamic transition point (hero + tabs height)
+            const heroSection = document.querySelector('.hero');
+            const tabsContainer = document.querySelector('.tabs-container');
+            const blueZoneHeight = (heroSection?.offsetHeight || 0) + (tabsContainer?.offsetHeight || 0);
+
+            // Change color based on scroll position (dynamic transition)
+            if (scrollTop < blueZoneHeight) {
+                thumb.classList.add('on-blue');
+                thumb.classList.remove('on-white');
+            } else {
+                thumb.classList.add('on-white');
+                thumb.classList.remove('on-blue');
+            }
+        }
+
+        // Listen to scroll events
+        scrollContainer.addEventListener('scroll', updateCustomScrollbar, { passive: true });
+
+        // Drag functionality
+        thumb.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startY = e.clientY;
+            startScrollTop = scrollContainer.scrollTop;
+            document.body.style.userSelect = 'none';
+            e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+
+            const deltaY = e.clientY - startY;
+            const scrollHeight = scrollContainer.scrollHeight;
+            const clientHeight = scrollContainer.clientHeight;
+            const scrollableHeight = scrollHeight - clientHeight;
+            const trackHeight = customScrollbar.offsetHeight;
+            const thumbHeight = thumb.offsetHeight;
+            const scrollableTrackHeight = trackHeight - thumbHeight;
+
+            const scrollDelta = (deltaY / scrollableTrackHeight) * scrollableHeight;
+            scrollContainer.scrollTop = startScrollTop + scrollDelta;
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            document.body.style.userSelect = '';
+        });
+
+        // Click on track to jump
+        customScrollbar.addEventListener('click', (e) => {
+            if (e.target === thumb) return;
+
+            const rect = customScrollbar.getBoundingClientRect();
+            const clickY = e.clientY - rect.top;
+            const trackHeight = customScrollbar.offsetHeight;
+            const thumbHeight = thumb.offsetHeight;
+
+            const scrollHeight = scrollContainer.scrollHeight;
+            const clientHeight = scrollContainer.clientHeight;
+            const scrollableHeight = scrollHeight - clientHeight;
+
+            const clickRatio = (clickY - thumbHeight / 2) / (trackHeight - thumbHeight);
+            scrollContainer.scrollTop = clickRatio * scrollableHeight;
+        });
+
+        // Initialize scrollbar
+        updateCustomScrollbar();
+
+        // Update on window resize
+        window.addEventListener('resize', updateCustomScrollbar);
+
+        // Smooth scroll for "Découvrir Plan B" button
+        const discoverBtn = document.getElementById('discover-btn');
+        if (discoverBtn) {
+            discoverBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Calculate hero height to scroll to tabs position
+                const heroSection = document.querySelector('.hero');
+                const scrollToPosition = heroSection?.offsetHeight || 0;
+
+                scrollContainer.scrollTo({
+                    top: scrollToPosition,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
+</body>
+</html>

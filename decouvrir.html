@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Découvrir notre CRM - La solution terrain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .video-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            text-align: center;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 3rem auto;
+            background-color: var(--text-dark);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .video-placeholder svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .benefits-section {
+            padding: 60px 20px;
+            background-color: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .benefit-box {
+            padding: 2rem;
+            background-color: var(--bg-light);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .benefit-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .cta-section {
+            padding: 60px 20px;
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h1>Découvrez le CRM en action</h1>
+            <p class="lead">En 30 secondes, comprenez comment notre CRM transforme la gestion quotidienne des équipes pédagogiques et administratives.</p>
+
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <svg fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <p style="font-size: 1.2rem; margin: 0;">Vidéo de présentation</p>
+                    <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">Durée : 30 secondes</p>
+                </div>
+                <!-- Remplacez le placeholder par votre vidéo : -->
+                <!-- <iframe width="100%" height="100%" src="VOTRE_URL_VIDEO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">À qui s'adresse ce CRM ?</h2>
+            <p class="lead">Notre CRM a été conçu pour les professionnels qui gèrent des CFA, des formations et des alternances. Si vous êtes :</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Directeur de CFA</h3>
+                    <p>Pilotez votre établissement avec des tableaux de bord clairs, suivez vos indicateurs clés et prenez des décisions éclairées.</p>
+                </div>
+
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                    <h3>Responsable pédagogique</h3>
+                    <p>Gérez vos apprenants, leurs parcours, leurs relances et leurs documents en un seul endroit centralisé.</p>
+                </div>
+
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h3>Équipe administrative</h3>
+                    <p>Automatisez les tâches répétitives, centralisez les informations et gagnez un temps précieux chaque jour.</p>
+                </div>
+
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Structure en croissance</h3>
+                    <p>Scalez votre activité sans perdre en qualité ni en réactivité grâce à un outil qui grandit avec vous.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Solved Section -->
+    <section class="benefits-section" style="background-color: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title">Les problèmes qu'il résout</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-folder-open"></i></div>
+                    <h3>Gestion simple et fluide du portefeuille client</h3>
+                    <p>Fini les fichiers Excel dispersés et les informations perdues. Tout est centralisé, accessible et à jour en temps réel.</p>
+                </div>
+
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Automatisation intelligente des tâches quotidiennes</h3>
+                    <p>Les relances, rappels et suivis administratifs se font automatiquement, libérant votre temps pour les missions à forte valeur ajoutée.</p>
+                </div>
+
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Vision globale sur les performances de l'équipe</h3>
+                    <p>Suivez l'activité de vos collaborateurs, identifiez les points d'amélioration et célébrez les réussites avec des données claires.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Points Forts Section -->
+    <section class="benefits-section" style="background-color: white;">
+        <div class="container">
+            <h2 class="section-title">Ses points forts</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-crosshairs"></i></div>
+                    <h3>Né de l'expérience terrain</h3>
+                    <p>Ce n'est pas un CRM théorique. Il a été créé et perfectionné par des professionnels qui vivent vos défis au quotidien.</p>
+                </div>
+
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Interface intuitive</h3>
+                    <p>Pas besoin de formation interminable. L'interface est si claire que vous serez opérationnel dès la première minute.</p>
+                </div>
+
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-cog"></i></div>
+                    <h3>Personnalisation totale</h3>
+                    <p>Adaptez chaque aspect du CRM à votre manière de travailler, sans avoir besoin d'un technicien.</p>
+                </div>
+
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-flag"></i></div>
+                    <h3>Hébergé en France</h3>
+                    <p>Vos données sont protégées, conformes RGPD, et hébergées sur des serveurs sécurisés en France.</p>
+                </div>
+
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Support humain réactif</h3>
+                    <p>Une vraie équipe à votre écoute, avec une réponse garantie en moins de 5 minutes par messagerie.</p>
+                </div>
+
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Évolution continue</h3>
+                    <p>Le CRM s'améliore régulièrement grâce aux retours des utilisateurs. Vous participez à son évolution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Prêt à transformer votre gestion ?</h2>
+            <p class="lead">Découvrez comment ce CRM peut devenir votre allié quotidien.</p>
+            <a href="demo.html" class="btn btn-primary">Demander une démo gratuite</a>
+            <a href="fonctionnalites.html" class="btn btn-outline" style="margin-left: 1rem;">Explorer toutes les fonctionnalités</a>
+
+            <a href="index.html" class="back-link">← Retour à l'accueil</a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

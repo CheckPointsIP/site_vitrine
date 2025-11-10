@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Détaillé - Plan B CRM</title>
+    <style>
+        /* Font embedding - Using system fonts for zero external dependencies */
+        @font-face {
+            font-family: 'InterFallback';
+            src: local('Segoe UI'), local('Arial'), local('sans-serif');
+        }
+
+        /* CSS Variables */
+        :root {
+            --primary-color: #0052CC;
+            --secondary-color: #172B4D;
+            --accent-color: #FF5630;
+            --accent-secondary: #FFAB00;
+            --text-dark: #172B4D;
+            --text-light: #6B778C;
+            --bg-light: #F4F5F7;
+            --bg-geometric: #E0E4E8;
+            --border-color: #DFE1E6;
+            --success-color: #36B37E;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+            /* Variables pour scrollbar - changent dynamiquement */
+            --scrollbar-track-bg: white;
+            --scrollbar-track-border: var(--border-color);
+            --scrollbar-thumb-bg: var(--primary-color);
+            --scrollbar-thumb-border: white;
+            --scrollbar-thumb-hover: var(--secondary-color);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow: hidden;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: white;
+        }
+
+        /* Masquer scrollbar native */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        html {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        /* Conteneur principal scrollable */
+        #scroll-container {
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        #scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Scrollbar personnalisée - Thumb seul ARRONDI */
+        #custom-scrollbar {
+            position: fixed;
+            right: 5px;
+            top: 0;
+            width: 8px;
+            height: 100vh;
+            z-index: 9999;
+            pointer-events: none;
+            background: transparent;
+        }
+
+        #custom-scrollbar.active {
+            pointer-events: all;
+        }
+
+        /* Masquer les tracks */
+        .scrollbar-track-blue,
+        .scrollbar-track-white {
+            display: none;
+        }
+
+        /* Thumb (barre de défilement) - Visible seul, ARRONDI et SANS BORDURE */
+        .scrollbar-thumb {
+            position: absolute;
+            right: 0;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.6s ease;
+            border: none;
+        }
+
+        /* Thumb en zone bleue (haut de page) */
+        .scrollbar-thumb.on-blue {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Thumb en zone blanche (bas de page) */
+        .scrollbar-thumb.on-white {
+            background: #172B4D;
+        }
+
+        .scrollbar-thumb:hover.on-blue {
+            background: white;
+        }
+
+        .scrollbar-thumb:hover.on-white {
+            background: #0052CC;
+        }
+
+        .scrollbar-thumb:active {
+            background: var(--accent-color) !important;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* SVG Icons as inline */
+        .icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            vertical-align: middle;
+            fill: currentColor;
+        }
+
+        /* Hero Section */
+        .pricing-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+
+        .pricing-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .pricing-hero .lead {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Tabs Navigation - Sticky */
+        .tabs-container {
+            background: var(--secondary-color);
+            border-bottom: 4px solid var(--accent-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            padding: 1rem 0;
+        }
+
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .tab-button {
+            position: relative;
+            min-width: 180px;
+            padding: 1rem 1.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab-button:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .tab-button.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 82, 204, 0.4);
+        }
+
+        /* Couleurs spécifiques par tab */
+        .tab-button[data-tab="suivi"].active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0, 82, 204, 0.4);
+        }
+
+        .tab-button[data-tab="temps"].active {
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+            box-shadow: 0 4px 12px rgba(54, 179, 126, 0.4);
+        }
+
+        .tab-button[data-tab="optimiser"].active {
+            background-color: var(--accent-secondary);
+            border-color: var(--accent-secondary);
+            color: var(--text-dark);
+            box-shadow: 0 4px 12px rgba(255, 171, 0, 0.4);
+        }
+
+        .tab-button[data-tab="manager"].active {
+            background-color: #8B5CF6;
+            border-color: #8B5CF6;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+        }
+
+        .tab-button[data-tab="accompagnement"].active {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 12px rgba(255, 86, 48, 0.4);
+        }
+
+        .tab-button svg {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .content-section {
+            padding: 60px 20px;
+            background-color: var(--bg-light);
+        }
+
+        /* Section Intro */
+        .section-intro {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .section-intro strong {
+            color: var(--primary-color);
+        }
+
+        /* Subsection Title */
+        .subsection-title {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-left: 8px solid var(--accent-color);
+        }
+
+        .subsection-title:first-child {
+            margin-top: 0;
+        }
+
+        .subsection-title svg {
+            width: 1.3rem;
+            height: 1.3rem;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Feature Card */
+        .feature-card {
+            background: white;
+            border: 3px solid var(--secondary-color);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(0, 82, 204, 0.04) 50%,
+                transparent 100%);
+            pointer-events: none;
+            transition: none;
+        }
+
+        .feature-card:hover::after {
+            left: 100%;
+            transition: left 0.8s ease-out;
+        }
+
+        /* Feature Header */
+        .feature-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-icon svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        /* Feature Content */
+        .feature-content {
+            line-height: 1.8;
+        }
+
+        .feature-content strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .benefit-item {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .benefit-item::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Pricing Badge */
+        .pricing-badge {
+            display: inline-block;
+            background: var(--accent-secondary);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: 1rem;
+            border: 2px solid var(--secondary-color);
+            margin-right: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 82, 204, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .pricing-hero h1 {
+                font-size: 2rem;
+            }
+
+            .tabs-nav {
+                flex-direction: column;
+                padding: 0 1rem;
+            }
+
+            .tab-button {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .feature-title {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                display: block;
+                margin: 0.5rem auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scrollbar personnalisée - Thumb arrondi seul -->
+    <div id="custom-scrollbar">
+        <div class="scrollbar-track-blue"></div>
+        <div class="scrollbar-track-white"></div>
+        <div class="scrollbar-thumb"></div>
+    </div>
+
+    <!-- Conteneur principal scrollable -->
+    <div id="scroll-container">
+    <!-- Hero Section -->
+    <section class="pricing-hero">
+        <div class="container">
+            <h1>Pricing Détaillé - Plan B CRM</h1>
+            <p class="lead">Découvrez toutes les fonctionnalités organisées par axes stratégiques : Suivi & Contrôle, Gain de Temps, Optimisation, Management et Accompagnement</p>
+        </div>
+    </section>
+
+    <!-- Tabs Navigation -->
+    <div class="tabs-container">
+        <div class="tabs-nav">
+            <button class="tab-button active" data-tab="suivi">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 18.5l6-6 4 4L22 6.92 20.59 5.5l-7.09 8-4-4-8 8z"/></svg>
+                Suivi & Contrôle
+            </button>
+            <button class="tab-button" data-tab="temps">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                Gagner du Temps
+            </button>
+            <button class="tab-button" data-tab="optimiser">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+                Optimiser
+            </button>
+            <button class="tab-button" data-tab="manager">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                Manager
+            </button>
+            <button class="tab-button" data-tab="accompagnement">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
+                Accompagnement
+            </button>
+        </div>
+    </div>
+
+    <!-- TAB 1: SUIVI & CONTROLE -->
+    <div id="tab-suivi" class="tab-content active">
+        <section class="content-section">
+            <div class="container">
+                <p class="section-intro">
+                    <strong>Traçabilité complète, historiques détaillés et contrôle total</strong> sur toutes vos opérations.
+                    Assurez une transparence maximale et un suivi rigoureux de chaque action.
+                </p>
+
+                <!-- AIRCALL -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    Aircall - Communication & Traçabilité
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Traçabilité</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Suivi transparent pour toute l'équipe</strong> : Tous les collaborateurs voient le même historique client</div>
+                            <div class="benefit-item">Si un collaborateur quitte ou passe un dossier, son successeur reprend immédiatement avec toutes les infos</div>
+                            <div class="benefit-item">Meilleure collaboration et continuité garantie</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Historique des échanges</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item">Chaque collaborateur voit en un clic <strong>toutes les interactions passées</strong> avec le candidat</div>
+                            <div class="benefit-item">Pas de perte d'information, même en cas de changement de consultant ou d'absence</div>
+                            <div class="benefit-item">Permet de mesurer la réactivité et d'identifier les points d'amélioration</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Enregistrement d'appels</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Rapports détaillés</strong> : volume d'appels, durée moyenne, résultats obtenus</div>
+                            <div class="benefit-item">Détection des points de blocage (appels trop longs, prospects non rappelés)</div>
+                            <div class="benefit-item">Comparaison de la productivité des équipes</div>
+                            <div class="benefit-item">Vision claire et partagée de l'activité</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Association CRM</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item">Chaque appel associé à un <strong>prospect ou client précis</strong> dans le CRM</div>
+                            <div class="benefit-item">Mesure de l'impact des appels sur l'avancement dans le pipeline</div>
+                            <div class="benefit-item">Expérience client plus fluide et professionnelle</div>
+                            <div class="benefit-item">Visibilité instantanée du parcours client/prospect</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 10l-6-6H4c-1.1 0-2 .9-2 2v12.01c0 1.1.9 1.99 2 1.99l16-.01c1.1 0 2-.89 2-1.99v-8zm-7-4.5l5.5 5.5H15V5.5z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Notes enrichies</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item">Noter les <strong>besoins, objections, demandes spécifiques</strong> ou opportunités</div>
+                            <div class="benefit-item">Chaque appel enrichi de notes exploitables</div>
+                            <div class="benefit-item">Analyse des objections les plus fréquentes pour ajuster le discours commercial</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Pilotage & Efficacité</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Suivi des appels</strong> relié directement aux opportunités du CRM</div>
+                            <div class="benefit-item">Plus de visibilité sur l'impact réel de la prospection téléphonique</div>
+                            <div class="benefit-item">Adapter son discours selon les échanges passés</div>
+                            <div class="benefit-item">Mesure claire pour réduire les appels inefficaces</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NOTIFICATION -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+                    Notifications & Rappels
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"/></svg>
+                            </div>
+                            <h4 class="feature-title">SMS automatisés</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Relances personnalisées</strong>, promotions ciblées et rappels</div>
+                            <div class="benefit-item">Rappels automatiques selon scénarios prédéfinis</div>
+                            <div class="benefit-item">Communication régulière et structurée, sans risque d'oubli</div>
+                            <div class="benefit-item">Messages personnalisés tout en étant automatisés</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Gestion des rappels</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Envoi automatique J-1</strong> avant les entretiens</div>
+                            <div class="benefit-item">Plus d'assiduité aux entretiens d'admissions et d'embauche</div>
+                            <div class="benefit-item">SMS/Mail automatique en un clic</div>
+                            <div class="benefit-item">Programmation automatique (h+2, J+1, etc.)</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Suspicion Doublon</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Éviter plusieurs fiches</strong> pour une même personne</div>
+                            <div class="benefit-item">Info centralisée (ex. 1 candidat postule à plusieurs offres)</div>
+                            <div class="benefit-item">Moins d'erreurs et de confusion</div>
+                            <div class="benefit-item">Renforce l'image professionnelle</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEGMENTATION -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.25 5.61C6.27 8.2 10 13 10 13v6c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-6s3.72-4.8 5.74-7.39c.51-.66.04-1.61-.79-1.61H5.04c-.83 0-1.3.95-.79 1.61z"/></svg>
+                    Segmentation & Organisation
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Tags personnalisables</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Plus besoin de trier manuellement</strong> les contacts</div>
+                            <div class="benefit-item">Modifier, ajouter ou supprimer des tags à tout moment</div>
+                            <div class="benefit-item">Suivre un statut, filtrer et segmenter les listes</div>
+                            <div class="benefit-item">Recherche et filtres instantanés</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Statuts personnalisables</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Adaptation à vos process internes</strong></div>
+                            <div class="benefit-item">Définissez vos propres statuts selon vos besoins</div>
+                            <div class="benefit-item">Rapports adaptés aux statuts définis</div>
+                            <div class="benefit-item">Segmentation claire de la base clients</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GESTION ENTRETIENS -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
+                    Gestion des Entretiens
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Entretiens incomplets</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Relance ciblée</strong> pour compléter les infos manquantes</div>
+                            <div class="benefit-item">Moins de tâches oubliées et meilleure organisation</div>
+                            <div class="benefit-item">Identifier les étapes à renforcer</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Statut des entretiens</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Prioriser les entretiens</strong> à réaliser</div>
+                            <div class="benefit-item">Savoir instantanément où en est chaque entretien</div>
+                            <div class="benefit-item">Éviter les oublis ou doublons</div>
+                            <div class="benefit-item">Relancer les dossiers incomplets</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB 2: GAGNER DU TEMPS -->
+    <div id="tab-temps" class="tab-content">
+        <section class="content-section">
+            <div class="container">
+                <p class="section-intro">
+                    <strong>Automatisation intelligente et intégrations puissantes</strong> pour éliminer les tâches répétitives
+                    et libérer du temps pour les missions à forte valeur ajoutée.
+                </p>
+
+                <!-- IA & AUTOMATION -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3zM12 4c.55 0 1 .45 1 1h-2c0-.55.45-1 1-1zm0 9c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>
+                    Intelligence Artificielle
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+                            </div>
+                            <h4 class="feature-title">API ChatGPT</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>IA Prompt standardisé</strong> co-construit ensemble</div>
+                            <div class="benefit-item">Contenu prêt à l'envoi, structuré et cohérent</div>
+                            <div class="benefit-item">Messages clairs et faciles à comprendre</div>
+                            <div class="benefit-item">Optimisation des prompts au fil du temps</div>
+                            <div class="benefit-item">Fidélisation accrue grâce à des interactions qualitatives</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 11v2h4v-2h-4zm-2 6.61c.96.71 2.21 1.65 3.2 2.39.4-.53.8-1.07 1.2-1.6-.99-.74-2.24-1.68-3.2-2.4-.4.54-.8 1.08-1.2 1.61zM20.4 5.6c-.4-.53-.8-1.07-1.2-1.6-.99.74-2.24 1.68-3.2 2.4.4.53.8 1.07 1.2 1.6.96-.72 2.21-1.65 3.2-2.4zM4 9c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h1v3c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-3h1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H4zm8-2c0-1.1.9-2 2-2h1.31l-.44-1.32C14.58 2.66 13.56 2 12.44 2H12c-1.1 0-2 .9-2 2v3h2V4z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Génération d'annonces</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Création automatique</strong> à partir des infos clients</div>
+                            <div class="benefit-item">Informations précises et contextualisées</div>
+                            <div class="benefit-item">Format standardisé et professionnel</div>
+                            <div class="benefit-item">Plus rapides, pertinentes et mieux ciblées</div>
+                            <div class="benefit-item">Analyse des données clients intégrée</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INTEGRATIONS -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.05 8.05c-2.73 2.73-2.73 7.15-.02 9.88 1.47-3.4 4.09-6.24 7.36-7.93-2.77-2.34-6.71-2.67-7.34-1.95zm11.43-.44c-1.59-1.59-4.09-1.59-5.68 0s-1.59 4.09 0 5.68c1.59 1.59 4.09 1.59 5.68 0s1.59-4.09 0-5.68zm-7.36 7.93c3.4-1.47 6.24-4.09 7.93-7.36-2.34 2.77-2.67 6.71-1.95 7.34 2.73 2.73 7.15 2.73 9.88.02z"/></svg>
+                    Intégrations & APIs
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            </div>
+                            <h4 class="feature-title">API Bloom</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Publication automatisée</strong> : Plus de copier-coller manuel</div>
+                            <div class="benefit-item">Intégration standardisée sur toutes les plateformes</div>
+                            <div class="benefit-item">Format et charte cohérents</div>
+                            <div class="benefit-item">Réduit les erreurs et incohérences</div>
+                            <span class="pricing-badge">BASE DE FORFAIT</span>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            </div>
+                            <h4 class="feature-title">API Brevo</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Emailing intégré</strong> : Envoi direct depuis le CRM</div>
+                            <div class="benefit-item">Pas besoin d'outil externe</div>
+                            <div class="benefit-item">Personnalisation automatique avec variables</div>
+                            <div class="benefit-item">Synchronisation en temps réel des statuts</div>
+                            <div class="benefit-item">Historique complet des interactions</div>
+                            <span class="pricing-badge">25 €/MOIS</span>
+                            <span class="pricing-badge">20 000 MAILS/MOIS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TEMPLATES & DOCUMENTS -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    Templates & Génération
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Templates sur mesure</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Réduisent le travail administratif</strong></div>
+                            <div class="benefit-item">Livret apprentissage standardisé</div>
+                            <div class="benefit-item">Facilitent la saisie des informations</div>
+                            <div class="benefit-item">Vos templates personnalisés</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Génération documents</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>CV générés automatiquement</strong> en un clic</div>
+                            <div class="benefit-item">Format Word ou PDF professionnel</div>
+                            <div class="benefit-item">Compte rendus automatisés</div>
+                            <div class="benefit-item">Format uniforme et professionnel garanti</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Obligations Qualiopi</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Compte rendu généré en 30 secondes</strong></div>
+                            <div class="benefit-item">Suivi entreprise dans les 45 premiers jours</div>
+                            <div class="benefit-item">Conformité garantie</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm1 10h-4v1h3c.55 0 1 .45 1 1v3c0 .55-.45 1-1 1h-1v1h-2v-1H9v-2h4v-1h-3c-.55 0-1-.45-1-1v-3c0-.55.45-1 1-1h1V9h2v1h2v2z"/></svg>
+                            </div>
+                            <h4 class="feature-title">EDUSIGN & CERFA</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Envoi instantané depuis le CRM</strong></div>
+                            <div class="benefit-item">Pilotage des signatures en temps réel</div>
+                            <div class="benefit-item">Feuilles d'émargement automatisées</div>
+                            <div class="benefit-item">Statut intégré dans la logique d'admission</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ENVOI MASSIF -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    Communication de Masse
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Envoi massif</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>200 à 500 emails par jour</strong></div>
+                            <div class="benefit-item">Gain de temps énorme pour l'équipe</div>
+                            <div class="benefit-item">Communication instantanée</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Import/Export</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Excel, CSV</strong> et autres formats</div>
+                            <div class="benefit-item">Synchronisation rapide des bases</div>
+                            <div class="benefit-item">Ajout de nouveaux contacts facilité</div>
+                            <div class="benefit-item">Mise à jour rapide des informations</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB 3: OPTIMISER -->
+    <div id="tab-optimiser" class="tab-content">
+        <section class="content-section">
+            <div class="container">
+                <p class="section-intro">
+                    <strong>Centralisation, standardisation et analyse</strong> pour optimiser vos processus,
+                    améliorer la qualité et prendre des décisions éclairées basées sur les données.
+                </p>
+
+                <!-- CENTRALISATION -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    Centralisation des Données
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Infos clients centralisées</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Moins de perte de temps</strong> dans la recherche d'information</div>
+                            <div class="benefit-item">Les équipes partagent les mêmes informations</div>
+                            <div class="benefit-item">Chaque membre sait exactement où en est l'apprenti</div>
+                            <div class="benefit-item">Facilite la continuité dans la relation client</div>
+                            <div class="benefit-item">Fini de chercher dans plusieurs outils</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4c-1.48 0-2.85.43-4.01 1.17l1.46 1.46C10.21 6.23 11.08 6 12 6c3.04 0 5.5 2.46 5.5 5.5v.5H19c1.66 0 3 1.34 3 3 0 1.13-.64 2.11-1.56 2.62l1.45 1.45C23.16 18.16 24 16.68 24 15c0-2.64-2.05-4.78-4.65-4.96zM3 5.27l2.75 2.74C2.56 8.15 0 10.77 0 14c0 3.31 2.69 6 6 6h11.73l2 2L21 20.73 4.27 4 3 5.27zM7.73 10l8 8H6c-2.21 0-4-1.79-4-4s1.79-4 4-4h1.73z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Documents numérisés</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Centralisation des documents</strong> dans le CRM</div>
+                            <div class="benefit-item">CV, carte vitale, sécurité sociale, diplômes...</div>
+                            <div class="benefit-item">Fini les dossiers partagés difficiles à retrouver</div>
+                            <div class="benefit-item">Sécurisés et sauvegardés</div>
+                            <div class="benefit-item">Accès limité par rôle</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STANDARDISATION -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
+                    Standardisation des Processus
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4zM6 8.5c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Méthodes de suivi</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Uniformité dans la gestion</strong> des interactions</div>
+                            <div class="benefit-item">Chaque interaction enregistrée de manière standardisée</div>
+                            <div class="benefit-item">Les équipes suivent le même processus</div>
+                            <div class="benefit-item">Garantit cohérence et qualité</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ARCHIVAGE -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM12 17.5L6.5 12H10v-2h4v2h3.5L12 17.5zM5.12 5l.81-1h12l.94 1H5.12z"/></svg>
+                    Archivage & Sécurité
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Archivage sécurisé</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Traçabilité du collaborateur</strong> et ses actions</div>
+                            <div class="benefit-item">Actions stockées en base sécurisée</div>
+                            <div class="benefit-item">Historique complet consultable</div>
+                            <div class="benefit-item">Identifie les points de blocage</div>
+                            <div class="benefit-item">Professionnalisme garanti</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4c-1.48 0-2.85.43-4.01 1.17l1.46 1.46C10.21 6.23 11.08 6 12 6c3.04 0 5.5 2.46 5.5 5.5v.5H19c1.66 0 3 1.34 3 3 0 1.13-.64 2.11-1.56 2.62l1.45 1.45C23.16 18.16 24 16.68 24 15c0-2.64-2.05-4.78-4.65-4.96zM3 5.27l2.75 2.74C2.56 8.15 0 10.77 0 14c0 3.31 2.69 6 6 6h11.73l2 2L21 20.73 4.27 4 3 5.27zM7.73 10l8 8H6c-2.21 0-4-1.79-4-4s1.79-4 4-4h1.73z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Back-up quotidien</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Prévention de la perte</strong> de données</div>
+                            <div class="benefit-item">Fiabilité pour les contrôles ou audits</div>
+                            <div class="benefit-item">Zéro perte d'information</div>
+                            <div class="benefit-item">Archive automatique</div>
+                            <div class="benefit-item">Stocké en base de données en cas d'accident</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STATISTIQUES & ANALYSE -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                    Statistiques & Analyse
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 18.5l6-6 4 4L22 6.92 20.59 5.5l-7.09 8-4-4-8 8z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Vos stats sur mesure</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Graphiques comparatifs</strong> visuels et compréhensibles</div>
+                            <div class="benefit-item">Comparez résultats d'équipes et de périodes</div>
+                            <div class="benefit-item">Visualisation des performances et évolutions</div>
+                            <div class="benefit-item">Plus besoin de tableaux Excel manuels</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Stats KPI activités</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Chaque activité tracée</strong> et transformée en indicateurs</div>
+                            <div class="benefit-item">KPI clairs : appels, emails, rendez-vous, contrats</div>
+                            <div class="benefit-item">Leads générés et opportunités créées</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Stats appels</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Volume, taux de conversion</strong> et résultats</div>
+                            <div class="benefit-item">Détection des opportunités manquées</div>
+                            <div class="benefit-item">Identification des appels non suivis</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Stats orientation/placement</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Visualisation des conversions</strong> par orientation</div>
+                            <div class="benefit-item">Rapports clairs et comparatifs</div>
+                            <div class="benefit-item">Optimisation des placements</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.25 5.61C6.27 8.2 10 13 10 13v6c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-6s3.72-4.8 5.74-7.39c.51-.66.04-1.61-.79-1.61H5.04c-.83 0-1.3.95-.79 1.61z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Pilotage des canaux</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Identifier les canaux</strong> les plus performants</div>
+                            <div class="benefit-item">Concentrer les efforts sur les meilleurs canaux</div>
+                            <div class="benefit-item">Analyse des sources de candidatures</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GEOLOCALISATION -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Géolocalisation
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Google Maps intégré</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Visualisation sur carte</strong> intégrée</div>
+                            <div class="benefit-item">Voir en un coup d'œil où se situent les candidats</div>
+                            <div class="benefit-item">Géolocalisation avec latitude & longitude</div>
+                            <div class="benefit-item">Placement plus rapide</div>
+                            <div class="benefit-item">Moins de ruptures liées à la distance</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB 4: MANAGER -->
+    <div id="tab-manager" class="tab-content">
+        <section class="content-section">
+            <div class="container">
+                <p class="section-intro">
+                    <strong>Outils de pilotage et de coordination</strong> pour managers et superviseurs.
+                    Gérez vos équipes efficacement avec des interfaces adaptées et des tableaux de bord en temps réel.
+                </p>
+
+                <!-- INTERFACES -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7l-2 3v1h8v-1l-2-3h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 12H3V4h18v10z"/></svg>
+                    Interfaces Adaptées
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Personnalisation du poste</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Productivité accrue</strong> : concentration sur les tâches essentielles</div>
+                            <div class="benefit-item">Pas de menu ou option inutile</div>
+                            <div class="benefit-item">Chaque collaborateur voit uniquement ses fonctionnalités</div>
+                            <div class="benefit-item">Tableaux de bord pertinents pour son rôle</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Priorisation des tâches</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Prioriser les tâches</strong> et notifications importantes</div>
+                            <div class="benefit-item">Concentrer sur ce qui a un impact réel</div>
+                            <div class="benefit-item">Détail des tâches : opportunités, à faire...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PILOTAGE -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"/></svg>
+                    Pilotage & Coordination
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 17l3-2.94c-.39-.04-.68-.06-1-.06-2.67 0-8 1.34-8 4v2h9l-3-3zm2-5c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4M15.47 20.5L12 17l1.4-1.41 2.07 2.08 5.13-5.17 1.4 1.41z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Coordination inter-services</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Tableaux de bord centralisés</strong></div>
+                            <div class="benefit-item">Plus besoin de compiler des fichiers manuellement</div>
+                            <div class="benefit-item">Vue claire et en temps réel sur l'activité</div>
+                            <div class="benefit-item">Éviter doublons, retards et incohérences</div>
+                            <div class="benefit-item">Détection automatique des doublons</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Contrôle total orientations</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Gestion simplifiée</strong> des entretiens candidats</div>
+                            <div class="benefit-item">Plus d'oublis, plus de rendez-vous perdus</div>
+                            <div class="benefit-item">Suivi précis du parcours apprenant</div>
+                            <div class="benefit-item">Chaque rendez-vous relié à la fiche</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Compte superviseurs</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Distribution des tâches</strong> à un ou plusieurs collaborateurs</div>
+                            <div class="benefit-item">Simplicité pour poser une absence</div>
+                            <div class="benefit-item">Gestion des absences des équipes</div>
+                            <div class="benefit-item">Vision en temps réel des disponibilités</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLANNING -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
+                    Planning & Organisation
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Planning individualisé</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Planning individualisé des CIP</strong></div>
+                            <div class="benefit-item">Équilibrage entre activités</div>
+                            <div class="benefit-item">Chaque utilisateur dispose d'un agenda personnalisé</div>
+                            <div class="benefit-item">Tâches, rendez-vous et priorités visibles</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Rappel client</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Réduction des délais</strong> de réponse et des oublis</div>
+                            <div class="benefit-item">Demandes traitées en temps réel</div>
+                            <div class="benefit-item">Contact rapide des entreprises partenaires</div>
+                            <div class="benefit-item">Garantit qu'aucun client ne reste sans réponse</div>
+                            <div class="benefit-item">Suivi constant</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLACEMENT -->
+                <h3 class="subsection-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                    Placement
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Placement géolocalisé</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Possibilité de suivre</strong> les contrats en cours, signés, expirés</div>
+                            <div class="benefit-item">Renouvelables identifiés</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB 5: ACCOMPAGNEMENT -->
+    <div id="tab-accompagnement" class="tab-content">
+        <section class="content-section">
+            <div class="container">
+                <p class="section-intro">
+                    <strong>Support humain et accompagnement personnalisé</strong> pour garantir votre succès.
+                    Une équipe dédiée à votre écoute pour vous aider à tirer le meilleur parti du CRM.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 11.75c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zm6 0c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.29.02-.58.05-.86 2.36-1.05 4.23-2.98 5.21-5.37C11.07 8.33 14.05 10 17.42 10c.78 0 1.53-.09 2.25-.26.21.71.33 1.47.33 2.26 0 4.41-3.59 8-8 8z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Customer Success Manager</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Mise en place</strong> : identifier les risques ou obstacles avant qu'ils n'affectent le client</div>
+                            <div class="benefit-item">Audit quotidien les 10 premiers jours</div>
+                            <div class="benefit-item">Alertes et notifications automatiques</div>
+                            <div class="benefit-item">Planning individualisé de suivi</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Support client réactif</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Réponse dans 5 minutes</strong> par messagerie</div>
+                            <div class="benefit-item">Équipe dédiée à votre écoute</div>
+                            <div class="benefit-item">Support humain et personnalisé</div>
+                            <div class="benefit-item">Résolution rapide des problèmes</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Formation & Onboarding</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Accompagnement à la prise en main</strong></div>
+                            <div class="benefit-item">Formation des équipes incluse</div>
+                            <div class="benefit-item">Documentation complète</div>
+                            <div class="benefit-item">Sessions personnalisées selon vos besoins</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+                            </div>
+                            <h4 class="feature-title">Suivi continu</h4>
+                        </div>
+                        <div class="feature-content">
+                            <div class="benefit-item"><strong>Points réguliers</strong> avec votre CSM</div>
+                            <div class="benefit-item">Optimisation continue de vos processus</div>
+                            <div class="benefit-item">Évolution du CRM selon vos retours</div>
+                            <div class="benefit-item">Veille sur les nouvelles fonctionnalités</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Prêt à transformer votre gestion ?</h2>
+            <p>Découvrez comment Plan B CRM peut optimiser chaque aspect de votre activité.</p>
+            <a href="demo.html" class="btn btn-primary" style="margin-right: 1rem;">Demander une démo</a>
+            <a href="contact.html" class="btn btn-secondary">Nous contacter</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>À propos</h4>
+                    <p>Un CRM né de l'expérience terrain, développé par des professionnels de la formation pour des professionnels de la formation.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+                        <li><a href="pricing-detaille.html">Pricing Détaillé</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="contact.html">Nous contacter</a></li>
+                        <li><a href="demo.html">Demander une démo</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Plan B CRM - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+    </div><!-- Fin #scroll-container -->
+
+    <!-- JavaScript standalone - Scrollbar personnalisée arrondie -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const tabsContainer = document.querySelector('.tabs-container');
+            const scrollContainer = document.getElementById('scroll-container');
+            const customScrollbar = document.getElementById('custom-scrollbar');
+            const thumb = document.querySelector('.scrollbar-thumb');
+
+            let isDragging = false;
+            let startY = 0;
+            let startScrollTop = 0;
+
+            // Gestion des tabs
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const selectedContent = document.getElementById('tab-' + tabName);
+                    if (selectedContent) {
+                        selectedContent.classList.add('active');
+                    }
+
+                    // Scroll to tabs position (where tabs become sticky)
+                    const heroSection = document.querySelector('.pricing-hero');
+                    const scrollToPosition = heroSection?.offsetHeight || 0;
+
+                    scrollContainer.scrollTo({
+                        top: scrollToPosition,
+                        behavior: 'smooth'
+                    });
+
+                    if (tabsContainer && selectedContent) {
+                        const tabsHeight = tabsContainer.offsetHeight;
+                        const contentTop = selectedContent.offsetTop - tabsHeight - 10;
+                        scrollContainer.scrollTo({
+                            top: contentTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Mise à jour de la scrollbar personnalisée
+            function updateCustomScrollbar() {
+                const scrollHeight = scrollContainer.scrollHeight;
+                const clientHeight = scrollContainer.clientHeight;
+                const scrollTop = scrollContainer.scrollTop;
+
+                // Calculer la position et hauteur du thumb
+                const scrollRatio = scrollTop / (scrollHeight - clientHeight);
+                const thumbHeight = (clientHeight / scrollHeight) * 100;
+                const thumbTop = scrollRatio * (100 - thumbHeight);
+
+                thumb.style.height = thumbHeight + '%';
+                thumb.style.top = thumbTop + '%';
+
+                // Calculate dynamic transition point (hero + tabs height)
+                const heroSection = document.querySelector('.pricing-hero');
+                const tabsContainer = document.querySelector('.tabs-container');
+                const blueZoneHeight = (heroSection?.offsetHeight || 0) + (tabsContainer?.offsetHeight || 0);
+
+                // Changement de couleur selon la position de scroll (dynamic transition)
+                if (scrollTop < blueZoneHeight) {
+                    thumb.classList.add('on-blue');
+                    thumb.classList.remove('on-white');
+                } else {
+                    thumb.classList.add('on-white');
+                    thumb.classList.remove('on-blue');
+                }
+
+                // Activer la scrollbar seulement si nécessaire
+                if (scrollHeight > clientHeight) {
+                    customScrollbar.classList.add('active');
+                } else {
+                    customScrollbar.classList.remove('active');
+                }
+            }
+
+            // Écouter le scroll
+            scrollContainer.addEventListener('scroll', updateCustomScrollbar, { passive: true });
+
+            // Drag du thumb
+            thumb.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                startY = e.clientY;
+                startScrollTop = scrollContainer.scrollTop;
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                if (!isDragging) return;
+
+                const deltaY = e.clientY - startY;
+                const scrollHeight = scrollContainer.scrollHeight;
+                const clientHeight = scrollContainer.clientHeight;
+                const scrollbarHeight = clientHeight;
+
+                const scrollDelta = (deltaY / scrollbarHeight) * (scrollHeight - clientHeight);
+                scrollContainer.scrollTop = startScrollTop + scrollDelta;
+            });
+
+            document.addEventListener('mouseup', function() {
+                isDragging = false;
+            });
+
+            // Clic sur la track pour scroller
+            customScrollbar.addEventListener('click', function(e) {
+                if (e.target === thumb) return;
+
+                const rect = customScrollbar.getBoundingClientRect();
+                const clickY = e.clientY - rect.top;
+                const scrollbarHeight = rect.height;
+                const scrollHeight = scrollContainer.scrollHeight;
+                const clientHeight = scrollContainer.clientHeight;
+
+                const thumbHeight = (clientHeight / scrollHeight) * scrollbarHeight;
+                const targetScrollTop = ((clickY - thumbHeight / 2) / (scrollbarHeight - thumbHeight)) * (scrollHeight - clientHeight);
+
+                scrollContainer.scrollTo({
+                    top: Math.max(0, Math.min(targetScrollTop, scrollHeight - clientHeight)),
+                    behavior: 'smooth'
+                });
+            });
+
+            // Mise à jour initiale et au resize
+            updateCustomScrollbar();
+            window.addEventListener('resize', updateCustomScrollbar);
+        });
+    </script>
+</body>
+</html>
