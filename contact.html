@@ -209,24 +209,7 @@
     <script>
         // Animation Hero au chargement - Style Bauhaus
         document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                const heroLabel = document.querySelector('.hero-label');
-                const heroTitle = document.querySelector('.contact-hero h1');
-                const heroSubtitle = document.querySelector('.contact-hero p');
-
-                if (heroLabel) {
-                    heroLabel.style.opacity = '0';
-                    heroLabel.style.animation = 'fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
-                }
-                if (heroTitle) {
-                    heroTitle.style.opacity = '0';
-                    heroTitle.style.animation = 'fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards';
-                }
-                if (heroSubtitle) {
-                    heroSubtitle.style.opacity = '0';
-                    heroSubtitle.style.animation = 'fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards';
-                }
-            }, 100);
+            animateHeroBauhaus('.contact-hero');
         });
 
         function handleContactSubmit(event) {

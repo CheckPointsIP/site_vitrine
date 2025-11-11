@@ -251,3 +251,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     });
 });
+
+/**
+ * Animation Hero Bauhaus au chargement
+ * Anime séquentiellement : label → titre → paragraphe
+ * @param {string} heroSelector - Sélecteur CSS du hero (ex: '.demo-hero')
+ */
+function animateHeroBauhaus(heroSelector) {
+    setTimeout(() => {
+        const heroLabel = document.querySelector(`${heroSelector} .hero-label-bauhaus, ${heroSelector} .hero-label`);
+        const heroTitle = document.querySelector(`${heroSelector} h1`);
+        const heroSubtitle = document.querySelector(`${heroSelector} p, ${heroSelector} .lead`);
+
+        const elements = [
+            { el: heroLabel, delay: '0s' },
+            { el: heroTitle, delay: '0.2s' },
+            { el: heroSubtitle, delay: '0.4s' }
+        ];
+
+        elements.forEach(({ el, delay }) => {
+            if (el) {
+                el.style.opacity = '0';
+                el.style.animation = `fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay} forwards`;
+            }
+        });
+    }, 100);
+}
