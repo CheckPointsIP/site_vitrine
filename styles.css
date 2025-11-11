@@ -209,7 +209,8 @@ p {
     gap: 0.5rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 0; /* Supprime le padding à droite */
     overflow-x: auto;
     scrollbar-width: none; /* Firefox */
 }
