@@ -10,16 +10,117 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Hero Bauhaus */
         .contact-hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            background: var(--secondary-color);
             color: white;
-            padding: 80px 20px 60px;
-            text-align: center;
+            padding: 140px 20px 100px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Éléments décoratifs Bauhaus */
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 450px;
+            height: 450px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.12;
+        }
+
+        .contact-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -80px;
+            width: 350px;
+            height: 350px;
+            background: var(--primary-color);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            opacity: 0.1;
         }
 
         .contact-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: clamp(2.5rem, 6vw + 1rem, 4rem);
+            margin-bottom: 2rem;
+            position: relative;
+            line-height: 1;
+            max-width: 900px;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+        }
+
+        .contact-hero p {
+            font-size: clamp(1rem, 2vw + 0.2rem, 1.25rem);
+            opacity: 0.95;
+            max-width: 700px;
+            line-height: 1.6;
+            font-weight: 400;
+            position: relative;
+        }
+
+        /* Barre orange verticale sur le paragraphe - à droite */
+        .contact-hero p::before {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            width: 8px;
+            height: 80px;
+            background: var(--accent-secondary);
+        }
+
+        /* Label Bauhaus */
+        .hero-label {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 24px;
+            font-size: 0.9rem;
+            font-weight: 900;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        /* Ombre géométrique jaune */
+        .hero-label::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            right: -6px;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-secondary);
+            z-index: -1;
+        }
+
+        /* Animations Bauhaus au chargement */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .contact-section {
@@ -134,15 +235,21 @@
         @media (max-width: 767px) {
             /* Hero Section */
             .contact-hero {
-                padding: 60px 15px 40px;
+                padding: 80px 15px 50px;
+                text-align: center;
             }
 
             .contact-hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .contact-hero p {
                 font-size: 1rem;
+            }
+
+            /* Barre orange centrée sur mobile */
+            .contact-hero p::before {
+                display: none;
             }
 
             /* Contact Grid */
@@ -269,20 +376,50 @@
             margin-top: 2rem;
             color: var(--text-light);
             text-decoration: none;
-            transition: var(--transition);
             text-align: center;
             width: 100%;
+            transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        /* Animation de la flèche uniquement */
+        .back-link .arrow {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Barre animée en dessous - de droite à gauche */
+        .back-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary-color);
+            transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .back-link:hover {
             color: var(--primary-color);
         }
+
+        .back-link:hover .arrow {
+            transform: translateX(-6px);
+        }
+
+        .back-link:hover::after {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
+    <!-- Hero Section Bauhaus -->
     <section class="contact-hero">
         <div class="container">
+            <div class="hero-label">CONTACTEZ-NOUS</div>
             <h1>Contactez notre équipe</h1>
             <p>Une question ? Un projet ? Nous sommes là pour vous accompagner.</p>
         </div>
@@ -372,13 +509,35 @@
                     <a href="index.html" class="btn btn-primary" style="margin-top: 1.5rem;">Retour à l'accueil</a>
                 </div>
 
-                <a href="index.html" class="back-link">← Retour à l'accueil</a>
+                <a href="index.html" class="back-link"><span class="arrow">←</span> Retour à l'accueil</a>
             </div>
         </div>
     </section>
 
     <script src="script.js"></script>
     <script>
+        // Animation Hero au chargement - Style Bauhaus
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const heroLabel = document.querySelector('.hero-label');
+                const heroTitle = document.querySelector('.contact-hero h1');
+                const heroSubtitle = document.querySelector('.contact-hero p');
+
+                if (heroLabel) {
+                    heroLabel.style.opacity = '0';
+                    heroLabel.style.animation = 'fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
+                }
+                if (heroTitle) {
+                    heroTitle.style.opacity = '0';
+                    heroTitle.style.animation = 'fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards';
+                }
+                if (heroSubtitle) {
+                    heroSubtitle.style.opacity = '0';
+                    heroSubtitle.style.animation = 'fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards';
+                }
+            }, 100);
+        });
+
         function handleContactSubmit(event) {
             event.preventDefault();
 
