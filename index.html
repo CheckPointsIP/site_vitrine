@@ -309,23 +309,6 @@
                 }
             }
 
-            /* Indicateur de scroll pour tabs */
-            .tabs-nav::after {
-                content: '→';
-                position: sticky;
-                right: 0;
-                background: linear-gradient(to left, var(--secondary-color) 60%, transparent);
-                padding: 0 15px;
-                color: white;
-                font-size: 1.2rem;
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                pointer-events: none;
-                flex-shrink: 0;
-                flex-grow: 1; /* Prend tout l'espace restant */
-                min-width: 60px;
-            }
         }
 
         /* Petit Mobile */
@@ -394,6 +377,7 @@
             <button class="tab-button" onclick="window.location.href='pricing-monolithe.html'">
                 <i class="fas fa-cogs"></i> Informations Techniques
             </button>
+            <div class="tabs-fill"></div>
         </div>
     </div>
 
