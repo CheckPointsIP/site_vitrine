@@ -529,8 +529,11 @@ p {
     border: 3px solid var(--border-color);
     position: relative;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
     cursor: default;
+    will-change: transform;
 }
 
 .feature-card::before {
@@ -541,40 +544,20 @@ p {
     width: 6px;
     height: 100%;
     background: var(--primary-color);
-    transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: opacity 0.3s ease;
     z-index: 0;
 }
 
 .feature-card:hover::before {
-    width: 100%;
-    opacity: 0.05;
+    opacity: 0.8;
 }
 
-.feature-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(0, 82, 204, 0.08) 50%,
-        transparent 100%);
-    pointer-events: none;
-    transition: none;
-    z-index: 1;
-}
+/* Pseudo-élément ::after supprimé pour performances */
 
 .feature-card:hover {
     border-color: var(--primary-color);
     box-shadow: 0 8px 30px rgba(0, 82, 204, 0.15);
-    transform: translateY(-8px);
-}
-
-.feature-card:hover::after {
-    left: 100%;
-    transition: left 0.8s ease-out;
+    transform: translateY(-5px);
 }
 
 /* Pas d'effet hover sur les feature-cards */
@@ -598,29 +581,30 @@ p {
     font-size: 2rem;
     position: relative;
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: transform 0.3s ease;
     z-index: 2;
+    will-change: transform;
 }
 
 .feature-card:hover .feature-icon {
-    transform: scale(1.15) rotate(5deg);
-    box-shadow: 0 8px 20px rgba(0, 82, 204, 0.3);
+    transform: scale(1.05);
 }
 
 .feature-icon i {
     position: relative;
     z-index: 1;
-    animation: iconFloat 3s ease-in-out infinite;
+    /* Animation désactivée pour performances */
 }
 
-@keyframes iconFloat {
+/* Animation iconFloat désactivée pour éviter les lags sur grand écran */
+/* @keyframes iconFloat {
     0%, 100% {
         transform: translateY(0px);
     }
     50% {
         transform: translateY(-5px);
     }
-}
+} */
 
 .feature-icon::before {
     content: '';
@@ -1260,5 +1244,21 @@ a, button, .btn, .feature-card, .pricing-card, .support-btn, .faq-question {
     .faq-question {
         font-size: 1rem;
         padding: 1rem;
+    }
+}
+
+/* Optimisation performances pour grands écrans */
+@media (min-width: 1920px) {
+    /* Réduction animations sur très grands écrans pour éviter lag */
+    * {
+        animation-duration: 0.2s !important;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .feature-card:hover .feature-icon {
+        transform: scale(1.03);
     }
 }
