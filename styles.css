@@ -273,7 +273,7 @@ p {
     right: 0;
     top: 1rem;
     bottom: 1rem;
-    width: 80px;
+    width: 50px;
     background: linear-gradient(to left, var(--secondary-color) 60%, transparent);
     display: flex;
     align-items: center;
