@@ -79,9 +79,11 @@
             width: 100%;
             border-radius: 10px;
             cursor: pointer;
-            transition: background 0.6s ease;
+            transition: background 0.3s ease;
             border: none;
             pointer-events: auto;
+            will-change: top, height;
+            transform: translateZ(0); /* Force GPU acceleration */
         }
 
         .scrollbar-thumb.on-blue {
@@ -94,6 +96,20 @@
 
         .scrollbar-thumb:hover {
             opacity: 1;
+        }
+
+        /* Scroll Progress Bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-color), var(--primary-color));
+            z-index: 10000;
+            width: 0%;
+            transition: width 0.1s ease-out;
+            will-change: width;
+            transform: translateZ(0); /* GPU acceleration */
         }
 
         /* ========================================
@@ -909,6 +925,15 @@
         let isDragging = false;
         let startY = 0;
         let startScrollTop = 0;
+        let ticking = false;
+        let blueZoneHeight = 0;
+
+        // Cache la hauteur de la zone bleue au démarrage
+        function cacheBlueZoneHeight() {
+            const heroSection = document.querySelector('.hero');
+            const tabsContainer = document.querySelector('.tabs-container');
+            blueZoneHeight = (heroSection?.offsetHeight || 0) + (tabsContainer?.offsetHeight || 0);
+        }
 
         function updateCustomScrollbar() {
             const scrollHeight = scrollContainer.scrollHeight;
@@ -923,12 +948,7 @@
             thumb.style.height = thumbHeight + '%';
             thumb.style.top = thumbTop + '%';
 
-            // Calculate dynamic transition point (hero + tabs height)
-            const heroSection = document.querySelector('.hero');
-            const tabsContainer = document.querySelector('.tabs-container');
-            const blueZoneHeight = (heroSection?.offsetHeight || 0) + (tabsContainer?.offsetHeight || 0);
-
-            // Change color based on scroll position (dynamic transition)
+            // Change color based on scroll position (cached value)
             if (scrollTop < blueZoneHeight) {
                 thumb.classList.add('on-blue');
                 thumb.classList.remove('on-white');
@@ -936,10 +956,20 @@
                 thumb.classList.add('on-white');
                 thumb.classList.remove('on-blue');
             }
+
+            ticking = false;
+        }
+
+        // Optimisation avec requestAnimationFrame
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateCustomScrollbar);
+                ticking = true;
+            }
         }
 
         // Listen to scroll events
-        scrollContainer.addEventListener('scroll', updateCustomScrollbar, { passive: true });
+        scrollContainer.addEventListener('scroll', requestTick, { passive: true });
 
         // Drag functionality
         thumb.addEventListener('mousedown', (e) => {
@@ -988,21 +1018,35 @@
         });
 
         // Initialize scrollbar
+        cacheBlueZoneHeight();
         updateCustomScrollbar();
 
         // Update on window resize
-        window.addEventListener('resize', updateCustomScrollbar);
+        window.addEventListener('resize', () => {
+            cacheBlueZoneHeight();
+            requestTick();
+        });
 
-        // Scroll Progress Indicator
+        // Scroll Progress Indicator (optimisé avec RAF)
+        let progressTicking = false;
+        const scrollProgress = document.getElementById('scroll-progress');
+
         function updateScrollProgress() {
-            const scrollProgress = document.getElementById('scroll-progress');
             const scrollHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight;
             const scrolled = (scrollContainer.scrollTop / scrollHeight) * 100;
             scrollProgress.style.width = scrolled + '%';
+            progressTicking = false;
         }
 
-        scrollContainer.addEventListener('scroll', updateScrollProgress, { passive: true });
-        window.addEventListener('resize', updateScrollProgress);
+        function requestProgressTick() {
+            if (!progressTicking) {
+                requestAnimationFrame(updateScrollProgress);
+                progressTicking = true;
+            }
+        }
+
+        scrollContainer.addEventListener('scroll', requestProgressTick, { passive: true });
+        window.addEventListener('resize', requestProgressTick);
         updateScrollProgress(); // Initial call
 
         // Smooth scroll for "Découvrir Plan B" button
