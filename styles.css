@@ -267,6 +267,7 @@ p {
     color: var(--accent-color);
 }
 
+
 .tab-content {
     display: none;
     opacity: 0;
