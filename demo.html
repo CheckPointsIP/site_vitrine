@@ -419,13 +419,32 @@
             margin-top: 2rem;
             color: var(--text-light);
             text-decoration: none;
-            transition: var(--transition);
             text-align: center;
             width: 100%;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        /* Barre animée en dessous - de droite à gauche */
+        .back-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary-color);
+            transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .back-link:hover {
             color: var(--primary-color);
+        }
+
+        .back-link:hover::after {
+            width: 100%;
         }
     </style>
 </head>
