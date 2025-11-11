@@ -559,7 +559,7 @@ p {
     height: 100%;
     background: linear-gradient(90deg,
         transparent 0%,
-        rgba(0, 82, 204, 0.08) 50%,
+        rgba(0, 82, 204, 0.02) 50%,
         transparent 100%);
     pointer-events: none;
     transition: none;
@@ -574,7 +574,7 @@ p {
 
 .feature-card:hover::after {
     left: 100%;
-    transition: left 0.8s ease-out;
+    transition: left 1.2s ease-out;
 }
 
 /* Pas d'effet hover sur les feature-cards */
