@@ -10,37 +10,136 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Hero Bauhaus */
         .demo-hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            background: var(--secondary-color);
             color: white;
-            padding: 80px 20px 60px;
-            text-align: center;
+            padding: 140px 20px 100px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Éléments décoratifs Bauhaus */
+        .demo-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.1;
+            transform: translate(-40%, 40%);
+        }
+
+        .demo-hero::after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--primary-color);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            opacity: 0.08;
         }
 
         .demo-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: clamp(2.5rem, 6vw + 1rem, 4rem);
+            margin-bottom: 2rem;
+            position: relative;
+            line-height: 1;
+            max-width: 900px;
+            font-weight: 900;
+            letter-spacing: -0.03em;
         }
 
+
         .demo-hero p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw + 0.2rem, 1.25rem);
             opacity: 0.95;
             max-width: 700px;
-            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+            position: relative;
+        }
+
+        /* Barre orange verticale sur le paragraphe - à droite */
+        .demo-hero p::before {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            width: 8px;
+            height: 80px;
+            background: var(--accent-secondary);
+        }
+
+        /* Label Bauhaus */
+        .hero-label {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 24px;
+            font-size: 0.9rem;
+            font-weight: 900;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        /* Ombre géométrique jaune */
+        .hero-label::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            right: -6px;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-secondary);
+            z-index: -1;
+        }
+
+        /* Animations Bauhaus au chargement */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .form-section {
-            padding: 60px 20px;
+            padding: 80px 20px;
             background-color: var(--bg-light);
         }
 
+        /* Conteneur formulaire - Style Bauhaus */
         .form-container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             background-color: white;
             padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            border: 3px solid var(--border-color);
+            position: relative;
+            box-shadow: none; /* Pas d'ombre floue */
         }
 
         .form-group {
@@ -54,22 +153,26 @@
             color: var(--text-dark);
         }
 
+        /* Inputs Bauhaus - légèrement arrondis */
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
+            padding: 14px 18px;
+            border: 3px solid var(--border-color);
+            border-radius: 6px;
             font-size: 1rem;
             font-family: inherit;
-            transition: var(--transition);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background-color: var(--bg-white);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
-            outline: none;
+            outline: 3px solid var(--accent-color);
+            outline-offset: 3px;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            box-shadow: none; /* Bauhaus : pas d'ombre floue */
+            transform: translateX(2px);
         }
 
         .form-group textarea {
@@ -84,33 +187,58 @@
         }
 
         .required {
-            color: var(--warning-color);
+            color: var(--accent-color);
+            font-weight: 700;
         }
 
+        /* Bouton submit Bauhaus */
         .submit-btn {
             width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            padding: 18px 40px;
+            background: var(--accent-color);
             color: white;
-            border: none;
+            border: 3px solid var(--accent-color);
             border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
         }
 
+        /* Effet hover Bauhaus - translation géométrique */
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translate(-2px, -2px);
         }
 
+        .submit-btn:active {
+            transform: translate(0, 0);
+        }
+
+        /* Flèche directionnelle */
+        .submit-btn::after {
+            content: '→';
+            display: inline-block;
+            margin-left: 8px;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .submit-btn:hover::after {
+            transform: translateX(6px);
+        }
+
+        /* Boîte de réassurance - Style Bauhaus */
         .reassurance-box {
-            background-color: #eff6ff;
-            padding: 1.5rem;
+            background-color: var(--bg-light);
+            padding: 2rem;
             border-radius: 8px;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--primary-color);
+            margin-bottom: 2.5rem;
+            border: 3px solid var(--border-color);
+            position: relative;
         }
 
         .reassurance-box p {
@@ -118,16 +246,21 @@
             color: var(--text-dark);
         }
 
+        /* Liste des bénéfices - Style Bauhaus */
         .benefits-list {
-            margin-top: 2rem;
-            padding: 2rem;
-            background-color: var(--bg-light);
+            margin-top: 2.5rem;
+            padding: 2.5rem;
+            background-color: white;
             border-radius: 8px;
+            border: 3px solid var(--border-color);
+            position: relative;
         }
 
         .benefits-list h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+            color: var(--accent-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
         }
 
         .benefits-list ul {
@@ -136,15 +269,23 @@
         }
 
         .benefits-list li {
-            padding: 0.75rem 0;
-            padding-left: 2rem;
+            padding: 1rem 0;
+            padding-left: 2.5rem;
             position: relative;
+            border-bottom: 1px solid var(--border-color);
         }
 
+        .benefits-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Check simple */
         .benefits-list li::before {
             content: '✓';
             position: absolute;
             left: 0;
+            top: 50%;
+            transform: translateY(-50%);
             color: var(--success-color);
             font-weight: 700;
             font-size: 1.2rem;
@@ -158,11 +299,19 @@
         @media (max-width: 767px) {
             /* Hero Section */
             .demo-hero {
-                padding: 60px 15px 40px;
+                padding: 80px 15px 50px;
+                text-align: center;
             }
 
             .demo-hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+
+            /* Barre rouge centrée sur mobile */
+            .demo-hero h1::before {
+                left: 50%;
+                transform: translateX(-50%);
+                height: 80px;
             }
 
             .demo-hero p {
@@ -173,6 +322,7 @@
             .form-container {
                 padding: 2rem 1.5rem;
             }
+
 
             /* Form Groups - Optimisé Mobile */
             .form-group input,
@@ -238,24 +388,30 @@
             }
         }
 
+        /* Message de succès - Style Bauhaus */
         .success-message {
             display: none;
-            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-            padding: 2rem;
-            border-radius: 12px;
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
             text-align: center;
-            border: 2px solid var(--success-color);
+            border: 3px solid var(--success-color);
+            position: relative;
+            box-shadow: 8px 8px 0 var(--bg-geometric); /* Ombre géométrique */
         }
 
         .success-message.show {
             display: block;
-            animation: fadeInUp 0.5s ease;
+            animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .success-message h3 {
             color: var(--success-color);
             margin-bottom: 1rem;
-            font-size: 1.75rem;
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
         }
 
         .back-link {
@@ -274,9 +430,10 @@
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
+    <!-- Hero Section Bauhaus -->
     <section class="demo-hero">
         <div class="container">
+            <div class="hero-label">DÉMO GRATUITE</div>
             <h1>Demander une démo gratuite</h1>
             <p>Découvrez en 20 minutes comment notre CRM peut transformer votre gestion quotidienne. Un membre de notre équipe vous contactera sous 24h.</p>
         </div>
@@ -350,6 +507,28 @@
 
     <script src="script.js"></script>
     <script>
+        // Animation Hero au chargement - Style Bauhaus
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const heroLabel = document.querySelector('.hero-label');
+                const heroTitle = document.querySelector('.demo-hero h1');
+                const heroSubtitle = document.querySelector('.demo-hero p');
+
+                if (heroLabel) {
+                    heroLabel.style.opacity = '0';
+                    heroLabel.style.animation = 'fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
+                }
+                if (heroTitle) {
+                    heroTitle.style.opacity = '0';
+                    heroTitle.style.animation = 'fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards';
+                }
+                if (heroSubtitle) {
+                    heroSubtitle.style.opacity = '0';
+                    heroSubtitle.style.animation = 'fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards';
+                }
+            }, 100);
+        });
+
         function handleSubmit(event) {
             event.preventDefault();
 

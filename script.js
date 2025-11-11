@@ -179,17 +179,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Animation des icônes au hover - seulement pour benefit et contact (pas feature)
-    document.querySelectorAll('.benefit-icon, .contact-icon').forEach(icon => {
-        icon.addEventListener('mouseenter', function() {
-            this.style.transition = 'transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
-            this.style.transform = 'scale(1.1) rotate(5deg)';
-        });
+    // Animation des icônes au hover - DÉSACTIVÉE
+    // document.querySelectorAll('.benefit-icon, .contact-icon').forEach(icon => {
+    //     icon.addEventListener('mouseenter', function() {
+    //         this.style.transition = 'transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+    //         this.style.transform = 'scale(1.1) rotate(5deg)';
+    //     });
 
-        icon.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1) rotate(0deg)';
-        });
-    });
+    //     icon.addEventListener('mouseleave', function() {
+    //         this.style.transform = 'scale(1) rotate(0deg)';
+    //     });
+    // });
 
     // Effet de focus visible sur les éléments interactifs
     const interactiveElements = document.querySelectorAll('button, a, input, textarea, select');
