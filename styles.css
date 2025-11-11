@@ -267,14 +267,19 @@ p {
     color: var(--accent-color);
 }
 
-/* Élément de remplissage pour la flèche */
+/* Indicateur de scroll fixé au bord droit de la barre tabs */
 .tabs-fill {
-    flex-grow: 1;
-    position: relative;
+    position: absolute;
+    right: 0;
+    top: 1rem;
+    bottom: 1rem;
+    width: 80px;
+    background: linear-gradient(to left, var(--secondary-color) 60%, transparent);
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    min-width: 60px;
+    pointer-events: none;
+    z-index: 101;
 }
 
 .tabs-fill::after {
