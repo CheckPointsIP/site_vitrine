@@ -1,0 +1,48 @@
+# robots.txt pour Plan B CRM
+# Politique d'indexation pour les moteurs de recherche
+
+# Règles pour tous les robots
+User-agent: *
+
+# Autoriser l'indexation de tout le site
+Allow: /
+
+# Bloquer les pages d'administration et de test
+Disallow: /admin.html
+Disallow: /test-analytics.html
+
+# Bloquer les dossiers système
+Disallow: /analytics-data/
+Disallow: /logs/
+Disallow: /node_modules/
+Disallow: /server/
+Disallow: /dist/
+
+# Bloquer les fichiers de configuration
+Disallow: /.env
+Disallow: /.git/
+Disallow: /package.json
+Disallow: /package-lock.json
+
+# Fichiers techniques à ne pas indexer
+Disallow: /*.json
+Disallow: /*.log
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://votredomaine.fr/sitemap.xml
+
+# Délai entre les requêtes (en secondes) - optionnel
+Crawl-delay: 1
+
+# Règles spécifiques pour Google
+User-agent: Googlebot
+Allow: /
+Disallow: /admin.html
+Disallow: /test-analytics.html
+
+# Règles spécifiques pour Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /admin.html
+Disallow: /test-analytics.html

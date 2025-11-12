@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Page d'accueil -->
+    <url>
+        <loc>https://votredomaine.fr/</loc>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Page d'accueil (index.html) -->
+    <url>
+        <loc>https://votredomaine.fr/index.html</loc>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Page Découvrir -->
+    <url>
+        <loc>https://votredomaine.fr/decouvrir.html</loc>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Page Tarifs -->
+    <url>
+        <loc>https://votredomaine.fr/pricing-monolithe.html</loc>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Page Contact -->
+    <url>
+        <loc>https://votredomaine.fr/contact.html</loc>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Page Démo -->
+    <url>
+        <loc>https://votredomaine.fr/demo.html</loc>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Page Politique de Confidentialité -->
+    <url>
+        <loc>https://votredomaine.fr/confidentialite.html</loc>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+</urlset>

@@ -9,6 +9,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const { body, param, query, validationResult } = require('express-validator');
 const fs = require('fs').promises;
@@ -86,6 +87,52 @@ const authLimiter = rateLimit({
 // ========================================
 // MIDDLEWARE
 // ========================================
+
+// Compression Gzip pour toutes les réponses
+app.use(compression({
+    level: 6, // Niveau de compression (0-9, défaut: 6)
+    threshold: 1024, // Compresser seulement si > 1KB
+    filter: (req, res) => {
+        // Ne pas compresser si le client désactive
+        if (req.headers['x-no-compression']) {
+            return false;
+        }
+        // Utiliser le filtre par défaut de compression
+        return compression.filter(req, res);
+    }
+}));
+
+// Cache HTTP - Headers optimisés
+app.use((req, res, next) => {
+    // Routes API - pas de cache (données dynamiques)
+    if (req.path.startsWith('/api/')) {
+        res.set({
+            'Cache-Control': 'no-store, no-cache, must-revalidate, private',
+            'Pragma': 'no-cache',
+            'Expires': '0'
+        });
+    }
+    // Fichiers statiques - cache agressif
+    else if (req.path.match(/\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot)$/)) {
+        const isProduction = process.env.NODE_ENV === 'production';
+        const maxAge = isProduction ? 31536000 : 3600; // 1 an en prod, 1h en dev
+
+        res.set({
+            'Cache-Control': `public, max-age=${maxAge}, immutable`,
+            'Expires': new Date(Date.now() + maxAge * 1000).toUTCString()
+        });
+    }
+    // HTML - cache court avec revalidation
+    else if (req.path.match(/\.html$/)) {
+        res.set({
+            'Cache-Control': 'public, max-age=3600, must-revalidate',
+            'Expires': new Date(Date.now() + 3600000).toUTCString()
+        });
+    }
+
+    next();
+});
+
 app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(cookieParser());
@@ -572,6 +619,15 @@ async function initDataDir() {
 // ========================================
 // SERVIR LES FICHIERS STATIQUES
 // ========================================
+
+// Priorité 1: Servir les fichiers minifiés depuis dist/ (production)
+const distPath = path.join(__dirname, 'dist');
+app.use('/dist', express.static(distPath, {
+    maxAge: process.env.NODE_ENV === 'production' ? '1y' : '1h',
+    immutable: true
+}));
+
+// Priorité 2: Servir les fichiers source (développement)
 app.use(express.static(__dirname, {
     setHeaders: (res, filePath) => {
         // Cache control pour les assets

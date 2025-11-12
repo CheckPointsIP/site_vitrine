@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Script anti-flash pour le dark mode -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') ||
+                         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <!-- SEO Meta Tags -->
+    <title>Politique de confidentialité - Plan B CRM</title>
+    <meta name="description" content="Politique de confidentialité et protection des données personnelles - Plan B CRM. Conformité RGPD.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Politique de confidentialité - Plan B CRM">
+    <meta property="og:description" content="Découvrez comment nous protégeons vos données personnelles.">
+
+    <!-- Fonts & Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cookie-consent.css">
+
+    <style>
+        /* Styles spécifiques page confidentialité */
+        .privacy-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .privacy-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .privacy-header .last-updated {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .privacy-section {
+            margin-bottom: 3rem;
+        }
+
+        .privacy-section h2 {
+            font-size: 1.75rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .privacy-section h3 {
+            font-size: 1.35rem;
+            color: var(--text-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-section p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .privacy-section ul, .privacy-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-section li {
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .privacy-section strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .info-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-box {
+            background: var(--bg-secondary);
+            border: 2px solid var(--primary-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-box a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Dark mode toggle */
+        #dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .privacy-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .privacy-header h1 {
+                font-size: 2rem;
+            }
+
+            .privacy-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .privacy-section h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="privacy-container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Retour à l'accueil
+        </a>
+
+        <div class="privacy-header">
+            <h1>Politique de confidentialité</h1>
+            <p class="last-updated">Dernière mise à jour : 12 novembre 2025</p>
+        </div>
+
+        <!-- Introduction -->
+        <div class="privacy-section">
+            <h2>1. Introduction</h2>
+            <p>
+                Chez <strong>Plan B CRM</strong>, nous attachons une grande importance à la protection
+                de vos données personnelles et au respect de votre vie privée. Cette politique de
+                confidentialité vous informe sur la manière dont nous collectons, utilisons, stockons
+                et protégeons vos données personnelles.
+            </p>
+            <p>
+                Cette politique est conforme au <strong>Règlement Général sur la Protection des Données
+                (RGPD)</strong> et aux lois françaises en vigueur.
+            </p>
+
+            <div class="info-box">
+                <div class="info-box-title">
+                    <i class="fas fa-info-circle"></i>
+                    Important
+                </div>
+                <p>
+                    En utilisant notre site web, vous acceptez les pratiques décrites dans cette
+                    politique de confidentialité. Si vous n'acceptez pas ces conditions, veuillez
+                    ne pas utiliser notre site.
+                </p>
+            </div>
+        </div>
+
+        <!-- Responsable du traitement -->
+        <div class="privacy-section">
+            <h2>2. Responsable du traitement des données</h2>
+            <p><strong>Raison sociale :</strong> Plan B CRM</p>
+            <p><strong>Adresse :</strong> [Votre adresse complète]</p>
+            <p><strong>Email :</strong> <a href="mailto:contact@planb-crm.fr">contact@planb-crm.fr</a></p>
+            <p><strong>Téléphone :</strong> [Votre numéro de téléphone]</p>
+            <p><strong>DPO (Délégué à la Protection des Données) :</strong> [Nom du DPO si applicable]</p>
+        </div>
+
+        <!-- Données collectées -->
+        <div class="privacy-section">
+            <h2>3. Données personnelles collectées</h2>
+
+            <h3>3.1 Données collectées via les formulaires</h3>
+            <p>Lorsque vous utilisez nos formulaires de contact ou de demande de démo, nous collectons :</p>
+            <ul>
+                <li><strong>Nom et prénom</strong></li>
+                <li><strong>Adresse email</strong></li>
+                <li><strong>Numéro de téléphone</strong> (optionnel)</li>
+                <li><strong>Nom de l'organisation</strong></li>
+                <li><strong>Message ou demande spécifique</strong></li>
+            </ul>
+
+            <h3>3.2 Données de navigation (Analytics)</h3>
+            <p>
+                Nous collectons automatiquement certaines informations techniques lorsque vous
+                visitez notre site (uniquement si vous avez accepté les cookies d'analyse) :
+            </p>
+            <ul>
+                <li>Pages visitées et URL consultées</li>
+                <li>Date et heure de visite</li>
+                <li>Durée de session</li>
+                <li>Type de navigateur et version</li>
+                <li>Système d'exploitation</li>
+                <li>Résolution d'écran</li>
+                <li>Adresse IP (anonymisée)</li>
+                <li>Page de provenance (referrer)</li>
+                <li>Interactions avec les éléments de la page (clics, scroll)</li>
+            </ul>
+
+            <div class="info-box">
+                <div class="info-box-title">
+                    <i class="fas fa-shield-alt"></i>
+                    Protection de la vie privée
+                </div>
+                <p>
+                    Nous n'utilisons <strong>aucun service tiers</strong> comme Google Analytics.
+                    Toutes les données analytics sont stockées sur nos propres serveurs et ne sont
+                    jamais partagées avec des tiers.
+                </p>
+            </div>
+
+            <h3>3.3 Cookies utilisés</h3>
+            <p>Notre site utilise les types de cookies suivants :</p>
+
+            <p><strong>Cookies essentiels (obligatoires) :</strong></p>
+            <ul>
+                <li><strong>theme</strong> - Mémorise votre préférence de thème (clair/sombre)</li>
+                <li><strong>planb_cookie_consent</strong> - Stocke vos préférences de cookies</li>
+                <li><strong>auth_token</strong> - Token d'authentification (admin uniquement)</li>
+            </ul>
+
+            <p><strong>Cookies d'analyse (optionnels) :</strong></p>
+            <ul>
+                <li><strong>analytics_user_id</strong> - Identifiant unique anonyme</li>
+                <li><strong>analytics_session_id</strong> - Identifiant de session temporaire</li>
+            </ul>
+
+            <p><strong>Durée de conservation :</strong></p>
+            <ul>
+                <li>Cookies de session : jusqu'à fermeture du navigateur</li>
+                <li>Cookies persistants : 1 an maximum</li>
+            </ul>
+        </div>
+
+        <!-- Finalités -->
+        <div class="privacy-section">
+            <h2>4. Finalités du traitement</h2>
+            <p>Nous utilisons vos données personnelles pour les finalités suivantes :</p>
+
+            <h3>4.1 Gestion des demandes de contact</h3>
+            <ul>
+                <li>Répondre à vos questions et demandes d'information</li>
+                <li>Traiter vos demandes de démo</li>
+                <li>Vous recontacter dans le cadre de votre demande</li>
+            </ul>
+            <p><strong>Base légale :</strong> Consentement (article 6.1.a RGPD)</p>
+
+            <h3>4.2 Amélioration de l'expérience utilisateur</h3>
+            <ul>
+                <li>Analyser le trafic et l'utilisation du site</li>
+                <li>Identifier les pages les plus consultées</li>
+                <li>Optimiser la navigation et l'ergonomie</li>
+                <li>Détecter et corriger les erreurs techniques</li>
+            </ul>
+            <p><strong>Base légale :</strong> Consentement (article 6.1.a RGPD)</p>
+
+            <h3>4.3 Sécurité et prévention de la fraude</h3>
+            <ul>
+                <li>Protéger notre site contre les attaques</li>
+                <li>Prévenir les accès non autorisés</li>
+                <li>Respecter nos obligations légales</li>
+            </ul>
+            <p><strong>Base légale :</strong> Intérêt légitime (article 6.1.f RGPD)</p>
+        </div>
+
+        <!-- Durée de conservation -->
+        <div class="privacy-section">
+            <h2>5. Durée de conservation des données</h2>
+            <p>Nous conservons vos données personnelles uniquement pour la durée nécessaire aux finalités :</p>
+            <ul>
+                <li><strong>Données de formulaire :</strong> 3 ans à compter de votre dernier contact</li>
+                <li><strong>Données analytics :</strong> 25 mois maximum (recommandation CNIL)</li>
+                <li><strong>Logs de sécurité :</strong> 1 an</li>
+                <li><strong>Cookies :</strong> 13 mois maximum</li>
+            </ul>
+            <p>
+                À l'issue de ces durées, vos données sont automatiquement supprimées de nos systèmes
+                de manière sécurisée.
+            </p>
+        </div>
+
+        <!-- Destinataires -->
+        <div class="privacy-section">
+            <h2>6. Destinataires des données</h2>
+            <p>Vos données personnelles sont strictement réservées à :</p>
+            <ul>
+                <li><strong>Notre équipe interne</strong> - Personnel habilité de Plan B CRM</li>
+                <li><strong>Hébergeur web</strong> - [Nom de l'hébergeur] pour le stockage sécurisé</li>
+            </ul>
+
+            <div class="info-box">
+                <div class="info-box-title">
+                    <i class="fas fa-lock"></i>
+                    Aucun transfert à des tiers
+                </div>
+                <p>
+                    Nous ne vendons, ne louons et ne partageons jamais vos données personnelles
+                    avec des sociétés tierces à des fins commerciales ou marketing.
+                </p>
+            </div>
+
+            <p>
+                <strong>Transfert hors UE :</strong> Toutes vos données sont hébergées en France
+                (ou dans l'Union Européenne) et ne font l'objet d'aucun transfert en dehors de l'UE.
+            </p>
+        </div>
+
+        <!-- Droits -->
+        <div class="privacy-section">
+            <h2>7. Vos droits</h2>
+            <p>
+                Conformément au RGPD, vous disposez des droits suivants concernant vos données personnelles :
+            </p>
+
+            <h3>7.1 Droit d'accès (article 15 RGPD)</h3>
+            <p>
+                Vous pouvez obtenir une copie de toutes les données personnelles que nous détenons
+                sur vous.
+            </p>
+
+            <h3>7.2 Droit de rectification (article 16 RGPD)</h3>
+            <p>
+                Vous pouvez demander la correction de données inexactes ou incomplètes.
+            </p>
+
+            <h3>7.3 Droit à l'effacement / "droit à l'oubli" (article 17 RGPD)</h3>
+            <p>
+                Vous pouvez demander la suppression de vos données personnelles dans certaines
+                conditions.
+            </p>
+
+            <h3>7.4 Droit à la limitation du traitement (article 18 RGPD)</h3>
+            <p>
+                Vous pouvez demander la suspension temporaire du traitement de vos données.
+            </p>
+
+            <h3>7.5 Droit à la portabilité (article 20 RGPD)</h3>
+            <p>
+                Vous pouvez récupérer vos données dans un format structuré et couramment utilisé
+                (JSON, CSV).
+            </p>
+
+            <h3>7.6 Droit d'opposition (article 21 RGPD)</h3>
+            <p>
+                Vous pouvez vous opposer au traitement de vos données personnelles pour des motifs
+                légitimes.
+            </p>
+
+            <h3>7.7 Droit de retirer votre consentement</h3>
+            <p>
+                Vous pouvez retirer votre consentement à tout moment en modifiant vos préférences
+                de cookies via le bouton en bas à gauche de chaque page.
+            </p>
+
+            <div class="info-box">
+                <div class="info-box-title">
+                    <i class="fas fa-envelope"></i>
+                    Exercer vos droits
+                </div>
+                <p>
+                    Pour exercer l'un de ces droits, contactez-nous à :
+                    <strong><a href="mailto:dpo@planb-crm.fr">dpo@planb-crm.fr</a></strong>
+                    <br>
+                    Nous répondrons à votre demande dans un délai maximum de <strong>1 mois</strong>
+                    (article 12.3 RGPD).
+                </p>
+            </div>
+
+            <h3>7.8 Droit de réclamation auprès de la CNIL</h3>
+            <p>
+                Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire
+                une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) :
+            </p>
+            <ul>
+                <li><strong>Site web :</strong> <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a></li>
+                <li><strong>Adresse :</strong> 3 Place de Fontenoy - TSA 80715 - 75334 PARIS CEDEX 07</li>
+                <li><strong>Téléphone :</strong> 01 53 73 22 22</li>
+            </ul>
+        </div>
+
+        <!-- Sécurité -->
+        <div class="privacy-section">
+            <h2>8. Sécurité des données</h2>
+            <p>
+                Nous mettons en œuvre des mesures techniques et organisationnelles appropriées
+                pour protéger vos données personnelles contre :
+            </p>
+            <ul>
+                <li>L'accès non autorisé</li>
+                <li>La divulgation accidentelle</li>
+                <li>La modification ou la destruction</li>
+                <li>La perte de données</li>
+            </ul>
+
+            <h3>Mesures de sécurité techniques :</h3>
+            <ul>
+                <li><strong>HTTPS</strong> - Chiffrement SSL/TLS des communications</li>
+                <li><strong>Authentification JWT</strong> - Tokens sécurisés pour l'accès admin</li>
+                <li><strong>Hashing bcrypt</strong> - Mots de passe chiffrés avec algorithme robuste</li>
+                <li><strong>Rate limiting</strong> - Protection contre les attaques par force brute</li>
+                <li><strong>Validation des entrées</strong> - Prévention des injections SQL/XSS</li>
+                <li><strong>Logs sécurisés</strong> - Traçabilité des accès et actions</li>
+                <li><strong>Sauvegardes régulières</strong> - Protection contre la perte de données</li>
+            </ul>
+
+            <h3>Mesures organisationnelles :</h3>
+            <ul>
+                <li>Accès limité aux données (principe du moindre privilège)</li>
+                <li>Formation du personnel à la protection des données</li>
+                <li>Politique de mots de passe robustes</li>
+                <li>Audits de sécurité réguliers</li>
+            </ul>
+        </div>
+
+        <!-- Mineurs -->
+        <div class="privacy-section">
+            <h2>9. Mineurs</h2>
+            <p>
+                Notre site n'est pas destiné aux personnes de moins de 18 ans. Nous ne collectons
+                pas sciemment de données personnelles de mineurs. Si vous êtes parent ou tuteur
+                légal et que vous pensez que votre enfant nous a fourni des données personnelles,
+                veuillez nous contacter immédiatement.
+            </p>
+        </div>
+
+        <!-- Modifications -->
+        <div class="privacy-section">
+            <h2>10. Modifications de la politique</h2>
+            <p>
+                Nous nous réservons le droit de modifier cette politique de confidentialité à tout
+                moment. Toute modification sera publiée sur cette page avec une nouvelle date de
+                "Dernière mise à jour".
+            </p>
+            <p>
+                En cas de modification substantielle, nous vous en informerons par email ou via
+                un bandeau visible sur le site.
+            </p>
+            <p>
+                Nous vous encourageons à consulter régulièrement cette page pour rester informé
+                de nos pratiques en matière de protection des données.
+            </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="contact-box">
+            <h3><i class="fas fa-question-circle"></i> Des questions ?</h3>
+            <p>
+                Pour toute question concernant cette politique de confidentialité ou l'utilisation
+                de vos données personnelles, n'hésitez pas à nous contacter :
+            </p>
+            <p>
+                <strong>Email :</strong> <a href="mailto:dpo@planb-crm.fr">dpo@planb-crm.fr</a><br>
+                <strong>Téléphone :</strong> [Votre numéro]<br>
+                <strong>Adresse :</strong> [Votre adresse]
+            </p>
+        </div>
+
+        <div class="privacy-section" style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <a href="index.html" class="btn btn-primary">
+                <i class="fas fa-home"></i> Retour à l'accueil
+            </a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="cookie-consent.js"></script>
+</body>
+</html>

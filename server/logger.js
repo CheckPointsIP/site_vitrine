@@ -108,15 +108,26 @@ if (process.env.DEBUG_MODE === 'true') {
 
 /**
  * Extraire des informations sécurisées depuis la requête HTTP
- * @param {Object} req - Objet requête Express
+ * @param {Object} req - Objet requête Express (optionnel)
  * @returns {Object} Métadonnées de la requête
  */
 function extractRequestMetadata(req) {
+    // Si req n'est pas une requête Express valide, retourner des valeurs par défaut
+    if (!req || !req.headers) {
+        return {
+            ip: 'unknown',
+            userAgent: 'unknown',
+            method: 'unknown',
+            path: 'unknown',
+            timestamp: new Date().toISOString()
+        };
+    }
+
     return {
-        ip: req.ip || req.connection.remoteAddress,
+        ip: req.ip || req.connection?.remoteAddress || req.socket?.remoteAddress || 'unknown',
         userAgent: req.headers['user-agent'] || 'unknown',
-        method: req.method,
-        path: req.path,
+        method: req.method || 'unknown',
+        path: req.path || 'unknown',
         timestamp: new Date().toISOString()
     };
 }

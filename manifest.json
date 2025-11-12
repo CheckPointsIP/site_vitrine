@@ -1,0 +1,68 @@
+{
+  "name": "Plan B CRM",
+  "short_name": "Plan B CRM",
+  "description": "Le CRM né de l'expérience terrain pour les CFA et centres de formation",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0052CC",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "lang": "fr-FR",
+  "dir": "ltr",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "/images/screenshot-desktop.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/images/screenshot-mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Demander une démo",
+      "short_name": "Démo",
+      "description": "Demander une démonstration du CRM",
+      "url": "/demo.html",
+      "icons": [
+        {
+          "src": "/images/demo-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Nous contacter",
+      "short_name": "Contact",
+      "description": "Contacter l'équipe Plan B CRM",
+      "url": "/contact.html",
+      "icons": [
+        {
+          "src": "/images/contact-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

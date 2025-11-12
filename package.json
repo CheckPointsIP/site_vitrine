@@ -5,8 +5,13 @@
   "main": "api-server.js",
   "scripts": {
     "start": "node api-server.js",
+    "start:prod": "NODE_ENV=production node api-server.js",
     "dev": "nodemon api-server.js",
     "test:security": "node test-security.js",
+    "build": "node build.js",
+    "build:watch": "nodemon --watch styles.css --watch script.js --watch analytics-tracker.js --watch admin-dashboard.js --exec \"npm run build\"",
+    "optimize-images": "node optimize-images.js",
+    "integrate-cookies": "node integrate-cookies.js",
     "hash-password": "node -e \"const bcrypt = require('bcryptjs'); const password = process.argv[1]; if (!password) { console.log('Usage: npm run hash-password <password>'); process.exit(1); } bcrypt.hash(password, 10, (err, hash) => { console.log('Hash bcrypt:', hash); console.log('Copiez ce hash dans le fichier .env (ADMIN_PASSWORD_HASH)'); });\"",
     "generate-secret": "node -e \"const crypto = require('crypto'); console.log('JWT_SECRET=' + crypto.randomBytes(64).toString('hex')); console.log('Copiez ce secret dans le fichier .env');\""
   },
@@ -20,6 +25,7 @@
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "compression": "^1.7.4",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "csurf": "^1.11.0",
@@ -31,6 +37,9 @@
     "winston": "^3.18.3"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "terser": "^5.31.0",
+    "clean-css": "^5.3.3",
+    "sharp": "^0.33.0"
   }
 }

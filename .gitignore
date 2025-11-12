@@ -35,3 +35,10 @@ desktop.ini
 *.tmp
 *.bak
 *.cache
+
+# Build files
+dist/
+images-optimized/
+
+# Source images (optionnel - décommenter si vous ne voulez pas versionner les images sources)
+# images/
