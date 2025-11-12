@@ -377,6 +377,40 @@
                 padding: 0 10px;
             }
         }
+
+        /* CTA Section */
+        .cta-section {
+            background: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        [data-theme="dark"] .cta-section {
+            background: #1f1f1f !important;
+        }
+
+        [data-theme="dark"] .cta-section h2 {
+            color: #f5f5f5 !important;
+        }
+
+        [data-theme="dark"] .cta-section p {
+            color: #e0e0e0 !important;
+        }
     </style>
 
     <!-- Cookie Consent -->
@@ -920,6 +954,16 @@
     <a href="demo.html" class="fab-mobile" aria-label="Demander une démo">
         <i class="fas fa-rocket"></i>
     </a>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Prêt à transformer votre gestion ?</h2>
+            <p>Découvrez comment Plan B CRM peut optimiser chaque aspect de votre activité.</p>
+            <a href="demo.html" class="btn btn-primary" style="margin-right: 1rem;">Demander une démo</a>
+            <a href="contact.html" class="btn btn-secondary">Nous contacter</a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
