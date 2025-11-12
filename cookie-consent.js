@@ -24,7 +24,6 @@
             // Si consentement déjà donné, ne rien afficher
             if (this.consent) {
                 this.applyConsent(this.consent);
-                this.showSettingsBadge();
                 return;
             }
 
@@ -267,8 +266,6 @@
                 if (overlay) overlay.remove();
                 if (banner) banner.remove();
             }, 300);
-
-            this.showSettingsBadge();
         }
 
         acceptAll() {
@@ -317,25 +314,7 @@
             this.hideBanner();
         }
 
-        // === BADGE PARAMÈTRES ===
-        showSettingsBadge() {
-            // Créer le badge si il n'existe pas
-            let badge = document.getElementById('cookieSettingsBadge');
-            if (!badge) {
-                badge = document.createElement('div');
-                badge.className = 'cookie-settings-badge';
-                badge.id = 'cookieSettingsBadge';
-                badge.innerHTML = '<i class="fas fa-cookie-bite"></i>';
-                badge.title = 'Gérer les cookies';
-                badge.addEventListener('click', () => this.reopenSettings());
-                document.body.appendChild(badge);
-            }
-
-            setTimeout(() => {
-                badge.classList.add('active');
-            }, 500);
-        }
-
+        // === RÉOUVERTURE PARAMÈTRES ===
         reopenSettings() {
             // Recréer le modal si il n'existe pas
             if (!document.getElementById('cookiePreferencesModal')) {
