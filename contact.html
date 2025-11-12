@@ -115,6 +115,9 @@
             }
         }
     </style>
+
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="cookie-consent.css">
 </head>
 <body>
     <!-- Hero Section Bauhaus -->
@@ -246,6 +249,13 @@
                 <p>&copy; 2025 - Tous droits réservés</p>
             </div>
         </div>
+    
+        <div class="footer-links">
+            <a href="confidentialite.html">Politique de confidentialité</a>
+            <a href="javascript:void(0)" onclick="window.CookieConsent.reopenSettings()">
+                Gérer les cookies
+            </a>
+        </div>
     </footer>
 
     <script src="script.js"></script>
@@ -299,6 +309,8 @@
     </script>
 
     <!-- Analytics Tracker -->
+    <!-- Cookie Consent Script (AVANT analytics pour le bloquer si refus) -->
+    <script src="cookie-consent.js"></script>
     <script src="analytics-tracker.js"></script>
 </body>
 </html>

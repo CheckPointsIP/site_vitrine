@@ -30,7 +30,7 @@ Disallow: /*.log
 Disallow: /api/
 
 # Sitemap
-Sitemap: https://votredomaine.fr/sitemap.xml
+Sitemap: https://planb-crm.fr/sitemap.xml
 
 # Délai entre les requêtes (en secondes) - optionnel
 Crawl-delay: 1
