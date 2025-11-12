@@ -1,0 +1,36 @@
+{
+  "name": "planb-crm-analytics",
+  "version": "1.0.0",
+  "description": "Panel administrateur avec analytics complet pour Plan B CRM",
+  "main": "api-server.js",
+  "scripts": {
+    "start": "node api-server.js",
+    "dev": "nodemon api-server.js",
+    "test:security": "node test-security.js",
+    "hash-password": "node -e \"const bcrypt = require('bcryptjs'); const password = process.argv[1]; if (!password) { console.log('Usage: npm run hash-password <password>'); process.exit(1); } bcrypt.hash(password, 10, (err, hash) => { console.log('Hash bcrypt:', hash); console.log('Copiez ce hash dans le fichier .env (ADMIN_PASSWORD_HASH)'); });\"",
+    "generate-secret": "node -e \"const crypto = require('crypto'); console.log('JWT_SECRET=' + crypto.randomBytes(64).toString('hex')); console.log('Copiez ce secret dans le fichier .env');\""
+  },
+  "keywords": [
+    "analytics",
+    "crm",
+    "admin",
+    "dashboard"
+  ],
+  "author": "Plan B CRM",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^17.2.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^8.2.1",
+    "express-validator": "^7.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "winston": "^3.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
