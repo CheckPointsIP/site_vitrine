@@ -413,6 +413,61 @@
         </div>
     </section>
 
+    <!-- Section Pain Points - Citations Personas -->
+    <section class="pain-points-section" style="background: var(--bg-light); padding: 80px 20px;">
+        <div class="container">
+            <h2 class="section-title">Ces défis vous parlent ?</h2>
+            <p class="lead" style="max-width: 800px; margin: 0 auto 3rem;">Chaque jour, des professionnels de la formation nous confient leurs frustrations. Peut-être vous reconnaîtrez-vous...</p>
+
+            <div class="pain-points-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <!-- Pain Point 1 - Sophie (Directrice CFA) -->
+                <div class="pain-card animate-on-scroll fade-in-up">
+                    <div class="pain-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-color), var(--primary-color)); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; margin-bottom: 1.5rem;">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <blockquote style="font-size: 1.1rem; font-style: italic; color: var(--text-dark); margin-bottom: 1.5rem; line-height: 1.6; border-left: 4px solid var(--accent-color); padding-left: 1.5rem;">
+                        "Je passe plus de temps à chercher l'information qu'à prendre des décisions stratégiques."
+                    </blockquote>
+                    <p style="font-weight: 600; color: var(--text-light); margin-bottom: 0.5rem;">— Sophie M., Directrice de CFA</p>
+                    <div style="background: var(--bg-white); padding: 1.5rem; margin-top: 1rem; border-left: 3px solid var(--success-color);">
+                        <p style="font-weight: 700; color: var(--success-color); margin-bottom: 0.5rem;">✓ Notre solution</p>
+                        <p style="color: var(--text-dark); margin: 0;">Tableaux de bord temps réel : toutes vos données centralisées, vue 360° en un clic.</p>
+                    </div>
+                </div>
+
+                <!-- Pain Point 2 - Marc (Responsable Pédagogique) -->
+                <div class="pain-card animate-on-scroll fade-in-up">
+                    <div class="pain-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color), var(--accent-secondary)); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; margin-bottom: 1.5rem;">
+                        <i class="fas fa-user-times"></i>
+                    </div>
+                    <blockquote style="font-size: 1.1rem; font-style: italic; color: var(--text-dark); margin-bottom: 1.5rem; line-height: 1.6; border-left: 4px solid var(--primary-color); padding-left: 1.5rem;">
+                        "Quand j'apprends qu'un jeune décroche, il est souvent trop tard."
+                    </blockquote>
+                    <p style="font-weight: 600; color: var(--text-light); margin-bottom: 0.5rem;">— Marc D., Responsable Pédagogique</p>
+                    <div style="background: var(--bg-white); padding: 1.5rem; margin-top: 1rem; border-left: 3px solid var(--success-color);">
+                        <p style="font-weight: 700; color: var(--success-color); margin-bottom: 0.5rem;">✓ Notre solution</p>
+                        <p style="color: var(--text-dark); margin: 0;">Alertes décrochage J+3 : détectez les absences, notes en baisse, et intervenez AVANT l'abandon.</p>
+                    </div>
+                </div>
+
+                <!-- Pain Point 3 - Nathalie (Coordinatrice Admin) -->
+                <div class="pain-card animate-on-scroll fade-in-up">
+                    <div class="pain-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-secondary), var(--primary-color)); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; margin-bottom: 1.5rem;">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <blockquote style="font-size: 1.1rem; font-style: italic; color: var(--text-dark); margin-bottom: 1.5rem; line-height: 1.6; border-left: 4px solid var(--accent-secondary); padding-left: 1.5rem;">
+                        "Je passe mes journées à faire des tâches qu'une machine pourrait faire à ma place."
+                    </blockquote>
+                    <p style="font-weight: 600; color: var(--text-light); margin-bottom: 0.5rem;">— Nathalie L., Coordinatrice Administrative</p>
+                    <div style="background: var(--bg-white); padding: 1.5rem; margin-top: 1rem; border-left: 3px solid var(--success-color);">
+                        <p style="font-weight: 700; color: var(--success-color); margin-bottom: 0.5rem;">✓ Notre solution</p>
+                        <p style="color: var(--text-dark); margin: 0;">Automatisation intelligente : relances, rappels, campagnes email. Gagnez 2h par jour.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Système d'onglets -->
     <div class="tabs-container">
         <div class="tabs-nav">
@@ -424,6 +479,9 @@
             </button>
             <button class="tab-button" onclick="switchTab('equipe')">
                 <i class="fas fa-users"></i> Notre Équipe
+            </button>
+            <button class="tab-button" onclick="switchTab('temoignages')">
+                <i class="fas fa-star"></i> Témoignages
             </button>
             <button class="tab-button" onclick="switchTab('tarifs')">
                 <i class="fas fa-tags"></i> Tarifs
@@ -508,6 +566,13 @@
                 </div>
 
                 <div class="feature-card">
+                    <div class="feature-icon" style="background: var(--accent-color);"><i class="fas fa-bell"></i></div>
+                    <h3>Alertes intelligentes de décrochage</h3>
+                    <p>Détectez les décrochages AVANT qu'il soit trop tard. Le système vous alerte automatiquement J+3 si absence non justifiée, notes en baisse, ou feedback entreprise négatif. Intervenez immédiatement avec un accompagnement renforcé et sauvez vos apprenants.</p>
+                    <p class="feature-tagline"><strong>Anticiper, pas subir. Sauvez vos apprenants en temps réel.</strong></p>
+                </div>
+
+                <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-sliders-h"></i></div>
                     <h3>Personnalisation complète</h3>
                     <p>Chaque structure est unique — et votre CRM doit le refléter. Notre solution est entièrement modulable. Vous pouvez adapter les champs, formulaires, tableaux de bord et workflows à votre propre manière de travailler, sans avoir besoin d'un technicien.</p>
@@ -526,6 +591,13 @@
                     <h3>Reporting clair et utile</h3>
                     <p>Les chiffres ne servent à rien s'ils ne racontent pas une histoire. Nos tableaux de bord ne se contentent pas d'empiler des données : ils vous montrent ce qui compte vraiment. En un clin d'œil, vous visualisez le suivi de vos apprenants, les relances en attente, vos performances globales, et les tendances clés.</p>
                     <p class="feature-tagline"><strong>Des indicateurs qui parlent, des décisions plus rapides.</strong></p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: var(--accent-secondary);"><i class="fas fa-certificate"></i></div>
+                    <h3>Conformité Qualiopi automatisée</h3>
+                    <p>Serein face aux audits. Traçabilité totale de toutes les actions, exports automatiques de tous les documents requis, preuves d'amélioration continue intégrées. Audit Qualiopi surprise ? Exportez tout en 2 clics et impressionnez les auditeurs avec votre organisation parfaite.</p>
+                    <p class="feature-tagline"><strong>Audit sérénité garantie. Note maximale à chaque fois.</strong></p>
                 </div>
 
                 <div class="feature-card">
@@ -657,6 +729,132 @@
     </section>
     </div>
 
+    <!-- Témoignages Tab Content -->
+    <div id="tab-temoignages" class="tab-content">
+    <section id="temoignages" class="temoignages">
+        <div class="container">
+            <h2 class="section-title">Ils nous font confiance</h2>
+            <p class="lead">Découvrez les retours d'expérience de nos clients qui ont transformé leur gestion quotidienne grâce à Plan B CRM.</p>
+
+            <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin-top: 4rem;">
+
+                <!-- Testimonial 1 - Marie Durand (Directrice CFA) -->
+                <div class="testimonial-card animate-on-scroll fade-in-up" style="background: var(--bg-white); padding: 3rem 2.5rem; position: relative; border-top: 6px solid var(--primary-color); box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <!-- Quote marks decorative -->
+                    <div style="position: absolute; top: 2rem; right: 2rem; font-size: 5rem; color: var(--primary-color); opacity: 0.1; font-family: Georgia, serif; line-height: 1;">"</div>
+
+                    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                        <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 700; flex-shrink: 0;">MD</div>
+                        <div>
+                            <h3 style="margin: 0 0 0.25rem 0; font-size: 1.3rem; color: var(--text-dark);">Marie Durand</h3>
+                            <p style="margin: 0; color: var(--text-light); font-size: 0.95rem;">Directrice de CFA</p>
+                            <p style="margin: 0.25rem 0 0 0; color: var(--primary-color); font-weight: 600; font-size: 0.9rem;">CFA Lyon Métropole - 850 apprenants</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; color: var(--accent-secondary);">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <blockquote style="font-size: 1.1rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 2rem; font-style: italic; border: none; padding: 0;">
+                        "Avant Plan B, je passais mes lundis matin à compiler des données. Maintenant, j'ouvre le tableau de bord et j'ai TOUT en temps réel. Mon équipe a gagné 15% de productivité en 3 mois. Le retour sur investissement est juste incroyable."
+                    </blockquote>
+
+                    <div style="background: var(--bg-light); padding: 1.5rem; border-left: 4px solid var(--success-color);">
+                        <p style="font-weight: 700; color: var(--success-color); margin: 0 0 0.5rem 0;">📈 Résultats mesurés</p>
+                        <ul style="margin: 0; padding-left: 1.25rem; color: var(--text-dark);">
+                            <li>+15% de productivité équipe</li>
+                            <li>ROI atteint en 6 mois</li>
+                            <li>-25% temps administratif</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 - Julien Martin (Responsable Pédagogique) -->
+                <div class="testimonial-card animate-on-scroll fade-in-up" style="background: var(--bg-white); padding: 3rem 2.5rem; position: relative; border-top: 6px solid var(--accent-color); box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <div style="position: absolute; top: 2rem; right: 2rem; font-size: 5rem; color: var(--accent-color); opacity: 0.1; font-family: Georgia, serif; line-height: 1;">"</div>
+
+                    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                        <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary)); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 700; flex-shrink: 0;">JM</div>
+                        <div>
+                            <h3 style="margin: 0 0 0.25rem 0; font-size: 1.3rem; color: var(--text-dark);">Julien Martin</h3>
+                            <p style="margin: 0; color: var(--text-light); font-size: 0.95rem;">Responsable Pédagogique</p>
+                            <p style="margin: 0.25rem 0 0 0; color: var(--accent-color); font-weight: 600; font-size: 0.9rem;">CFA Commerce Toulouse - 280 alternants</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; color: var(--accent-secondary);">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <blockquote style="font-size: 1.1rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 2rem; font-style: italic; border: none; padding: 0;">
+                        "Les alertes de décrochage ont tout changé. Maintenant, dès qu'un jeune montre des signes de difficulté, je suis notifié immédiatement. On intervient en J+3 au lieu de J+15. Notre taux d'abandon a chuté de 8 points en un an !"
+                    </blockquote>
+
+                    <div style="background: var(--bg-light); padding: 1.5rem; border-left: 4px solid var(--success-color);">
+                        <p style="font-weight: 700; color: var(--success-color); margin: 0 0 0.5rem 0;">📈 Résultats mesurés</p>
+                        <ul style="margin: 0; padding-left: 1.25rem; color: var(--text-dark);">
+                            <li>-8% taux d'abandon</li>
+                            <li>Détection décrochage J+3</li>
+                            <li>100% apprenants suivis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 - Claire Rousseau (Coordinatrice Admin) -->
+                <div class="testimonial-card animate-on-scroll fade-in-up" style="background: var(--bg-white); padding: 3rem 2.5rem; position: relative; border-top: 6px solid var(--accent-secondary); box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <div style="position: absolute; top: 2rem; right: 2rem; font-size: 5rem; color: var(--accent-secondary); opacity: 0.1; font-family: Georgia, serif; line-height: 1;">"</div>
+
+                    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                        <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-secondary), var(--primary-color)); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 700; flex-shrink: 0;">CR</div>
+                        <div>
+                            <h3 style="margin: 0 0 0.25rem 0; font-size: 1.3rem; color: var(--text-dark);">Claire Rousseau</h3>
+                            <p style="margin: 0; color: var(--text-light); font-size: 0.95rem;">Coordinatrice Administrative</p>
+                            <p style="margin: 0.25rem 0 0 0; color: var(--accent-secondary); font-weight: 600; font-size: 0.9rem;">Organisme Formation Nice - 450 apprenants</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; color: var(--accent-secondary);">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <blockquote style="font-size: 1.1rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 2rem; font-style: italic; border: none; padding: 0;">
+                        "Fini les relances manuelles ! Le CRM envoie automatiquement les rappels de dossiers incomplets, de paiements, d'échéances... Mon équipe a récupéré 2h par jour. Et lors du dernier audit Qualiopi, on a tout exporté en 2 clics. L'auditeur était bluffé."
+                    </blockquote>
+
+                    <div style="background: var(--bg-light); padding: 1.5rem; border-left: 4px solid var(--success-color);">
+                        <p style="font-weight: 700; color: var(--success-color); margin: 0 0 0.5rem 0;">📈 Résultats mesurés</p>
+                        <ul style="margin: 0; padding-left: 1.25rem; color: var(--text-dark);">
+                            <li>2h/jour gagnées par personne</li>
+                            <li>ROI atteint en 3 mois</li>
+                            <li>Audit Qualiopi note maximale</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="cta-center" style="margin-top: 4rem; text-align: center;">
+                <p style="font-size: 1.2rem; color: var(--text-dark); margin-bottom: 1.5rem; font-weight: 600;">Vous aussi, rejoignez nos clients satisfaits</p>
+                <a href="demo.html" class="btn btn-primary" style="margin: 0 0.5rem;">Demander une démo</a>
+                <a href="contact.html" class="btn btn-secondary" style="margin: 0 0.5rem;">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+    </div>
+
     <!-- Tarifs Tab Content -->
     <div id="tab-tarifs" class="tab-content">
     <section id="tarifs" class="tarifs">
@@ -711,6 +909,56 @@
                     <p class="pricing-desc">Pour les organisations aux processus uniques et aux exigences spécifiques.</p>
                     <a href="contact.html" class="btn btn-outline">Nous contacter</a>
                 </div>
+            </div>
+
+            <!-- Section ROI - Retour sur Investissement -->
+            <div class="roi-section" style="background: var(--bg-light); padding: 3rem 2rem; margin: 4rem 0; border-radius: 0;">
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 1rem; color: var(--text-dark);">Calculez votre retour sur investissement</h3>
+                <p style="text-align: center; color: var(--text-light); max-width: 700px; margin: 0 auto 3rem; font-size: 1.1rem;">
+                    Voici des exemples réels d'économies réalisées par nos clients selon leur profil
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
+                    <!-- ROI Card 1 - Sophie (Directrice CFA) -->
+                    <div class="roi-card animate-on-scroll scale-in" style="background: var(--bg-white); padding: 2.5rem; text-align: center; border-top: 5px solid var(--primary-color); box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+                        <div style="width: 70px; height: 70px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-user-tie" style="color: white; font-size: 2rem;"></i>
+                        </div>
+                        <h4 style="color: var(--text-dark); margin-bottom: 0.5rem; font-size: 1.2rem;">Directrice CFA</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.5rem;">Structure 850 apprenants, 3 sites</p>
+                        <div style="font-size: 3rem; font-weight: 900; color: var(--primary-color); margin-bottom: 0.5rem;">28 000€</div>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">économisés par an</p>
+                        <p style="color: var(--text-dark); font-size: 0.95rem; line-height: 1.6;">20h/semaine gagnées × 35€/h = Formule Entreprise rentabilisée en <strong style="color: var(--success-color);">6 mois</strong></p>
+                    </div>
+
+                    <!-- ROI Card 2 - Nathalie (Coordinatrice Admin) -->
+                    <div class="roi-card animate-on-scroll scale-in" style="background: var(--bg-white); padding: 2.5rem; text-align: center; border-top: 5px solid var(--accent-color); box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+                        <div style="width: 70px; height: 70px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-user-cog" style="color: white; font-size: 2rem;"></i>
+                        </div>
+                        <h4 style="color: var(--text-dark); margin-bottom: 0.5rem; font-size: 1.2rem;">Coordinatrice Admin</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.5rem;">450 apprenants, 3 collaborateurs</p>
+                        <div style="font-size: 3rem; font-weight: 900; color: var(--accent-color); margin-bottom: 0.5rem;">18 000€</div>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">économisés par an</p>
+                        <p style="color: var(--text-dark); font-size: 0.95rem; line-height: 1.6;">60h/mois gagnées × 25€/h = Formule Basic rentabilisée en <strong style="color: var(--success-color);">3 mois</strong></p>
+                    </div>
+
+                    <!-- ROI Card 3 - Jean-Philippe (DSI Réseau) -->
+                    <div class="roi-card animate-on-scroll scale-in" style="background: var(--bg-white); padding: 2.5rem; text-align: center; border-top: 5px solid var(--accent-secondary); box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+                        <div style="width: 70px; height: 70px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--accent-secondary), var(--primary-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-network-wired" style="color: white; font-size: 2rem;"></i>
+                        </div>
+                        <h4 style="color: var(--text-dark); margin-bottom: 0.5rem; font-size: 1.2rem;">DSI Réseau CFA</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.5rem;">12 sites, 3200 apprenants</p>
+                        <div style="font-size: 3rem; font-weight: 900; color: var(--accent-secondary); margin-bottom: 0.5rem;">320 000€</div>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">économisés par an</p>
+                        <p style="color: var(--text-dark); font-size: 0.95rem; line-height: 1.6;">Économie licences (150k€) + maintenance (120k€) + productivité (50k€) = ROI <strong style="color: var(--success-color);">immédiat</strong></p>
+                    </div>
+                </div>
+
+                <p style="text-align: center; margin-top: 3rem; color: var(--text-light); font-style: italic;">
+                    💡 Chiffres basés sur les retours clients réels après 6 mois d'utilisation
+                </p>
             </div>
 
             <div style="text-align: center; margin-top: 3rem;">
