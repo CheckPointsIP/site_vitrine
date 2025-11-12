@@ -785,10 +785,27 @@
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: var(--transition);
+            position: relative;
+        }
+
+        .footer-section a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .footer-section a:hover {
             color: white;
+            padding-left: 5px;
+        }
+
+        .footer-section a:hover::after {
+            width: 100%;
         }
 
         .footer-bottom {
@@ -956,6 +973,40 @@
                 display: block;
                 margin: 0.5rem auto;
             }
+        }
+
+        /* Footer - Barres bleues décoratives */
+        .footer-section {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1.5rem;
+        }
+
+        /* Classes d'animation pour le scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .animate-on-scroll.fade-in-up {
+            transform: translateY(40px);
+        }
+
+        .animate-on-scroll.fade-in-left {
+            transform: translateX(-40px);
+        }
+
+        .animate-on-scroll.fade-in-right {
+            transform: translateX(40px);
+        }
+
+        .animate-on-scroll.scale-in {
+            transform: scale(0.9);
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0) translateX(0) scale(1);
         }
     </style>
 </head>
@@ -2088,6 +2139,38 @@
             // Mise à jour initiale et au resize
             updateCustomScrollbar();
             window.addEventListener('resize', updateCustomScrollbar);
+
+            // Animation au scroll pour les sections du footer
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -80px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Délai progressif pour créer un effet en cascade
+                        setTimeout(() => {
+                            entry.target.classList.add('animated');
+                        }, index * 150);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Ajouter les animations aux sections du footer et autres éléments
+            const animateElements = [
+                { selector: '.footer-section', animation: 'fade-in-up' },
+                { selector: '.feature-card', animation: 'fade-in-up' },
+                { selector: '.benefit-box', animation: 'fade-in-up' }
+            ];
+
+            animateElements.forEach(({ selector, animation }) => {
+                document.querySelectorAll(selector).forEach((el) => {
+                    el.classList.add('animate-on-scroll', animation);
+                    observer.observe(el);
+                });
+            });
         });
     </script>
 
