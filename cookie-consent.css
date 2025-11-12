@@ -18,6 +18,10 @@
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+[data-theme="dark"] .cookie-consent-overlay {
+    background: rgba(0, 0, 0, 0.85);
+}
+
 .cookie-consent-overlay.active {
     opacity: 1;
     visibility: visible;
@@ -40,9 +44,10 @@
 }
 
 [data-theme="dark"] .cookie-consent-banner {
-    --bg-color: #1a1a1a;
+    --bg-color: #2a2a2a;
     --text-color: #ffffff;
-    --border-color: #333;
+    --border-color: #4a4a4a;
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .cookie-consent-banner.active {
@@ -96,7 +101,7 @@
 }
 
 [data-theme="dark"] .cookie-consent-text {
-    color: #cccccc;
+    color: #e0e0e0;
 }
 
 .cookie-consent-text a {
@@ -147,7 +152,7 @@
 
 [data-theme="dark"] .cookie-consent-btn-secondary {
     color: #ffffff;
-    border-color: #555;
+    border-color: #666;
 }
 
 .cookie-consent-btn-secondary:hover {
@@ -189,6 +194,12 @@
     transition: all 0.3s ease;
 }
 
+[data-theme="dark"] .cookie-preferences-modal {
+    background: #2a2a2a;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7);
+    border: 1px solid #4a4a4a;
+}
+
 .cookie-preferences-modal.active {
     opacity: 1;
     visibility: visible;
@@ -201,7 +212,7 @@
 }
 
 [data-theme="dark"] .cookie-preferences-header {
-    border-bottom-color: #333;
+    border-bottom-color: #4a4a4a;
 }
 
 .cookie-preferences-header h2 {
@@ -212,6 +223,14 @@
 
 [data-theme="dark"] .cookie-preferences-header h2 {
     color: #ffffff;
+}
+
+.cookie-preferences-header p {
+    color: var(--text-color, #666);
+}
+
+[data-theme="dark"] .cookie-preferences-header p {
+    color: #d0d0d0;
 }
 
 .cookie-preferences-body {
@@ -225,7 +244,7 @@
 }
 
 [data-theme="dark"] .cookie-category {
-    border-bottom-color: #333;
+    border-bottom-color: #4a4a4a;
 }
 
 .cookie-category:last-child {
@@ -259,7 +278,7 @@
 }
 
 [data-theme="dark"] .cookie-category-description {
-    color: #aaaaaa;
+    color: #d0d0d0;
 }
 
 /* Toggle Switch */
@@ -331,7 +350,7 @@
 }
 
 [data-theme="dark"] .cookie-preferences-footer {
-    border-top-color: #333;
+    border-top-color: #4a4a4a;
 }
 
 /* Badge cookie settings (après acceptation) */
