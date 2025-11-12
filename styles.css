@@ -1,5 +1,7 @@
 /* Reset et variables - Style Bauhaus */
-:root {
+/* Mode clair (par défaut) */
+:root,
+[data-theme="light"] {
     /* Palette Bauhaus moderne - Kinesis CRM */
     --primary-color: #0052CC;        /* Bleu Bauhaus fort */
     --secondary-color: #172B4D;      /* Bleu marine profond */
@@ -15,6 +17,90 @@
     --warning-color: #FFAB00;
     --grid-color: #DFE1E6;
     --transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+    /* Variables pour ombres et overlays */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --overlay-light: rgba(255, 255, 255, 0.1);
+    --overlay-medium: rgba(255, 255, 255, 0.15);
+    --overlay-border: rgba(255, 255, 255, 0.2);
+}
+
+/* Mode sombre */
+[data-theme="dark"] {
+    /* Conservation des couleurs d'accent Plan B CRM */
+    --primary-color: #3399FF;        /* Bleu plus clair pour meilleur contraste */
+    --secondary-color: #1a1a1a;      /* Gris très foncé (remplace le bleu marine) */
+    --accent-color: #FF6B4A;         /* Rouge plus clair pour meilleur contraste */
+    --accent-secondary: #FFB930;     /* Jaune plus clair pour meilleur contraste */
+    --text-dark: #f5f5f5;            /* Texte principal ultra clair (encore plus lisible) */
+    --text-light: #e0e0e0;           /* Texte secondaire très clair (était #c7c7c7) */
+    --bg-light: #1f1f1f;             /* Fond sections alternées plus foncé */
+    --bg-white: #2a2a2a;             /* Fond principal plus foncé pour meilleur contraste */
+    --bg-geometric: #1a1a1a;         /* Fond éléments géométriques */
+    --border-color: #505050;         /* Bordures encore plus visibles */
+    --success-color: #4CAF8F;        /* Vert plus clair pour meilleur contraste */
+    --warning-color: #FFB930;        /* Jaune plus clair */
+    --grid-color: #505050;           /* Lignes de grille plus visibles */
+    --transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+    /* Ombres adaptées pour le dark mode (plus prononcées) */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.6);
+    --overlay-light: rgba(255, 255, 255, 0.08);
+    --overlay-medium: rgba(255, 255, 255, 0.12);
+    --overlay-border: rgba(255, 255, 255, 0.15);
+}
+
+/* Forcer le contraste des textes en mode sombre */
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] span,
+[data-theme="dark"] div:not(.hero):not(.tabs-container):not(.footer) {
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: var(--text-dark);
+}
+
+/* Exceptions pour les éléments avec couleurs spécifiques */
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .story-block h3,
+[data-theme="dark"] .why-item h4,
+[data-theme="dark"] .feature-card h3,
+[data-theme="dark"] .pricing-title,
+[data-theme="dark"] .faq-category-title {
+    color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .feature-tagline {
+    color: var(--primary-color) !important;
+}
+
+/* Footer en mode sombre - fond sombre obligatoire */
+[data-theme="dark"] .footer {
+    background-color: #1a1a1a !important;
+    color: white !important;
+}
+
+[data-theme="dark"] .footer h4,
+[data-theme="dark"] .footer p,
+[data-theme="dark"] .footer a,
+[data-theme="dark"] .footer span,
+[data-theme="dark"] .footer div {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="dark"] .footer a:hover {
+    color: white !important;
 }
 
 * {
@@ -195,7 +281,7 @@ p {
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-lg);
     padding: 1rem 0;
 }
 
@@ -218,8 +304,8 @@ p {
     position: relative;
     min-width: 180px;
     padding: 1rem 1.5rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    background-color: var(--overlay-light);
+    border: 2px solid var(--overlay-border);
     border-radius: 0;
     cursor: pointer;
     font-size: 0.9rem;
@@ -244,7 +330,7 @@ p {
 }
 
 .tab-button:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: var(--overlay-medium);
     border-color: var(--primary-color);
     color: white;
     transform: translateY(-2px);
@@ -473,10 +559,10 @@ p {
 }
 
 .why-item {
-    background-color: white;
+    background-color: var(--bg-white);
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-sm);
 }
 
 .why-item h4 {
@@ -518,7 +604,7 @@ p {
 }
 
 .feature-card {
-    background: white;
+    background: var(--bg-white);
     border: 3px solid var(--border-color);
     padding: 2rem;
     position: relative;
@@ -626,7 +712,7 @@ p {
 
 .support-item {
     margin-bottom: 1rem;
-    background-color: white;
+    background-color: var(--bg-white);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
@@ -641,7 +727,7 @@ p {
 .support-btn {
     width: 100%;
     padding: 1.5rem;
-    background-color: white;
+    background-color: var(--bg-white);
     border: none;
     cursor: pointer;
     display: flex;
@@ -708,7 +794,7 @@ p {
 }
 
 .pricing-card {
-    background-color: white;
+    background-color: var(--bg-white);
     padding: 3rem 2.5rem;
     border-radius: 0;
     box-shadow: none;
@@ -843,7 +929,7 @@ p {
 
 .faq-item {
     margin-bottom: 1rem;
-    background-color: white;
+    background-color: var(--bg-white);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
@@ -858,7 +944,7 @@ p {
 .faq-question {
     width: 100%;
     padding: 1.25rem;
-    background-color: white;
+    background-color: var(--bg-white);
     border: none;
     cursor: pointer;
     display: flex;
@@ -1352,7 +1438,7 @@ a, button, .btn, .feature-card, .pricing-card, .support-btn, .faq-question {
 .form-container-bauhaus {
     max-width: 700px;
     margin: 0 auto;
-    background-color: white;
+    background-color: var(--bg-white);
     padding: 3rem;
     border-radius: 8px;
     border: 3px solid var(--border-color);
@@ -1449,7 +1535,7 @@ a, button, .btn, .feature-card, .pricing-card, .support-btn, .faq-question {
 
 .success-message-bauhaus {
     display: none;
-    background: white;
+    background: var(--bg-white);
     padding: 3rem;
     border-radius: 8px;
     text-align: center;
@@ -1489,7 +1575,7 @@ a, button, .btn, .feature-card, .pricing-card, .support-btn, .faq-question {
 .benefits-list-bauhaus {
     margin-top: 2.5rem;
     padding: 2.5rem;
-    background-color: white;
+    background-color: var(--bg-white);
     border-radius: 8px;
     border: 3px solid var(--border-color);
     position: relative;
@@ -1610,4 +1696,68 @@ a, button, .btn, .feature-card, .pricing-card, .support-btn, .faq-question {
 
 .back-link-bauhaus:hover::after {
     width: 100%;
+}
+
+/* ========================================
+   DARK MODE TOGGLE BUTTON
+   Bouton flottant coin haut-droit (index.html uniquement)
+   ======================================== */
+
+.dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--bg-white);
+    border: 3px solid var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: var(--shadow-md);
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+    border-color: var(--primary-color);
+    box-shadow: 0 6px 20px rgba(0, 82, 204, 0.3);
+}
+
+.dark-mode-toggle:active {
+    transform: scale(0.95);
+}
+
+.dark-mode-toggle svg {
+    width: 20px;
+    height: 20px;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+/* Afficher/masquer les icônes selon le mode */
+[data-theme="light"] .moon-icon {
+    display: none;
+}
+
+[data-theme="dark"] .sun-icon {
+    display: none;
+}
+
+/* Responsive mobile */
+@media (max-width: 767px) {
+    .dark-mode-toggle {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .dark-mode-toggle svg {
+        width: 18px;
+        height: 18px;
+    }
 }

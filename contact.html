@@ -2,6 +2,16 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+
+    <!-- Script anti-flash pour le dark mode -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') ||
+                         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nous contacter - CRM Terrain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,10 +58,10 @@
         }
 
         .contact-card {
-            background-color: white;
+            background-color: var(--bg-white);
             padding: 2.5rem;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-md);
             text-align: center;
             transition: var(--transition);
         }
@@ -254,5 +264,8 @@
             */
         }
     </script>
+
+    <!-- Analytics Tracker -->
+    <script src="analytics-tracker.js"></script>
 </body>
 </html>

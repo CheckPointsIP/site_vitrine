@@ -1,18 +1,53 @@
 # Site Vitrine CRM - Documentation
 
+## 🆕 NOUVEAU : Panel Administrateur Analytics
+
+**📊 Un système complet de tracking et d'analytics a été ajouté !**
+
+👉 **Démarrage rapide** : Consultez [START-HERE.md](START-HERE.md)
+📚 **Documentation complète** : Consultez [ANALYTICS-README.md](ANALYTICS-README.md)
+
+### Accès rapide
+- **Panel Admin** : Ouvrez `admin.html` (Identifiants : admin / admin123)
+- **Page de test** : Ouvrez `test-analytics.html` pour tester le tracking
+
+### Fonctionnalités Analytics
+✅ Tracking automatique de toutes les interactions
+✅ Dashboard avec graphiques interactifs (Chart.js)
+✅ Export JSON/CSV des données
+✅ Temps réel + filtres par date
+✅ Backend Node.js + PHP inclus
+
+---
+
 ## Structure du projet
 
 ```
 site vitrine/
 │
-├── index.html              # Page d'accueil principale
-├── decouvrir.html          # Page "Découvrir notre CRM"
-├── demo.html               # Page de demande de démo
-├── fonctionnalites.html    # Page des fonctionnalités détaillées
-├── contact.html            # Page de contact
-├── styles.css              # Fichier CSS principal
-├── script.js               # Fichier JavaScript pour l'interactivité
-└── README.md               # Ce fichier
+├── index.html                  # Page d'accueil principale
+├── decouvrir.html              # Page "Découvrir notre CRM"
+├── demo.html                   # Page de demande de démo
+├── contact.html                # Page de contact
+├── pricing-monolithe.html      # Page technique détaillée
+│
+├── admin.html                  # 🆕 Panel administrateur analytics
+├── test-analytics.html         # 🆕 Page de test du tracking
+│
+├── styles.css                  # Fichier CSS principal
+├── script.js                   # Fichier JavaScript pour l'interactivité
+│
+├── analytics-tracker.js        # 🆕 Système de tracking automatique
+├── admin-dashboard.js          # 🆕 Dashboard et visualisations
+│
+├── api-server.js               # 🆕 Backend Node.js (optionnel)
+├── api.php                     # 🆕 Backend PHP (optionnel)
+├── package.json                # 🆕 Dépendances Node.js
+│
+├── README.md                   # Ce fichier
+├── ANALYTICS-README.md         # 🆕 Documentation analytics complète
+├── START-HERE.md               # 🆕 Guide de démarrage rapide
+└── .gitignore                  # 🆕 Fichiers à ignorer
 ```
 
 ## Pages du site

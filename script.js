@@ -1,3 +1,77 @@
+/**
+ * ========================================
+ * DARK MODE SYSTEM
+ * Détecte les préférences système + toggle manuel
+ * Persistance dans localStorage
+ * ========================================
+ */
+(function() {
+    'use strict';
+
+    // Vérifier la préférence système
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // Récupérer la préférence stockée
+    function getStoredTheme() {
+        return localStorage.getItem('theme');
+    }
+
+    // Stocker la préférence
+    function setStoredTheme(theme) {
+        localStorage.setItem('theme', theme);
+    }
+
+    // Obtenir le thème actif
+    function getActiveTheme() {
+        const storedTheme = getStoredTheme();
+        if (storedTheme) {
+            return storedTheme;
+        }
+        return prefersDarkScheme.matches ? 'dark' : 'light';
+    }
+
+    // Appliquer le thème
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+
+        // Mettre à jour la couleur du meta theme-color
+        const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeColorMeta) {
+            themeColorMeta.setAttribute('content', theme === 'dark' ? '#2a2a2a' : '#172B4D');
+        }
+    }
+
+    // Basculer le thème
+    function toggleTheme() {
+        const currentTheme = getActiveTheme();
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        setStoredTheme(newTheme);
+        applyTheme(newTheme);
+    }
+
+    // Initialiser le thème au chargement
+    applyTheme(getActiveTheme());
+
+    // Écouter les changements de préférence système
+    prefersDarkScheme.addEventListener('change', (e) => {
+        // Appliquer le changement système seulement si l'utilisateur n'a pas de préférence manuelle
+        if (!getStoredTheme()) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+
+    // Ajouter le listener au bouton toggle (après DOMContentLoaded)
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleButton = document.getElementById('dark-mode-toggle');
+        if (toggleButton) {
+            toggleButton.addEventListener('click', toggleTheme);
+        }
+    });
+
+    // Exposer la fonction toggleTheme globalement pour utilisation possible ailleurs
+    window.toggleDarkMode = toggleTheme;
+})();
+
 // Fonction de changement d'onglet
 function switchTab(tabName) {
     // Masquer tous les contenus d'onglets

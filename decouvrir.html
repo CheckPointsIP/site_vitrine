@@ -2,6 +2,16 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+
+    <!-- Script anti-flash pour le dark mode -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') ||
+                         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Découvrir notre CRM - La solution terrain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,9 +20,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Variables pour gradient video-section */
+        [data-theme="light"] {
+            --gradient-video-start: #eff6ff;
+            --gradient-video-end: #dbeafe;
+        }
+
+        [data-theme="dark"] {
+            --gradient-video-start: #1f1f1f;
+            --gradient-video-end: #2d2d2d;
+        }
+
         .video-section {
             padding: 80px 20px;
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            background: linear-gradient(135deg, var(--gradient-video-start) 0%, var(--gradient-video-end) 100%);
             text-align: center;
         }
 
@@ -357,5 +378,8 @@
     </section>
 
     <script src="script.js"></script>
+
+    <!-- Analytics Tracker -->
+    <script src="analytics-tracker.js"></script>
 </body>
 </html>
