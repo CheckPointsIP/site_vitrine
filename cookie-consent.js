@@ -129,8 +129,8 @@
                     </div>
                     <div class="cookie-consent-content">
                         <p class="cookie-consent-text">
-                            Nous utilisons des cookies pour améliorer votre expérience sur notre site,
-                            analyser le trafic et personnaliser le contenu.
+                            Nous utilisons des cookies pour améliorer votre expérience sur notre site
+                            et analyser le trafic.
                             Vous pouvez accepter tous les cookies, les refuser ou personnaliser vos préférences.
                             <br><br>
                             Pour plus d'informations, consultez notre
@@ -211,24 +211,6 @@
                             clics, navigateur utilisé.
                         </p>
                     </div>
-
-                    <!-- Cookies marketing -->
-                    <div class="cookie-category">
-                        <div class="cookie-category-header">
-                            <h3 class="cookie-category-title">Cookies marketing</h3>
-                            <label class="cookie-toggle">
-                                <input type="checkbox" id="marketing-cookies">
-                                <span class="cookie-toggle-slider"></span>
-                            </label>
-                        </div>
-                        <p class="cookie-category-description">
-                            Ces cookies sont utilisés pour vous proposer des publicités
-                            et du contenu personnalisés. Ils peuvent être déposés par nos
-                            partenaires publicitaires via notre site.
-                            <br><br>
-                            <strong>Partenaires :</strong> Actuellement aucun (site en développement).
-                        </p>
-                    </div>
                 </div>
                 <div class="cookie-preferences-footer">
                     <button class="cookie-consent-btn cookie-consent-btn-secondary" id="cancelPreferences">
@@ -272,7 +254,7 @@
             this.saveConsent({
                 essential: true,
                 analytics: true,
-                marketing: true
+                marketing: false
             });
             this.hideBanner();
         }
@@ -292,7 +274,6 @@
             // Charger les préférences actuelles si elles existent
             if (this.consent) {
                 document.getElementById('analytics-cookies').checked = this.consent.analytics || false;
-                document.getElementById('marketing-cookies').checked = this.consent.marketing || false;
             }
         }
 
@@ -302,12 +283,11 @@
 
         savePreferences() {
             const analytics = document.getElementById('analytics-cookies').checked;
-            const marketing = document.getElementById('marketing-cookies').checked;
 
             this.saveConsent({
                 essential: true,
                 analytics: analytics,
-                marketing: marketing
+                marketing: false
             });
 
             this.hidePreferences();
