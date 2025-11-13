@@ -14,9 +14,9 @@ Guide complet pour naviguer dans toute la documentation du système analytics.
 **Temps** : 10-30 minutes selon le mode
 **Contenu** : 3 modes d'installation détaillés (LocalStorage, Node.js, PHP)
 
-### Vous cherchez un aperçu ? → [RECAP-ANALYTICS.md](RECAP-ANALYTICS.md)
-**Temps** : 10 minutes
-**Contenu** : Récapitulatif complet de tout ce qui a été créé
+### Vous cherchez un aperçu ? → [ANALYTICS-README.md](ANALYTICS-README.md)
+**Temps** : 15 minutes
+**Contenu** : Documentation technique complète du système
 
 ---
 
@@ -28,12 +28,11 @@ Guide complet pour naviguer dans toute la documentation du système analytics.
 |----------|-------------|------------------|
 | [START-HERE.md](START-HERE.md) | Démarrage ultra-rapide | 5 min |
 | [INSTALLATION.md](INSTALLATION.md) | Installation pas à pas | 10-30 min |
-| [test-analytics.html](test-analytics.html) | Page de test interactive | - |
 
 **Parcours recommandé** :
 1. Lire START-HERE.md
-2. Tester avec test-analytics.html
-3. Suivre INSTALLATION.md si besoin de serveur
+2. Suivre INSTALLATION.md si besoin de serveur
+3. Utiliser admin.html pour visualiser les analytics
 
 ---
 
@@ -64,20 +63,17 @@ Guide complet pour naviguer dans toute la documentation du système analytics.
 |----------|-------------|------------------|
 | [ANALYTICS-README.md](ANALYTICS-README.md) | Documentation technique complète | 45 min |
 | [INSTALLATION.md](INSTALLATION.md) | Installation et configuration | 20 min |
-| [RECAP-ANALYTICS.md](RECAP-ANALYTICS.md) | Architecture du système | 15 min |
 | [CHANGELOG.md](CHANGELOG.md) | Historique des versions | 5 min |
 
 **Parcours recommandé** :
-1. Lire RECAP-ANALYTICS.md (comprendre l'architecture)
-2. Lire ANALYTICS-README.md (configuration avancée)
-3. Consulter INSTALLATION.md (troubleshooting)
-4. Lire le code source (analytics-tracker.js, admin-dashboard.js)
+1. Lire ANALYTICS-README.md (architecture + configuration avancée)
+2. Consulter INSTALLATION.md (troubleshooting)
+3. Lire le code source (analytics-tracker.js, admin-dashboard.js)
 
 **Fichiers source à étudier** :
 - `analytics-tracker.js` - Système de tracking (450 lignes)
 - `admin-dashboard.js` - Dashboard et visualisations (800 lignes)
 - `api-server.js` - Backend Node.js (300 lignes)
-- `api.php` - Backend PHP (400 lignes)
 
 ---
 
@@ -173,25 +169,7 @@ Guide complet pour naviguer dans toute la documentation du système analytics.
 
 ---
 
-#### 5. [RECAP-ANALYTICS.md](RECAP-ANALYTICS.md)
-**Type** : Récapitulatif technique
-**Pages** : ~15
-**Public** : Développeurs, Chefs de projet
-**Contenu** :
-- Ce qui a été créé (20 fichiers)
-- Fonctionnalités dashboard (7 sections)
-- Fonctionnalités avancées
-- Métriques trackées
-- Modes de déploiement
-- Sécurité implémentée
-- Capacités de stockage
-- Design system
-- Testing
-- Statistiques du projet (8700 lignes code)
-
----
-
-#### 6. [CHANGELOG.md](CHANGELOG.md)
+#### 5. [CHANGELOG.md](CHANGELOG.md)
 **Type** : Historique des versions
 **Pages** : ~8
 **Public** : Développeurs
@@ -204,7 +182,7 @@ Guide complet pour naviguer dans toute la documentation du système analytics.
 
 ---
 
-#### 7. [INDEX-DOCUMENTATION.md](INDEX-DOCUMENTATION.md)
+#### 6. [INDEX-DOCUMENTATION.md](INDEX-DOCUMENTATION.md)
 **Type** : Index de navigation
 **Pages** : ~6
 **Public** : Tous
@@ -219,20 +197,20 @@ Guide complet pour naviguer dans toute la documentation du système analytics.
 
 ### Fichiers de Configuration (3 fichiers)
 
-#### 8. [package.json](package.json)
+#### 7. [package.json](package.json)
 **Type** : Configuration Node.js
 **Contenu** :
 - Dépendances (Express, CORS)
 - Scripts (start, dev)
 - Métadonnées projet
 
-#### 9. [.gitignore](.gitignore)
+#### 8. [.gitignore](.gitignore)
 **Type** : Configuration Git
 **Contenu** :
 - Fichiers à ignorer (analytics-data, node_modules)
 - OS files, IDE files
 
-#### 10. [.env.example](.env.example)
+#### 9. [.env.example](.env.example)
 **Type** : Template configuration
 **Contenu** :
 - Variables d'environnement
@@ -243,14 +221,14 @@ Guide complet pour naviguer dans toute la documentation du système analytics.
 
 ### Fichiers Exécutables (2 fichiers)
 
-#### 11. [start-server.bat](start-server.bat)
+#### 10. [start-server.bat](start-server.bat)
 **Type** : Script Windows
 **Fonction** :
 - Vérifier Node.js
 - Installer dépendances
 - Démarrer serveur
 
-#### 12. [start-server.sh](start-server.sh)
+#### 11. [start-server.sh](start-server.sh)
 **Type** : Script Linux/Mac
 **Fonction** :
 - Vérifier Node.js
@@ -259,9 +237,9 @@ Guide complet pour naviguer dans toute la documentation du système analytics.
 
 ---
 
-### Fichiers Source (6 fichiers)
+### Fichiers Source (4 fichiers)
 
-#### 13. [admin.html](admin.html)
+#### 12. [admin.html](admin.html)
 **Type** : Interface principale
 **Lignes** : ~650
 **Contenu** :
@@ -270,7 +248,7 @@ Guide complet pour naviguer dans toute la documentation du système analytics.
 - Sidebar navigation
 - Responsive design
 
-#### 14. [admin-dashboard.js](admin-dashboard.js)
+#### 13. [admin-dashboard.js](admin-dashboard.js)
 **Type** : Logique dashboard
 **Lignes** : ~800
 **Contenu** :
@@ -280,7 +258,7 @@ Guide complet pour naviguer dans toute la documentation du système analytics.
 - Calculs statistiques
 - Export JSON/CSV
 
-#### 15. [analytics-tracker.js](analytics-tracker.js)
+#### 14. [analytics-tracker.js](analytics-tracker.js)
 **Type** : Système de tracking
 **Lignes** : ~450
 **Contenu** :
@@ -290,15 +268,7 @@ Guide complet pour naviguer dans toute la documentation du système analytics.
 - Session/User management
 - Optimisations performance
 
-#### 16. [test-analytics.html](test-analytics.html)
-**Type** : Page de test
-**Lignes** : ~250
-**Contenu** :
-- Tests tous événements
-- Console visuelle
-- Métriques temps réel
-
-#### 17. [api-server.js](api-server.js)
+#### 15. [api-server.js](api-server.js)
 **Type** : Backend Node.js
 **Lignes** : ~300
 **Contenu** :
@@ -306,13 +276,6 @@ Guide complet pour naviguer dans toute la documentation du système analytics.
 - Stockage JSONL
 - Statistiques
 - Export/Delete
-
-#### 18. [api.php](api.php)
-**Type** : Backend PHP
-**Lignes** : ~400
-**Contenu** :
-- Mêmes fonctionnalités que Node.js
-- Compatible hébergements mutualisés
 
 ---
 
@@ -323,10 +286,10 @@ Guide complet pour naviguer dans toute la documentation du système analytics.
 Pour tester le système sans installation :
 
 1. ✅ Lire [START-HERE.md](START-HERE.md) (5 min)
-2. ✅ Ouvrir `test-analytics.html` (5 min)
-3. ✅ Effectuer toutes les actions
+2. ✅ Naviguer sur le site web (index.html, etc.)
+3. ✅ Effectuer diverses actions (clics, scroll, formulaires)
 4. ✅ Ouvrir `admin.html` (5 min)
-5. ✅ Explorer les 7 sections
+5. ✅ Explorer les 7 sections du dashboard
 
 **Objectif** : Comprendre les capacités du système
 
@@ -340,7 +303,7 @@ Pour déployer en production :
 2. ✅ Choisir le mode (LocalStorage/Node.js/PHP)
 3. ✅ Suivre les étapes d'installation (30-60 min)
 4. ✅ Sécuriser (changer credentials, HTTPS, .htaccess) (20 min)
-5. ✅ Tester avec [test-analytics.html](test-analytics.html) (10 min)
+5. ✅ Tester le tracking sur votre site (10 min)
 6. ✅ Lire [ANALYTICS-README.md](ANALYTICS-README.md) section "Sécurité" (10 min)
 
 **Objectif** : Système production-ready sécurisé
@@ -364,11 +327,10 @@ Pour devenir expert dans l'utilisation :
 
 Pour personnaliser et étendre :
 
-1. ✅ Lire [RECAP-ANALYTICS.md](RECAP-ANALYTICS.md) (30 min)
-2. ✅ Lire [ANALYTICS-README.md](ANALYTICS-README.md) complet (60 min)
-3. ✅ Étudier `analytics-tracker.js` (60 min)
-4. ✅ Étudier `admin-dashboard.js` (60 min)
-5. ✅ Modifier et tester (30 min)
+1. ✅ Lire [ANALYTICS-README.md](ANALYTICS-README.md) complet (60 min)
+2. ✅ Étudier `analytics-tracker.js` (60 min)
+3. ✅ Étudier `admin-dashboard.js` (60 min)
+4. ✅ Modifier et tester (60 min)
 
 **Objectif** : Comprendre l'architecture et pouvoir modifier
 
@@ -384,7 +346,7 @@ Pour personnaliser et étendre :
 
 - **admin.html** : Panel administrateur
 - **analytics-tracker.js** : Tracking automatique
-- **api-server.js** ou **api.php** : Backend (optionnel)
+- **api-server.js** : Backend Node.js (optionnel)
 
 ### Documentation Principale
 
@@ -395,8 +357,8 @@ Pour personnaliser et étendre :
 
 ### Démarrage en 3 Étapes
 
-1. **Tester** : Ouvrir test-analytics.html → admin.html
-2. **Installer** : Choisir mode (LocalStorage/Node.js/PHP)
+1. **Tester** : Naviguer sur le site → Ouvrir admin.html
+2. **Installer** : Choisir mode (LocalStorage/Node.js)
 3. **Utiliser** : Lire GUIDE-UTILISATION.md
 
 ### Support
@@ -422,11 +384,9 @@ Pour personnaliser et étendre :
 
 **API**
 - [ANALYTICS-README.md](ANALYTICS-README.md) section "API Analytics"
-- [RECAP-ANALYTICS.md](RECAP-ANALYTICS.md) section "Backend API"
 
 **Graphiques**
 - [GUIDE-UTILISATION.md](GUIDE-UTILISATION.md) section "Interpréter"
-- [RECAP-ANALYTICS.md](RECAP-ANALYTICS.md) section "Graphiques"
 
 **Métriques**
 - [GUIDE-UTILISATION.md](GUIDE-UTILISATION.md) section "Comprendre"
