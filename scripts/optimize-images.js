@@ -10,8 +10,8 @@ const sharp = require('sharp');
 
 // Configuration
 const CONFIG = {
-  sourceDir: path.join(__dirname, 'images'),
-  outputDir: path.join(__dirname, 'images-optimized'),
+  sourceDir: path.join(__dirname, '..', 'images'),
+  outputDir: path.join(__dirname, '..', 'images-optimized'),
   formats: {
     jpg: { quality: 80, progressive: true },
     png: { quality: 80, compressionLevel: 9 },

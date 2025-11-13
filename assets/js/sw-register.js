@@ -18,7 +18,7 @@
   }
 
   // Configuration
-  const SW_PATH = '/service-worker.js';
+  const SW_PATH = '/assets/js/service-worker.js';
   const SW_SCOPE = '/';
 
   // Utilitaires de log

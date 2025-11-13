@@ -1,274 +1,226 @@
-# Site Vitrine CRM - Documentation
+# Plan B CRM - Site Vitrine avec Analytics
 
-## 🆕 NOUVEAU : Panel Administrateur Analytics
+> Site vitrine professionnel avec système d'analytics intégré
 
-**📊 Un système complet de tracking et d'analytics a été ajouté !**
-
-👉 **Démarrage rapide** : Consultez [START-HERE.md](START-HERE.md)
-📚 **Documentation complète** : Consultez [ANALYTICS-README.md](ANALYTICS-README.md)
-
-### Accès rapide
-- **Panel Admin** : Ouvrez `admin.html` (Identifiants : admin / admin123)
-- **Page de test** : Ouvrez `test-analytics.html` pour tester le tracking
-
-### Fonctionnalités Analytics
-✅ Tracking automatique de toutes les interactions
-✅ Dashboard avec graphiques interactifs (Chart.js)
-✅ Export JSON/CSV des données
-✅ Temps réel + filtres par date
-✅ Backend Node.js + PHP inclus
-
----
-
-## Structure du projet
+## Structure du Projet
 
 ```
-site vitrine/
+/
+├── pages/                  # Pages HTML
+│   ├── index.html         # Page d'accueil
+│   ├── admin.html         # Panel administrateur
+│   ├── contact.html       # Page contact
+│   ├── demo.html          # Demande de démo
+│   ├── decouvrir.html     # Découvrir le CRM
+│   ├── pricing-monolithe.html  # Détails techniques
+│   ├── confidentialite.html    # Politique de confidentialité
+│   ├── manifest.json      # PWA manifest
+│   ├── robots.txt         # SEO robots
+│   └── sitemap.xml        # Sitemap SEO
 │
-├── index.html                  # Page d'accueil principale
-├── decouvrir.html              # Page "Découvrir notre CRM"
-├── demo.html                   # Page de demande de démo
-├── contact.html                # Page de contact
-├── pricing-monolithe.html      # Page technique détaillée
+├── assets/                # Assets statiques
+│   ├── js/               # JavaScript
+│   │   ├── admin-dashboard.js
+│   │   ├── analytics-tracker.js
+│   │   ├── cookie-consent.js
+│   │   ├── script.js
+│   │   ├── service-worker.js
+│   │   └── sw-register.js
+│   ├── css/              # CSS
+│   │   ├── styles.css
+│   │   └── cookie-consent.css
+│   └── images/           # Images (vide actuellement)
 │
-├── admin.html                  # 🆕 Panel administrateur analytics
-├── test-analytics.html         # 🆕 Page de test du tracking
+├── server/               # Backend
+│   ├── auth.js          # Authentification JWT
+│   └── logger.js        # Logging Winston
 │
-├── styles.css                  # Fichier CSS principal
-├── script.js                   # Fichier JavaScript pour l'interactivité
+├── scripts/              # Scripts utilitaires
+│   ├── build.js         # Build et minification
+│   ├── integrate-cookies.js
+│   ├── optimize-images.js
+│   └── test-security.js
 │
-├── analytics-tracker.js        # 🆕 Système de tracking automatique
-├── admin-dashboard.js          # 🆕 Dashboard et visualisations
+├── docs/                 # Documentation
+│   ├── START-HERE.md    # Démarrage rapide
+│   ├── ANALYTICS-README.md
+│   ├── INSTALLATION.md
+│   ├── GUIDE-UTILISATION.md
+│   └── ... (12 fichiers)
 │
-├── api-server.js               # 🆕 Backend Node.js (optionnel)
-├── api.php                     # 🆕 Backend PHP (optionnel)
-├── package.json                # 🆕 Dépendances Node.js
+├── config/               # Configuration
+│   ├── start-server.bat # Démarrage Windows
+│   └── start-server.sh  # Démarrage Linux/Mac
 │
-├── README.md                   # Ce fichier
-├── ANALYTICS-README.md         # 🆕 Documentation analytics complète
-├── START-HERE.md               # 🆕 Guide de démarrage rapide
-└── .gitignore                  # 🆕 Fichiers à ignorer
+├── dist/                 # Build output (généré)
+├── analytics-data/       # Données analytics
+├── logs/                 # Logs applicatifs
+│
+├── api-server.js         # Serveur Express
+├── package.json          # Dépendances npm
+└── README.md            # Ce fichier
 ```
 
-## Pages du site
+## Démarrage Rapide
 
-### 1. Page d'accueil (index.html)
-La page principale contient toutes les sections importantes :
-- **Hero Section** : Bannière d'accueil avec le titre principal et le CTA
-- **Histoire** : Le storytelling complet de l'entreprise
-- **Ce qui rend notre CRM unique** : 6 cartes présentant les avantages clés
-- **Équipe engagée** : Section avec des boutons dépliables pour le support
-- **Tarifs** : 4 formules tarifaires (Basic, Pro, Entreprise, Sur mesure)
-- **FAQ** : Questions/réponses organisées par catégories
-- **Footer** : Navigation et liens de contact
+### 1. Installation
 
-### 2. Page Découvrir (decouvrir.html)
-- Emplacement pour vidéo de présentation (30 secondes)
-- À qui s'adresse le CRM
-- Les problèmes qu'il résout
-- Ses points forts
-
-### 3. Page Démo (demo.html)
-- Formulaire de demande de démo
-- Message de réassurance
-- Liste des bénéfices de la démo
-
-### 4. Page Fonctionnalités (fonctionnalites.html)
-- Présentation détaillée de toutes les fonctionnalités
-- 6 catégories principales avec icônes et descriptions
-- Bénéfices concrets pour chaque fonctionnalité
-
-### 5. Page Contact (contact.html)
-- 3 moyens de contact (Démo, Email, Téléphone)
-- Formulaire de contact avec différents sujets
-
-## Fonctionnalités interactives
-
-### Accordéons/Dépliables
-- **Section Support** : Boutons dépliables pour les différents types d'accompagnement
-- **FAQ** : Questions/réponses avec système d'ouverture/fermeture
-
-### Formulaires
-Les formulaires sont fonctionnels avec validation HTML5. Actuellement, ils affichent un message de succès simulé. Pour les rendre totalement opérationnels :
-
-1. Dans `demo.html`, ligne ~150 : Décommenter et configurer l'appel API
-2. Dans `contact.html`, ligne ~200 : Décommenter et configurer l'appel API
-
-### Animations
-- Scroll smooth pour les ancres
-- Animations au défilement (fade in + translation)
-- Effets hover sur les cartes et boutons
-
-## Personnalisation
-
-### Couleurs
-Les couleurs principales sont définies dans `styles.css` (lignes 2-13) :
-```css
---primary-color: #2563eb;    /* Bleu principal */
---secondary-color: #1e40af;   /* Bleu foncé */
---accent-color: #3b82f6;      /* Bleu accent */
+```bash
+npm install
 ```
 
-Pour changer les couleurs, modifiez ces variables.
+### 2. Démarrer le site
 
-### Contenu
-Tout le contenu textuel est directement modifiable dans les fichiers HTML.
+**Option A : Sans serveur (LocalStorage)**
+- Ouvrir `pages/index.html` dans un navigateur
 
-### Vidéo de présentation
-Dans `decouvrir.html` (ligne ~67), remplacez le placeholder par votre vidéo :
-```html
-<iframe width="100%" height="100%" src="VOTRE_URL_VIDEO" frameborder="0" allowfullscreen></iframe>
+**Option B : Avec serveur Node.js**
+```bash
+npm start
+```
+Le site sera accessible à `http://localhost:3000`
+
+### 3. Accéder au panel analytics
+
+- Ouvrir `pages/admin.html`
+- Identifiants par défaut : `admin` / `admin123`
+- ⚠️ **À changer avant production !**
+
+## Scripts NPM Disponibles
+
+```bash
+npm start              # Démarrer le serveur
+npm run dev            # Mode développement (nodemon)
+npm run build          # Build et minification
+npm run test:security  # Tests de sécurité
+npm run optimize-images # Optimiser les images
 ```
 
-### Numéro de téléphone
-Dans `contact.html` (ligne ~84), remplacez :
-```html
-<a href="tel:+33000000000" class="btn btn-outline">Appeler maintenant</a>
+## Documentation
+
+📚 **Documentation complète disponible dans `/docs/`**
+
+- **START-HERE.md** : Démarrage rapide (5 min)
+- **INSTALLATION.md** : Installation détaillée
+- **GUIDE-UTILISATION.md** : Guide utilisateur du panel
+- **ANALYTICS-README.md** : Documentation technique complète
+- **INDEX-DOCUMENTATION.md** : Navigation dans la documentation
+
+## Fonctionnalités
+
+### Site Vitrine
+- ✅ Design Bauhaus moderne
+- ✅ Responsive (Desktop, Tablet, Mobile)
+- ✅ Dark mode intégré
+- ✅ PWA (Progressive Web App)
+- ✅ SEO optimisé
+- ✅ RGPD compliant (consentement cookies)
+
+### Panel Analytics
+- ✅ Tracking automatique des interactions
+- ✅ Dashboard avec 7 sections
+- ✅ Graphiques interactifs (Chart.js)
+- ✅ Export JSON/CSV
+- ✅ Filtres par date
+- ✅ Temps réel
+
+### Backend
+- ✅ Serveur Express sécurisé
+- ✅ Authentification JWT
+- ✅ Rate limiting
+- ✅ Validation des données
+- ✅ Logs structurés (Winston)
+
+## Technologies
+
+- **Frontend :** HTML5, CSS3, JavaScript (Vanilla)
+- **Backend :** Node.js, Express
+- **Base de données :** LocalStorage (client) + JSONL (serveur)
+- **Build :** Terser, CleanCSS
+- **Sécurité :** JWT, bcrypt, CORS, Rate limiting
+
+## Configuration
+
+### Variables d'environnement
+
+Copier `.env.example` vers `.env` et configurer :
+
+```env
+# Serveur
+PORT=3000
+NODE_ENV=development
+
+# Sécurité
+JWT_SECRET=votre_secret_jwt_128_caracteres
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD_HASH=votre_hash_bcrypt
+
+# CORS
+ALLOWED_ORIGINS=http://localhost:3000
 ```
 
-## Backend / API
+### Générer des credentials sécurisés
 
-Pour rendre les formulaires fonctionnels, vous devrez :
+```bash
+# Générer un JWT secret
+npm run generate-secret
 
-1. **Créer un backend** (Node.js, PHP, Python, etc.)
-2. **Configurer les endpoints API** pour recevoir les données des formulaires
-3. **Décommenter et adapter les appels fetch()** dans :
-   - `demo.html` (fonction `handleSubmit`)
-   - `contact.html` (fonction `handleContactSubmit`)
-
-Exemple de structure d'API attendue :
-```
-POST /api/demo-request
-POST /api/contact
+# Hasher un mot de passe
+npm run hash-password VotreMotDePasse123!
 ```
 
-Les données envoyées sont au format JSON.
+## Avant la Production
 
-## Intégrations suggérées
+⚠️ **ACTIONS CRITIQUES**
 
-### Service d'emailing
-- **Brevo** (ex-Sendinblue) : pour automatiser les emails de confirmation
-- **Mailchimp** : alternative pour la gestion des contacts
+1. **Changer les credentials admin**
+   ```bash
+   npm run hash-password NouveauMotDePasse
+   ```
 
-### CRM / Base de données
-- Connecter les formulaires directement à votre CRM
-- Ou stocker dans une base de données (MySQL, PostgreSQL, MongoDB)
+2. **Générer nouveau JWT_SECRET**
+   ```bash
+   npm run generate-secret
+   ```
 
-### Analytics
-Ajouter Google Analytics ou autre solution de tracking avant la balise `</head>` :
-```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-```
+3. **Activer HTTPS** (Let's Encrypt gratuit)
 
-## Responsive Design
+4. **Protéger admin.html** (.htaccess ou nginx auth)
 
-Le site est entièrement responsive avec des breakpoints à :
-- **768px** : Tablettes
-- **480px** : Mobiles
+5. **Configurer CORS** (domaines autorisés)
 
-Testé sur :
-- Desktop (1920px, 1440px, 1280px)
-- Tablette (768px)
-- Mobile (375px, 414px)
-
-## Compatibilité navigateurs
-
-- Chrome / Edge (dernières versions)
-- Firefox (dernières versions)
-- Safari (dernières versions)
-- Pas de support pour Internet Explorer
-
-## Optimisations suggérées
-
-### Performance
-1. Compresser les images (si vous en ajoutez)
-2. Minifier CSS et JS pour la production
-3. Utiliser un CDN pour l'hébergement des assets
-
-### SEO
-1. Ajouter des balises meta description sur chaque page
-2. Ajouter les balises Open Graph pour les réseaux sociaux
-3. Créer un fichier `sitemap.xml`
-4. Ajouter un fichier `robots.txt`
-
-Exemple de meta à ajouter dans le `<head>` :
-```html
-<meta name="description" content="Le CRM né de l'expérience terrain pour les CFA et centres de formation">
-<meta name="keywords" content="CRM, formation, alternance, gestion">
-
-<!-- Open Graph -->
-<meta property="og:title" content="CRM Terrain - La solution pour les CFA">
-<meta property="og:description" content="Un CRM pensé par des professionnels pour des professionnels">
-<meta property="og:type" content="website">
-```
-
-### Sécurité
-Si vous ajoutez un backend :
-1. Valider toutes les entrées côté serveur
-2. Protéger contre les injections SQL
-3. Utiliser HTTPS (obligatoire)
-4. Ajouter des CAPTCHA sur les formulaires (Google reCAPTCHA)
+📖 Voir `docs/SECURITE-URGENTE.md` pour tous les détails
 
 ## Hébergement
 
 ### Options recommandées
-1. **Netlify** : Gratuit, simple, CI/CD automatique
-2. **Vercel** : Gratuit, très rapide
-3. **GitHub Pages** : Gratuit pour sites statiques
-4. **Hostinger / OVH** : Hébergement traditionnel
 
-### Déploiement rapide
-Pour un déploiement rapide sur Netlify :
-1. Créer un compte sur netlify.com
-2. Glisser-déposer le dossier complet
-3. Le site est en ligne !
+- **Netlify** : Gratuit, simple, CI/CD
+- **Vercel** : Gratuit, ultra-rapide
+- **Heroku** : Pour Node.js + backend
+- **OVH / Hostinger** : Hébergement classique
 
-## Support et maintenance
+### Déploiement
 
-### Pour modifier le contenu
-- Ouvrir les fichiers `.html` avec un éditeur de texte
-- Modifier le texte souhaité
-- Sauvegarder et recharger la page
+```bash
+# Build pour production
+npm run build
 
-### Pour modifier les styles
-- Ouvrir `styles.css`
-- Rechercher la section concernée
-- Modifier les propriétés CSS
-- Sauvegarder
+# Démarrer en mode production
+npm run start:prod
+```
 
-## Propositions de noms pour le CRM
+## Support
 
-D'après le brief, voici les suggestions de noms :
+- **Issues :** Consulter la documentation dans `/docs/`
+- **Questions :** Voir `docs/GUIDE-UTILISATION.md` (FAQ)
+- **Sécurité :** Voir `docs/SECURITE-URGENTE.md`
 
-**Catégorie professionnelle :**
-1. Praxis CRM (le passage à la pratique)
-2. Axis CRM (la colonne vertébrale)
-3. Perspectivia CRM (votre projet le plus audacieux)
-4. Axiom CRM (vérité évidente de terrain)
-5. Nexus CRM (point central de connexion)
+## Licence
 
-**Catégorie originale :**
-1. Elan CRM (dynamisme et croissance)
-2. Opus CRM (l'œuvre majeure)
-3. Atria CRM (le cœur de la maison)
-4. Kinesis CRM (mouvement et agilité)
-5. Le Cap CRM (direction et pilotage)
-
-## Notes importantes
-
-- Les formulaires sont actuellement en mode "démo" et n'envoient pas réellement de données
-- Les liens téléphone sont à configurer avec vos vrais numéros
-- L'emplacement vidéo dans decouvrir.html attend votre vidéo YouTube/Vimeo
-- Pensez à ajouter un favicon (icône du site)
-- Ajoutez une page de mentions légales et politique de confidentialité (RGPD)
-
-## Contact développeur
-
-Pour toute question sur la structure du code ou des modifications à apporter, n'hésitez pas à consulter les commentaires dans le code source.
+Propriétaire - Plan B CRM
 
 ---
 
-**Version :** 1.0
-**Date :** 2025
-**Licence :** Propriétaire
+**Version :** 1.0.0
+**Dernière mise à jour :** Novembre 2025

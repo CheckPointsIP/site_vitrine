@@ -11,16 +11,16 @@ const CleanCSS = require('clean-css');
 
 // Configuration
 const CONFIG = {
-  sourceDir: __dirname,
-  distDir: path.join(__dirname, 'dist'),
+  sourceDir: path.join(__dirname, '..'),
+  distDir: path.join(__dirname, '..', 'dist'),
   files: {
     css: [
-      { input: 'styles.css', output: 'styles.min.css' }
+      { input: 'assets/css/styles.css', output: 'styles.min.css' }
     ],
     js: [
-      { input: 'script.js', output: 'script.min.js' },
-      { input: 'analytics-tracker.js', output: 'analytics-tracker.min.js' },
-      { input: 'admin-dashboard.js', output: 'admin-dashboard.min.js' }
+      { input: 'assets/js/script.js', output: 'script.min.js' },
+      { input: 'assets/js/analytics-tracker.js', output: 'analytics-tracker.min.js' },
+      { input: 'assets/js/admin-dashboard.js', output: 'admin-dashboard.min.js' }
     ]
   }
 };

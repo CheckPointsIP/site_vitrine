@@ -10,13 +10,12 @@ const path = require('path');
 
 // Configuration
 const PAGES = [
-    'index.html',
-    'decouvrir.html',
-    'pricing-monolithe.html',
-    'contact.html',
-    'demo.html',
-    'test-analytics.html',
-    'admin.html'
+    'pages/index.html',
+    'pages/decouvrir.html',
+    'pages/pricing-monolithe.html',
+    'pages/contact.html',
+    'pages/demo.html',
+    'pages/admin.html'
 ];
 
 const CSS_LINK = '<link rel="stylesheet" href="cookie-consent.css">';

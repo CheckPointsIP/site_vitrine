@@ -10,18 +10,18 @@ const CACHE_NAME = `planb-crm-${CACHE_VERSION}`;
 // Fichiers à mettre en cache immédiatement (cache statique)
 const STATIC_CACHE_URLS = [
   '/',
-  '/index.html',
-  '/decouvrir.html',
-  '/demo.html',
-  '/contact.html',
-  '/pricing-monolithe.html',
+  '/pages/index.html',
+  '/pages/decouvrir.html',
+  '/pages/demo.html',
+  '/pages/contact.html',
+  '/pages/pricing-monolithe.html',
   '/dist/styles.min.css',
   '/dist/script.min.js',
   '/dist/analytics-tracker.min.js',
   // Fallback vers les versions non minifiées
-  '/styles.css',
-  '/script.js',
-  '/analytics-tracker.js'
+  '/assets/css/styles.css',
+  '/assets/js/script.js',
+  '/assets/js/analytics-tracker.js'
 ];
 
 // Stratégies de cache
