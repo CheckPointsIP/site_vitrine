@@ -98,6 +98,16 @@ function switchTab(tabName) {
         selectedButton.classList.add('active');
     }
 
+    // Masquer la section CTA si on est sur l'onglet tarifs
+    const ctaSection = document.querySelector('.cta-section');
+    if (ctaSection) {
+        if (tabName === 'tarifs') {
+            ctaSection.style.display = 'none';
+        } else {
+            ctaSection.style.display = 'block';
+        }
+    }
+
     // Scroll to tabs position (where tabs become sticky)
     const heroSection = document.querySelector('.hero');
     const scrollContainer = document.getElementById('scroll-container');
