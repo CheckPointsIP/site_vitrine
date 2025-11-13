@@ -1012,35 +1012,43 @@
         let startY = 0;
         let startScrollTop = 0;
         let ticking = false;
-        let blueZoneHeight = 0;
-
-        // Cache la hauteur de la zone bleue au démarrage
-        function cacheBlueZoneHeight() {
-            const heroSection = document.querySelector('.hero');
-            const tabsContainer = document.querySelector('.tabs-container');
-            blueZoneHeight = (heroSection?.offsetHeight || 0) + (tabsContainer?.offsetHeight || 0);
-        }
 
         function updateCustomScrollbar() {
             const scrollHeight = scrollContainer.scrollHeight;
             const clientHeight = scrollContainer.clientHeight;
             const scrollTop = scrollContainer.scrollTop;
 
-            // Calculate thumb height and position
+            // Fixed thumb height (8% of viewport height)
+            const thumbHeight = 8;
             const scrollRatio = scrollTop / (scrollHeight - clientHeight);
-            const thumbHeight = (clientHeight / scrollHeight) * 100;
             const thumbTop = scrollRatio * (100 - thumbHeight);
 
             thumb.style.height = thumbHeight + '%';
             thumb.style.top = thumbTop + '%';
 
-            // Change color based on scroll position (cached value)
-            if (scrollTop < blueZoneHeight) {
+            // Change color based on hero visibility (only in light mode)
+            const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+
+            if (isDarkMode) {
+                // En mode dark, toujours blanc transparent
                 thumb.classList.add('on-blue');
                 thumb.classList.remove('on-white');
             } else {
-                thumb.classList.add('on-white');
-                thumb.classList.remove('on-blue');
+                // En mode light, détection précise de la position du hero
+                const heroSection = document.querySelector('.hero');
+                if (heroSection) {
+                    const heroRect = heroSection.getBoundingClientRect();
+                    // Transition quand le bas du hero sort du viewport (avec un offset de sécurité)
+                    const isInHero = heroRect.bottom > 50;
+
+                    if (isInHero) {
+                        thumb.classList.add('on-blue');
+                        thumb.classList.remove('on-white');
+                    } else {
+                        thumb.classList.add('on-white');
+                        thumb.classList.remove('on-blue');
+                    }
+                }
             }
 
             ticking = false;
@@ -1104,14 +1112,10 @@
         });
 
         // Initialize scrollbar
-        cacheBlueZoneHeight();
         updateCustomScrollbar();
 
         // Update on window resize
-        window.addEventListener('resize', () => {
-            cacheBlueZoneHeight();
-            requestTick();
-        });
+        window.addEventListener('resize', requestTick);
 
         // Scroll Progress Indicator (optimisé avec RAF)
         let progressTicking = false;

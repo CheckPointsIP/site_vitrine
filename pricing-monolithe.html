@@ -2070,26 +2070,37 @@
                 const clientHeight = scrollContainer.clientHeight;
                 const scrollTop = scrollContainer.scrollTop;
 
-                // Calculer la position et hauteur du thumb
+                // Fixed thumb height (8% of viewport height)
+                const thumbHeight = 8;
                 const scrollRatio = scrollTop / (scrollHeight - clientHeight);
-                const thumbHeight = (clientHeight / scrollHeight) * 100;
                 const thumbTop = scrollRatio * (100 - thumbHeight);
 
                 thumb.style.height = thumbHeight + '%';
                 thumb.style.top = thumbTop + '%';
 
-                // Calculate dynamic transition point (hero + tabs height)
-                const heroSection = document.querySelector('.pricing-hero');
-                const tabsContainer = document.querySelector('.tabs-container');
-                const blueZoneHeight = (heroSection?.offsetHeight || 0) + (tabsContainer?.offsetHeight || 0);
+                // Change color based on hero visibility (only in light mode)
+                const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
 
-                // Changement de couleur selon la position de scroll (dynamic transition)
-                if (scrollTop < blueZoneHeight) {
+                if (isDarkMode) {
+                    // En mode dark, toujours blanc transparent
                     thumb.classList.add('on-blue');
                     thumb.classList.remove('on-white');
                 } else {
-                    thumb.classList.add('on-white');
-                    thumb.classList.remove('on-blue');
+                    // En mode light, détection précise de la position du hero
+                    const heroSection = document.querySelector('.pricing-hero');
+                    if (heroSection) {
+                        const heroRect = heroSection.getBoundingClientRect();
+                        // Transition quand le bas du hero sort du viewport (avec un offset de sécurité)
+                        const isInHero = heroRect.bottom > 50;
+
+                        if (isInHero) {
+                            thumb.classList.add('on-blue');
+                            thumb.classList.remove('on-white');
+                        } else {
+                            thumb.classList.add('on-white');
+                            thumb.classList.remove('on-blue');
+                        }
+                    }
                 }
 
                 // Activer la scrollbar seulement si nécessaire

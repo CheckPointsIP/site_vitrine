@@ -1345,23 +1345,6 @@ a, button, .btn, .feature-card, .pricing-card, .support-btn, .faq-question {
         padding: 1rem;
     }
 }
-
-/* Optimisation performances pour grands écrans */
-@media (min-width: 1920px) {
-    /* Réduction animations sur très grands écrans pour éviter lag */
-    * {
-        animation-duration: 0.2s !important;
-    }
-
-    .feature-card:hover {
-        transform: translateY(-3px);
-    }
-
-    .feature-card:hover .feature-icon {
-        transform: scale(1.03);
-    }
-}
-
 /* ========================================
    COMPOSANTS BAUHAUS RÉUTILISABLES
    Créés le 2025-11-11 pour centraliser les styles répétés
