@@ -12,7 +12,7 @@
         })();
     </script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=5.0, user-scalable=yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -436,7 +436,6 @@
         </svg>
     </button>
 
-
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -446,37 +445,303 @@
                 Développé par ceux qui gèrent réellement des CFA, des formations et des alternances.<br>
                 Simple, fluide, et pensé pour faciliter le quotidien des équipes pédagogiques et administratives.
             </p>
-            <a href="#histoire" class="btn btn-primary" id="discover-btn">Découvrir Plan B</a>
+            <a href="#pain-points" class="btn btn-primary" id="discover-btn">Découvrir Plan B</a>
         </div>
     </section>
 
     <!-- Système d'onglets -->
     <div class="tabs-container">
         <div class="tabs-nav">
-            <button class="tab-button active" onclick="switchTab('histoire')">
-                <i class="fas fa-book-open"></i> Notre Histoire
-            </button>
-            <button class="tab-button" onclick="switchTab('unique')">
-                <i class="fas fa-gem"></i> Fonctionnalités
-            </button>
-            <button class="tab-button" onclick="switchTab('equipe')">
-                <i class="fas fa-users"></i> Notre Équipe
-            </button>
-            <button class="tab-button" onclick="switchTab('tarifs')">
+            <a href="demo.html" class="btn btn-primary" data-analytics-event="demo_request_sticky">
+                <i class="fas fa-play-circle"></i> Démo
+            </a>
+            <a href="../assets/documents/brochure-planb-crm.pdf" class="btn btn-secondary" download data-analytics-event="download_brochure_sticky">
+                <i class="fas fa-download"></i> Brochure
+            </a>
+            <a href="#pain-points" class="tab-button">
+                <i class="fas fa-exclamation-triangle"></i> Les Défis et Solution
+            </a>
+            <a href="#key-features" class="tab-button">
+                <i class="fas fa-star"></i> Fonctionnalités
+            </a>
+            <a href="#tarifs" class="tab-button">
                 <i class="fas fa-tags"></i> Tarifs
-            </button>
-            <button class="tab-button" onclick="switchTab('faq')">
+            </a>
+            <a href="#histoire" class="tab-button">
+                <i class="fas fa-book-open"></i> Notre Histoire
+            </a>
+            <a href="#faq" class="tab-button">
                 <i class="fas fa-question-circle"></i> FAQ
-            </button>
-            <button class="tab-button" onclick="window.location.href='pricing-monolithe.html'">
-                <i class="fas fa-cogs"></i> Informations Techniques
-            </button>
+            </a>
             <div class="tabs-fill"></div>
         </div>
     </div>
 
-    <!-- Histoire Tab Content -->
-    <div id="tab-histoire" class="tab-content active">
+    <!-- Section Pain Points CFA -->
+    <section id="pain-points" class="pain-points">
+        <div class="container">
+            <h2 class="section-title">Les défis quotidiens des CFA</h2>
+            <p class="lead">Gérer un CFA, c'est jongler entre administratif, pédagogie et relationnel.<br>Des défis que nous connaissons bien, car nous les avons vécus.</p>
+
+            <div class="pain-grid">
+                <div class="pain-card animate-on-scroll fade-in-up">
+                    <div class="pain-icon"><i class="fas fa-folder-open"></i></div>
+                    <h3>Informations dispersées</h3>
+                    <p>Les données des apprentis, entreprises et formateurs sont éparpillées dans différents outils : emails, Excel, Drive. Impossible de retrouver rapidement ce qu'on cherche.</p>
+                </div>
+
+                <div class="pain-card animate-on-scroll fade-in-up">
+                    <div class="pain-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Tâches répétitives chronophages</h3>
+                    <p>Relances manuelles, envoi de documents, rappels d'échéances... Des heures perdues chaque semaine sur des tâches qui pourraient être automatisées.</p>
+                </div>
+
+                <div class="pain-card animate-on-scroll fade-in-up">
+                    <div class="pain-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Manque de coordination d'équipe</h3>
+                    <p>Qui a appelé cette entreprise ? Où en est ce dossier ? L'absence de traçabilité crée confusion et perte de temps pour tous.</p>
+                </div>
+
+                <div class="pain-card animate-on-scroll fade-in-up">
+                    <div class="pain-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Reporting complexe et peu clair</h3>
+                    <p>Difficile d'avoir une vision globale de l'activité. Les tableaux de bord sont inexistants ou trop complexes à exploiter.</p>
+                </div>
+
+                <div class="pain-card animate-on-scroll fade-in-up">
+                    <div class="pain-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <h3>Outils inadaptés</h3>
+                    <p>Les CRM standards ne comprennent pas vos processus spécifiques. Vous devez adapter votre travail à l'outil, pas l'inverse.</p>
+                </div>
+
+                <div class="pain-card animate-on-scroll fade-in-up">
+                    <div class="pain-icon"><i class="fas fa-euro-sign"></i></div>
+                    <h3>Coûts cachés et complexité</h3>
+                    <p>Formation longue, maintenance coûteuse, options payantes qui s'accumulent. Le budget explose pour un outil qu'on n'exploite qu'à 30%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Solution Plan B CRM -->
+    <section id="solution" class="solution">
+        <div class="container">
+            <h2 class="section-title">Plan B CRM : La solution pensée pour vous</h2>
+            <p class="lead">Un CRM qui comprend vos défis, car il a été créé par ceux qui les vivent au quotidien.</p>
+
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h3>Enfin un outil qui vous ressemble</h3>
+                    <p>Plan B CRM n'est pas un CRM générique adapté à la formation. C'est un CRM conçu <strong>par des professionnels de la formation, pour des professionnels de la formation</strong>.</p>
+
+                    <ul class="solution-benefits">
+                        <li><i class="fas fa-check-circle"></i> <strong>Centralisation totale :</strong> Toutes vos données au même endroit, accessibles en un clic</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Automatisation intelligente :</strong> Les tâches répétitives se font toutes seules</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Collaboration fluide :</strong> Votre équipe toujours synchronisée et informée</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Tableaux de bord clairs :</strong> Pilotez votre activité en temps réel</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Simple et intuitif :</strong> Zéro formation, utilisable dès le premier jour</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>100% personnalisable :</strong> Adaptez le CRM à votre façon de travailler</li>
+                    </ul>
+
+                    <div class="solution-cta">
+                        <a href="demo.html" class="btn btn-primary" data-analytics-event="demo_request_solution">
+                            <i class="fas fa-play-circle"></i> Voir Plan B en action
+                        </a>
+                    </div>
+                </div>
+
+                <div class="solution-visual">
+                    <div class="solution-badge">
+                        <i class="fas fa-award"></i>
+                        <p>Développé par<br><strong>l'ISIM</strong> et <strong>Perspectivia</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3 Fonctionnalités Clés -->
+    <section id="key-features" class="key-features">
+        <div class="container">
+            <h2 class="section-title">Les 3 fonctionnalités qui changent tout</h2>
+            <p class="lead">Découvrez ce qui rend Plan B CRM indispensable au quotidien.</p>
+
+            <div class="key-features-grid">
+                <div class="feature-card key-feature animate-on-scroll fade-in-up">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-sms"></i></div>
+                        <h3>SMS Automatisés</h3>
+                    </div>
+                    <div class="feature-content">
+                        <p>Relances personnalisées, promotions ciblées et rappels automatiques partent au bon moment, sans effort.</p>
+                        <ul class="feature-list">
+                            <li>Gestion intelligente des rappels selon des scénarios prédéfinis</li>
+                            <li>Communication régulière, cohérente et sans risque d'oubli</li>
+                            <li>Messages personnalisés, envoyés automatiquement</li>
+                            <li>Gain de temps maximal sur les relances</li>
+                        </ul>
+                        <p class="feature-tagline"><strong>Ne ratez plus jamais une relance importante.</strong></p>
+                    </div>
+                </div>
+
+                <div class="feature-card key-feature animate-on-scroll fade-in-up">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-database"></i></div>
+                        <h3>Infos Clients Centralisées</h3>
+                    </div>
+                    <div class="feature-content">
+                        <p>Toutes les informations au même endroit, accessibles en un clic par toute l'équipe.</p>
+                        <ul class="feature-list">
+                            <li>Moins de perte de temps dans la recherche d'information</li>
+                            <li>Des équipes toujours alignées et informées</li>
+                            <li>Chaque membre sait instantanément où en est l'apprenti</li>
+                            <li>Une relation client fluide et continue, sans rupture</li>
+                            <li>Fini la dispersion : un seul outil, une vision claire</li>
+                        </ul>
+                        <p class="feature-tagline"><strong>L'information juste, au bon moment, pour la bonne personne.</strong></p>
+                    </div>
+                </div>
+
+                <div class="feature-card key-feature animate-on-scroll fade-in-up">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-user-cog"></i></div>
+                        <h3>Personnalisation du Poste → Productivité Accrue</h3>
+                    </div>
+                    <div class="feature-content">
+                        <p>Chaque collaborateur accède uniquement aux fonctionnalités qui le concernent.</p>
+                        <ul class="feature-list">
+                            <li>Concentration totale sur les tâches essentielles</li>
+                            <li>Interface épurée : aucun menu ou option superflue</li>
+                            <li>Tableaux de bord clairs et pertinents, adaptés à chaque rôle</li>
+                            <li>Zéro distraction, maximum d'efficacité</li>
+                        </ul>
+                        <p class="feature-tagline"><strong>Un poste de travail sur-mesure pour chaque collaborateur.</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-technical-link">
+                <p>Besoin de plus de détails techniques ?</p>
+                <a href="pricing-monolithe.html" class="btn btn-secondary">
+                    <i class="fas fa-cogs"></i> Voir les informations techniques
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Visuels Produit -->
+    <section id="product-visuals" class="product-visuals">
+        <div class="container">
+            <h2 class="section-title">Découvrez Plan B CRM en images</h2>
+            <p class="lead">Visualisez l'interface intuitive qui simplifie votre quotidien.</p>
+
+            <div class="screenshot-gallery">
+                <div class="screenshot-item">
+                    <img src="../assets/images/screenshots/dashboard-placeholder.svg"
+                         alt="Tableau de bord Plan B CRM"
+                         loading="lazy">
+                    <div class="screenshot-caption">
+                        <h3>Tableau de Bord Intuitif</h3>
+                        <p>Visualisez vos KPIs en temps réel et pilotez votre activité en un coup d'œil</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="../assets/images/screenshots/fiche-contact-placeholder.svg"
+                         alt="Fiche contact apprenti centralisée"
+                         loading="lazy">
+                    <div class="screenshot-caption">
+                        <h3>Fiche Contact Centralisée</h3>
+                        <p>Toutes les infos apprenti/entreprise au même endroit, accessible par toute l'équipe</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="../assets/images/screenshots/automation-placeholder.svg"
+                         alt="Module d'automatisation SMS et relances"
+                         loading="lazy">
+                    <div class="screenshot-caption">
+                        <h3>Automatisation SMS & Relances</h3>
+                        <p>Configurez vos scénarios en 2 clics et laissez le CRM gérer les relances</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-demo">
+                <h3>Plan B CRM en action</h3>
+                <div class="video-wrapper">
+                    <img src="../assets/images/video-thumbnail.svg"
+                         alt="Vidéo de démonstration Plan B CRM"
+                         class="video-placeholder">
+                    <div class="video-overlay">
+                        <p>📹 Vidéo de démonstration à venir</p>
+                        <p class="video-subtitle">Découvrez le CRM en situation réelle</p>
+                    </div>
+                </div>
+                <p class="video-caption">Une vidéo complète pour voir comment Plan B CRM transforme votre gestion au quotidien.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Tarifs (Extracted from tabs) -->
+    <section id="tarifs" class="tarifs">
+        <div class="container">
+            <h2 class="section-title">Tarifs transparents et adaptés à votre structure</h2>
+            <p class="lead">Choisissez la formule qui correspond à vos besoins. Nombre d'utilisateurs illimité sur toutes les offres.</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card animate-on-scroll fade-in-up">
+                    <h3 class="pricing-title">Basic</h3>
+                    <div class="pricing-price">499€<span>/mois</span></div>
+                    <p class="pricing-desc">Pour structurer et centraliser votre activité.</p>
+                    <ul class="pricing-features">
+                        <li>Intégration API Brevo, Chat GPT, Bloom, Aircall, Google map, Sirene</li>
+                        <li>Analyse des KPIs & suggestions d'optimisation</li>
+                        <li>Gestion des tâches et agendas partagés</li>
+                        <li>Campagnes Emailing en masse</li>
+                        <li>Support par messagerie (réponse en 5 min)</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" data-analytics-event="pricing_basic">Choisir Basic</a>
+                </div>
+
+                <div class="pricing-card featured animate-on-scroll fade-in-up">
+                    <div class="badge">Populaire</div>
+                    <h3 class="pricing-title">Pro</h3>
+                    <div class="pricing-price">999€<span>/mois</span></div>
+                    <p class="pricing-desc">Pour les équipes qui veulent accélérer et collaborer.</p>
+                    <ul class="pricing-features">
+                        <li>Toutes les fonctionnalités du Basic</li>
+                        <li>Support téléphonique direct</li>
+                        <li>Audit qualité aléatoire quotidien</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary" data-analytics-event="pricing_pro">Choisir Pro</a>
+                </div>
+
+                <div class="pricing-card animate-on-scroll fade-in-up">
+                    <h3 class="pricing-title">Entreprise</h3>
+                    <div class="pricing-price">1499€<span>/mois</span></div>
+                    <p class="pricing-desc">Pour une performance et une intégration sur-mesure.</p>
+                    <ul class="pricing-features">
+                        <li>Toutes les fonctionnalités du Pro</li>
+                        <li>Portails dédiés pour vos clients (Extranets)</li>
+                        <li>Intégration de vos API dans le CRM</li>
+                        <li>Audit programmé 2h / mois : Analyse de rentabilité par collaborateurs</li>
+                        <li>Assistance par un CSM (réunion hebdomadaire 30min)</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" data-analytics-event="pricing_entreprise">Choisir Entreprise</a>
+                </div>
+
+                <div class="pricing-card custom animate-on-scroll fade-in-up">
+                    <h3 class="pricing-title">Sur mesure</h3>
+                    <div class="pricing-price">Contactez-nous</div>
+                    <p class="pricing-desc">Pour les organisations aux processus uniques et aux exigences spécifiques.</p>
+                    <a href="contact.html" class="btn btn-outline" data-analytics-event="pricing_custom">Nous contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Histoire Section -->
     <section id="histoire" class="histoire">
         <div class="container">
             <h2 class="section-title">L'histoire d'une idée devenue solution</h2>
@@ -485,17 +750,17 @@
             <div class="story-content">
                 <div class="story-block">
                     <h3>2020 : L'aventure commence à Nice</h3>
-                    <p>Toute grande aventure commence par une conviction. La nôtre est née en 2020, au cœur de Nice, avec une ambition simple mais puissante : créer plus qu'une école, mais un véritable tremplin pour les talents de notre territoire. C'est ainsi que l'ISIM Nice a vu le jour. Ce n'était pas juste un projet ; c'était notre engagement à prouver qu'une approche locale, humaine et exigeante pouvait redéfinir la réussite. Et le succès fut au rendez-vous, porté par l'énergie de nos équipes et la confiance de nos étudiants.</p>
+                    <p>Toute grande aventure commence par une conviction. La nôtre est née en 2020, au cœur de Nice, avec une ambition simple mais puissante : créer plus qu'une école, mais un véritable tremplin pour les talents de notre territoire. C'est ainsi que <a href="https://www.isim.fr/" target="_blank" rel="noopener" class="link-highlight">l'ISIM Nice</a> a vu le jour. Ce n'était pas juste un projet ; c'était notre engagement à prouver qu'une approche locale, humaine et exigeante pouvait redéfinir la réussite. Et le succès fut au rendez-vous, porté par l'énergie de nos équipes et la confiance de nos étudiants.</p>
                 </div>
 
                 <div class="story-block">
                     <h3>2023 : Extension à Toulon</h3>
-                    <p>Cette première victoire nous a donné des ailes. En 2023, animés par la même flamme, nous avons étendu cette vision en ouvrant l'ISIM Toulon. Nous répliquions un modèle, mais surtout, nous répondions à un besoin. Nous renforcions notre ancrage local, créant de nouvelles passerelles entre les compétences et les entreprises.</p>
+                    <p>Cette première victoire nous a donné des ailes. En 2023, animés par la même flamme, nous avons étendu cette vision en ouvrant <a href="https://www.isim.fr/" target="_blank" rel="noopener" class="link-highlight">l'ISIM Toulon</a>. Nous répliquions un modèle, mais surtout, nous répondions à un besoin. Nous renforcions notre ancrage local, créant de nouvelles passerelles entre les compétences et les entreprises.</p>
                 </div>
 
                 <div class="story-block">
                     <h3>2024 : Naissance de Perspectivia</h3>
-                    <p>Mais notre ambition ne s'est pas arrêtée là. Plus nous avancions, plus une idée devenait une évidence : nous devions rendre nos formations accessibles à un public encore plus large, briser les barrières et ouvrir les portes de l'avenir. De cette volonté est né, fin 2024, Perspectivia, notre projet le plus audacieux à ce jour, pensé pour démultiplier notre impact.</p>
+                    <p>Mais notre ambition ne s'est pas arrêtée là. Plus nous avancions, plus une idée devenait une évidence : nous devions rendre nos formations accessibles à un public encore plus large, briser les barrières et ouvrir les portes de l'avenir. De cette volonté est né, fin 2024, <a href="https://perspectivia.fr/" target="_blank" rel="noopener" class="link-highlight">Perspectivia</a>, notre projet le plus audacieux à ce jour, pensé pour démultiplier notre impact.</p>
                 </div>
 
                 <div class="story-block highlight">
@@ -527,64 +792,8 @@
             </div>
         </div>
     </section>
-    </div>
 
-    <!-- Unique Tab Content -->
-    <div id="tab-unique" class="tab-content">
-    <section id="unique" class="unique">
-        <div class="container">
-            <h2 class="section-title">Ce qui rend notre CRM unique</h2>
-            <p class="lead">Ce n'est pas un CRM parmi d'autres.<br>C'est le CRM que nous aurions aimé avoir dès le départ, celui que nous avons rêvé, conçu et affiné jour après jour pour qu'il réponde enfin aux vrais besoins des équipes pédagogiques, administratives et dirigeantes.</p>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-mouse-pointer"></i></div>
-                    <h3>Simplicité totale</h3>
-                    <p>Nous avons voulu un CRM que tout le monde puisse comprendre dès la première minute. Pas besoin de formation interminable, ni de jargon technique. L'interface est claire, fluide et logique : chaque bouton, chaque menu, chaque action a été pensé pour vous faire gagner du temps.</p>
-                    <p class="feature-tagline"><strong>Efficace, sans complexité.</strong></p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-sliders-h"></i></div>
-                    <h3>Personnalisation complète</h3>
-                    <p>Chaque structure est unique — et votre CRM doit le refléter. Notre solution est entièrement modulable. Vous pouvez adapter les champs, formulaires, tableaux de bord et workflows à votre propre manière de travailler, sans avoir besoin d'un technicien.</p>
-                    <p class="feature-tagline"><strong>Vous adaptez le CRM à votre structure, pas l'inverse.</strong></p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-robot"></i></div>
-                    <h3>Automatisations intelligentes</h3>
-                    <p>Les tâches répétitives appartiennent au passé. Grâce à un système d'automatisation intelligent, le CRM gère pour vous les relances, rappels et suivis administratifs. Les rappels d'échéances partent automatiquement. Les emails de relance sont programmés en fonction de vos règles.</p>
-                    <p class="feature-tagline"><strong>Vous gagnez du temps, sans jamais perdre la main.</strong></p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Reporting clair et utile</h3>
-                    <p>Les chiffres ne servent à rien s'ils ne racontent pas une histoire. Nos tableaux de bord ne se contentent pas d'empiler des données : ils vous montrent ce qui compte vraiment. En un clin d'œil, vous visualisez le suivi de vos apprenants, les relances en attente, vos performances globales, et les tendances clés.</p>
-                    <p class="feature-tagline"><strong>Des indicateurs qui parlent, des décisions plus rapides.</strong></p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Sécurité et hébergement local</h3>
-                    <p>Toutes vos informations sont hébergées en France, sur des serveurs sécurisés conformes aux normes RGPD. Chaque donnée est chiffrée, protégée et sauvegardée en continu. Aucune exploitation commerciale, aucun partage tiers : vos données restent vos données.</p>
-                    <p class="feature-tagline"><strong>Un hébergement local, des données protégées, une tranquillité garantie.</strong></p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
-                    <h3>Évolution continue</h3>
-                    <p>Le monde de la formation change vite — et notre CRM évolue avec vous. Chaque retour utilisateur est écouté, analysé et intégré dans nos mises à jour régulières. C'est une solution vivante, qui grandit grâce à ceux qui l'utilisent au quotidien.</p>
-                    <p class="feature-tagline"><strong>Votre CRM s'améliore, parce que vous l'inspirez.</strong></p>
-                </div>
-            </div>
-        </div>
-    </section>
-    </div>
-
-    <!-- Équipe Tab Content -->
-    <div id="tab-equipe" class="tab-content">
+    <!-- Équipe Section -->
     <section id="equipe" class="equipe">
         <div class="container">
             <h2 class="section-title">Une équipe engagée à vos côtés</h2>
@@ -692,77 +901,8 @@
             </div>
         </div>
     </section>
-    </div>
 
-    <!-- Tarifs Tab Content -->
-    <div id="tab-tarifs" class="tab-content">
-    <section id="tarifs" class="tarifs">
-        <div class="container">
-            <h2 class="section-title">Tarifs transparents et adaptés à votre structure</h2>
-
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Basic</h3>
-                    <div class="pricing-price">499€<span>/mois</span></div>
-                    <p class="pricing-desc">Pour structurer et centraliser votre activité.</p>
-                    <ul class="pricing-features">
-                        <li>Intégration API Brevo, Chat GPT, Bloom, Aircall, Google map, Sirene</li>
-                        <li>Analyse des KPIs & suggestions d'optimisation</li>
-                        <li>Gestion des tâches et agendas partagés</li>
-                        <li>Campagnes Emailing en masse</li>
-                        <li>Support par messagerie (réponse en 5 min)</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-outline">Choisir Basic</a>
-                </div>
-
-                <div class="pricing-card featured">
-                    <div class="badge">Populaire</div>
-                    <h3 class="pricing-title">Pro</h3>
-                    <div class="pricing-price">999€<span>/mois</span></div>
-                    <p class="pricing-desc">Pour les équipes qui veulent accélérer et collaborer.</p>
-                    <ul class="pricing-features">
-                        <li>Toutes les fonctionnalités du Basic</li>
-                        <li>Support téléphonique direct</li>
-                        <li>Audit qualité aléatoire quotidien</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-primary">Choisir Pro</a>
-                </div>
-
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Entreprise</h3>
-                    <div class="pricing-price">1499€<span>/mois</span></div>
-                    <p class="pricing-desc">Pour une performance et une intégration sur-mesure.</p>
-                    <ul class="pricing-features">
-                        <li>Toutes les fonctionnalités du Pro</li>
-                        <li>Portails dédiés pour vos clients (Extranets)</li>
-                        <li>Intégration de vos API dans le CRM</li>
-                        <li>Audit programmé 2h / mois : Analyse de rentabilité par collaborateurs</li>
-                        <li>Assistance par un CSM (réunion hebdomadaire 30min)</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-outline">Choisir Entreprise</a>
-                </div>
-
-                <div class="pricing-card custom">
-                    <h3 class="pricing-title">Sur mesure</h3>
-                    <div class="pricing-price">Contactez-nous</div>
-                    <p class="pricing-desc">Pour les organisations aux processus uniques et aux exigences spécifiques.</p>
-                    <a href="contact.html" class="btn btn-outline">Nous contacter</a>
-                </div>
-
-                <div class="pricing-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; background: var(--bg-light);">
-                    <h3 class="pricing-title" style="text-align: center; margin-bottom: 1.5rem;">Informations techniques</h3>
-                    <p class="pricing-desc" style="text-align: center; margin-bottom: 2rem;">Découvrez tous les détails techniques de notre solution CRM.</p>
-                    <a href="pricing-monolithe.html" class="btn btn-secondary" style="font-size: 1.1rem;">
-                        Voir les informations techniques
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    </div>
-
-    <!-- FAQ Tab Content -->
-    <div id="tab-faq" class="tab-content">
+    <!-- FAQ Section -->
     <section id="faq" class="faq">
         <div class="container">
             <h2 class="section-title">FAQ - Le CRM en détail</h2>
@@ -950,7 +1090,6 @@
             </div>
         </div>
     </section>
-    </div>
 
     <!-- CTA Final -->
     <section class="cta-section">

@@ -1,0 +1,38 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#F4F5F7"/>
+
+  <!-- Bauhaus geometric shapes -->
+  <circle cx="200" cy="150" r="80" fill="#667eea" opacity="0.2"/>
+  <rect x="900" y="50" width="150" height="150" fill="#FF5630" opacity="0.2"/>
+  <polygon points="600,100 700,300 500,300" fill="#FFAB00" opacity="0.2"/>
+
+  <!-- Main content area -->
+  <rect x="50" y="250" width="1100" height="500" fill="#FFFFFF" rx="12" stroke="#172B4D" stroke-width="3"/>
+
+  <!-- Header bar -->
+  <rect x="50" y="250" width="1100" height="60" fill="#172B4D" rx="12"/>
+  <text x="100" y="290" font-family="Inter, sans-serif" font-size="24" fill="#FFFFFF" font-weight="600">Tableau de Bord Plan B CRM</text>
+
+  <!-- Dashboard grid -->
+  <rect x="100" y="350" width="300" height="150" fill="#F4F5F7" rx="8" stroke="#172B4D" stroke-width="2"/>
+  <rect x="450" y="350" width="300" height="150" fill="#F4F5F7" rx="8" stroke="#172B4D" stroke-width="2"/>
+  <rect x="800" y="350" width="300" height="150" fill="#F4F5F7" rx="8" stroke="#172B4D" stroke-width="2"/>
+
+  <!-- Chart placeholders -->
+  <rect x="100" y="540" width="500" height="180" fill="#F4F5F7" rx="8" stroke="#172B4D" stroke-width="2"/>
+  <rect x="650" y="540" width="450" height="180" fill="#F4F5F7" rx="8" stroke="#172B4D" stroke-width="2"/>
+
+  <!-- Icons and text -->
+  <circle cx="150" cy="400" r="25" fill="#667eea"/>
+  <circle cx="500" cy="400" r="25" fill="#FF5630"/>
+  <circle cx="850" cy="400" r="25" fill="#FFAB00"/>
+
+  <!-- Placeholder text -->
+  <text x="600" y="450" font-family="Inter, sans-serif" font-size="18" fill="#172B4D" text-anchor="middle" font-weight="500">📊 KPIs en Temps Réel</text>
+  <text x="350" y="650" font-family="Inter, sans-serif" font-size="16" fill="#172B4D" text-anchor="middle">Graphiques de Suivi</text>
+  <text x="875" y="650" font-family="Inter, sans-serif" font-size="16" fill="#172B4D" text-anchor="middle">Notifications</text>
+
+  <!-- Footer text -->
+  <text x="600" y="780" font-family="Inter, sans-serif" font-size="14" fill="#667eea" text-anchor="middle" opacity="0.7">[Screenshot Placeholder - Dashboard Principal]</text>
+</svg>

@@ -1,0 +1,83 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#F4F5F7"/>
+
+  <!-- Bauhaus geometric shapes -->
+  <polygon points="200,100 300,100 250,50" fill="#667eea" opacity="0.2"/>
+  <rect x="950" y="600" width="150" height="150" fill="#FF5630" opacity="0.2" transform="rotate(15 1025 675)"/>
+  <circle cx="150" cy="650" r="90" fill="#FFAB00" opacity="0.2"/>
+
+  <!-- Main window -->
+  <rect x="100" y="100" width="1000" height="650" fill="#FFFFFF" rx="12" stroke="#172B4D" stroke-width="3"/>
+
+  <!-- Header -->
+  <rect x="100" y="100" width="1000" height="70" fill="#172B4D" rx="12"/>
+  <text x="140" y="145" font-family="Inter, sans-serif" font-size="24" fill="#FFFFFF" font-weight="600">📱 Module d'Automatisation SMS</text>
+
+  <!-- Left panel - Scenarios -->
+  <rect x="130" y="200" width="280" height="500" fill="#F4F5F7" rx="8" stroke="#172B4D" stroke-width="2"/>
+  <text x="150" y="230" font-family="Inter, sans-serif" font-size="16" fill="#172B4D" font-weight="600">Scénarios Prédéfinis</text>
+
+  <rect x="150" y="250" width="240" height="60" fill="#FFFFFF" rx="6" stroke="#667eea" stroke-width="2"/>
+  <circle cx="175" cy="280" r="8" fill="#667eea"/>
+  <text x="195" y="275" font-family="Inter, sans-serif" font-size="13" fill="#172B4D" font-weight="500">Relance Apprenti</text>
+  <text x="195" y="293" font-family="Inter, sans-serif" font-size="11" fill="#172B4D" opacity="0.6">Actif - 3 envois/jour</text>
+
+  <rect x="150" y="320" width="240" height="60" fill="#FFFFFF" rx="6" stroke="#172B4D" stroke-width="1"/>
+  <circle cx="175" cy="350" r="8" fill="#FFAB00"/>
+  <text x="195" y="345" font-family="Inter, sans-serif" font-size="13" fill="#172B4D" font-weight="500">Rappel RDV</text>
+  <text x="195" y="363" font-family="Inter, sans-serif" font-size="11" fill="#172B4D" opacity="0.6">Pause - 0 envoi</text>
+
+  <rect x="150" y="390" width="240" height="60" fill="#FFFFFF" rx="6" stroke="#172B4D" stroke-width="1"/>
+  <circle cx="175" cy="420" r="8" fill="#00C853"/>
+  <text x="195" y="415" font-family="Inter, sans-serif" font-size="13" fill="#172B4D" font-weight="500">Promotion Ciblée</text>
+  <text x="195" y="433" font-family="Inter, sans-serif" font-size="11" fill="#172B4D" opacity="0.6">Actif - 12 envois/jour</text>
+
+  <rect x="150" y="460" width="240" height="60" fill="#FFFFFF" rx="6" stroke="#172B4D" stroke-width="1"/>
+  <circle cx="175" cy="490" r="8" fill="#667eea"/>
+  <text x="195" y="485" font-family="Inter, sans-serif" font-size="13" fill="#172B4D" font-weight="500">Absent Sans Nouvelles</text>
+  <text x="195" y="503" font-family="Inter, sans-serif" font-size="11" fill="#172B4D" opacity="0.6">Actif - 5 envois/jour</text>
+
+  <!-- Right panel - Configuration -->
+  <rect x="440" y="200" width="630" height="500" fill="#FFFFFF" rx="8" stroke="#172B4D" stroke-width="2"/>
+  <text x="460" y="230" font-family="Inter, sans-serif" font-size="16" fill="#172B4D" font-weight="600">Configuration "Relance Apprenti"</text>
+
+  <!-- Message preview -->
+  <rect x="460" y="250" width="590" height="120" fill="#F4F5F7" rx="6"/>
+  <text x="480" y="275" font-family="Inter, sans-serif" font-size="13" fill="#172B4D" font-weight="600">Message:</text>
+  <text x="480" y="300" font-family="Inter, sans-serif" font-size="12" fill="#172B4D" opacity="0.8">Bonjour {prenom},</text>
+  <text x="480" y="320" font-family="Inter, sans-serif" font-size="12" fill="#172B4D" opacity="0.8">Nous n'avons pas reçu de nouvelles de votre part.</text>
+  <text x="480" y="340" font-family="Inter, sans-serif" font-size="12" fill="#172B4D" opacity="0.8">Pouvez-vous nous contacter au {tel_cfa}?</text>
+  <text x="480" y="360" font-family="Inter, sans-serif" font-size="12" fill="#172B4D" opacity="0.8">L'équipe {nom_cfa}</text>
+
+  <!-- Calendar/Timing -->
+  <rect x="460" y="390" width="280" height="100" fill="#F4F5F7" rx="6"/>
+  <text x="480" y="415" font-family="Inter, sans-serif" font-size="13" fill="#172B4D" font-weight="600">📅 Calendrier d'envoi</text>
+  <text x="480" y="435" font-family="Inter, sans-serif" font-size="12" fill="#172B4D">Lun - Ven : 9h00, 14h00, 17h00</text>
+  <text x="480" y="455" font-family="Inter, sans-serif" font-size="12" fill="#172B4D">Sam - Dim : Désactivé</text>
+  <text x="480" y="475" font-family="Inter, sans-serif" font-size="12" fill="#172B4D" opacity="0.6">Délai entre envois : 2h minimum</text>
+
+  <!-- Stats -->
+  <rect x="760" y="390" width="290" height="100" fill="#F4F5F7" rx="6"/>
+  <text x="780" y="415" font-family="Inter, sans-serif" font-size="13" fill="#172B4D" font-weight="600">📊 Statistiques</text>
+  <text x="780" y="435" font-family="Inter, sans-serif" font-size="12" fill="#172B4D">Envoyés aujourd'hui : <tspan font-weight="600" fill="#667eea">47</tspan></text>
+  <text x="780" y="455" font-family="Inter, sans-serif" font-size="12" fill="#172B4D">Taux de réponse : <tspan font-weight="600" fill="#00C853">68%</tspan></text>
+  <text x="780" y="475" font-family="Inter, sans-serif" font-size="12" fill="#172B4D">Économie de temps : <tspan font-weight="600" fill="#FFAB00">3h12</tspan></text>
+
+  <!-- Action buttons -->
+  <rect x="460" y="520" width="280" height="50" fill="#667eea" rx="8"/>
+  <text x="600" y="551" font-family="Inter, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle" font-weight="600">💾 Enregistrer</text>
+
+  <rect x="760" y="520" width="140" height="50" fill="#FFFFFF" rx="8" stroke="#172B4D" stroke-width="2"/>
+  <text x="830" y="551" font-family="Inter, sans-serif" font-size="15" fill="#172B4D" text-anchor="middle" font-weight="600">Test</text>
+
+  <rect x="920" y="520" width="130" height="50" fill="#FF5630" rx="8"/>
+  <text x="985" y="551" font-family="Inter, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle" font-weight="600">🗑️ Suppr</text>
+
+  <!-- Automation indicator -->
+  <rect x="1020" y="110" width="60" height="30" fill="#00C853" rx="15"/>
+  <text x="1050" y="131" font-family="Inter, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle" font-weight="600">AUTO</text>
+
+  <!-- Footer text -->
+  <text x="600" y="780" font-family="Inter, sans-serif" font-size="14" fill="#667eea" text-anchor="middle" opacity="0.7">[Screenshot Placeholder - Module d'Automatisation SMS]</text>
+</svg>

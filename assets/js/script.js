@@ -98,16 +98,6 @@ function switchTab(tabName) {
         selectedButton.classList.add('active');
     }
 
-    // Masquer la section CTA si on est sur l'onglet tarifs
-    const ctaSection = document.querySelector('.cta-section');
-    if (ctaSection) {
-        if (tabName === 'tarifs') {
-            ctaSection.style.display = 'none';
-        } else {
-            ctaSection.style.display = 'block';
-        }
-    }
-
     // Scroll to tabs position (where tabs become sticky)
     const heroSection = document.querySelector('.hero');
     const scrollContainer = document.getElementById('scroll-container');
@@ -175,6 +165,8 @@ function toggleFaq(button) {
 document.addEventListener('DOMContentLoaded', function() {
 
     // Smooth scroll for all anchor links
+    const scrollContainer = document.getElementById('scroll-container');
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -182,11 +174,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    const offsetTop = target.offsetTop - 20;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
+                    // Calculer la position avec offset pour les tabs sticky
+                    const tabsContainer = document.querySelector('.tabs-container');
+                    const tabsHeight = tabsContainer ? tabsContainer.offsetHeight : 0;
+                    const offsetTop = target.offsetTop - tabsHeight - 20;
+
+                    // Utiliser le scroll-container si disponible, sinon window
+                    if (scrollContainer) {
+                        scrollContainer.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             }
         });
@@ -334,6 +338,63 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.remove('loading');
         }, 100);
     });
+
+    // Scroll Spy - Activer l'onglet correspondant à la section visible
+    const navButtons = document.querySelectorAll('.tabs-nav .tab-button[href^="#"]');
+    console.log('Scroll Spy: Boutons trouvés:', navButtons.length);
+
+    const sections = Array.from(navButtons).map(btn => {
+        const id = btn.getAttribute('href').substring(1);
+        return document.getElementById(id);
+    }).filter(section => section !== null);
+
+    console.log('Scroll Spy: Sections trouvées:', sections.length, sections.map(s => s.id));
+
+    if (sections.length > 0) {
+        const observerOptions = {
+            threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+            rootMargin: '0px 0px -50% 0px' // Section active quand elle dépasse la moitié de l'écran
+        };
+
+        const scrollSpyObserver = new IntersectionObserver((entries) => {
+            // Trouver toutes les sections visibles
+            const visibleSections = entries
+                .filter(entry => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+            console.log('Scroll Spy: Callback déclenché, sections visibles:', visibleSections.length);
+
+            if (visibleSections.length > 0) {
+                const mostVisible = visibleSections[0];
+                const newActiveId = mostVisible.target.id;
+
+                console.log('Scroll Spy: Section la plus visible ->', newActiveId, 'Ratio:', mostVisible.intersectionRatio);
+
+                // Retirer active de tous les boutons
+                navButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Ajouter active au bouton correspondant
+                const activeButton = document.querySelector(
+                    `.tab-button[href="#${newActiveId}"]`
+                );
+
+                if (activeButton) {
+                    activeButton.classList.add('active');
+                    console.log('Scroll Spy: ✓ Bouton activé ->', newActiveId);
+                } else {
+                    console.warn('Scroll Spy: ✗ Bouton non trouvé pour', newActiveId);
+                }
+            }
+        }, observerOptions);
+
+        // Observer toutes les sections
+        sections.forEach(section => {
+            scrollSpyObserver.observe(section);
+            console.log('Scroll Spy: Observer ajouté pour', section.id);
+        });
+    } else {
+        console.warn('Scroll Spy: Aucune section trouvée !');
+    }
 });
 
 /**

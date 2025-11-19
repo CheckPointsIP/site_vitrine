@@ -1,0 +1,51 @@
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#172B4D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+
+  <!-- Bauhaus decorative elements -->
+  <circle cx="300" cy="200" r="150" fill="#FF5630" opacity="0.3"/>
+  <rect x="1500" y="700" width="250" height="250" fill="#FFAB00" opacity="0.3" transform="rotate(15 1625 825)"/>
+  <polygon points="1600,200 1750,200 1675,350" fill="#FFFFFF" opacity="0.2"/>
+  <circle cx="400" cy="850" r="100" fill="#FFFFFF" opacity="0.15"/>
+
+  <!-- Main content -->
+  <rect x="560" y="340" width="800" height="400" fill="#FFFFFF" rx="20" opacity="0.1"/>
+
+  <!-- Play button circle -->
+  <circle cx="960" cy="540" r="120" fill="#FFFFFF" opacity="0.95"/>
+  <circle cx="960" cy="540" r="110" fill="#FF5630"/>
+
+  <!-- Play icon triangle -->
+  <polygon points="930,490 930,590 1020,540" fill="#FFFFFF"/>
+
+  <!-- Text content -->
+  <text x="960" y="720" font-family="Inter, sans-serif" font-size="48" fill="#FFFFFF" text-anchor="middle" font-weight="700">Plan B CRM en 60 Secondes</text>
+  <text x="960" y="780" font-family="Inter, sans-serif" font-size="28" fill="#FFFFFF" text-anchor="middle" opacity="0.9">Découvrez le CRM pensé pour les CFA</text>
+
+  <!-- Decorative line -->
+  <rect x="760" y="800" width="400" height="4" fill="#FFAB00" rx="2"/>
+
+  <!-- Feature badges -->
+  <rect x="560" y="850" width="200" height="50" fill="#FFFFFF" rx="25" opacity="0.2"/>
+  <text x="660" y="882" font-family="Inter, sans-serif" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="600">📱 SMS Auto</text>
+
+  <rect x="810" y="850" width="300" height="50" fill="#FFFFFF" rx="25" opacity="0.2"/>
+  <text x="960" y="882" font-family="Inter, sans-serif" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="600">📊 Infos Centralisées</text>
+
+  <rect x="1160" y="850" width="200" height="50" fill="#FFFFFF" rx="25" opacity="0.2"/>
+  <text x="1260" y="882" font-family="Inter, sans-serif" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="600">⚙️ Personnalisé</text>
+
+  <!-- Bottom indicator -->
+  <text x="960" y="1000" font-family="Inter, sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle" opacity="0.7">[Vidéo Démo à Venir - Placeholder]</text>
+
+  <!-- Duration badge -->
+  <rect x="1700" y="900" width="150" height="50" fill="#172B4D" rx="8"/>
+  <text x="1775" y="932" font-family="Inter, sans-serif" font-size="22" fill="#FFFFFF" text-anchor="middle" font-weight="600">⏱️ 1:00</text>
+</svg>
