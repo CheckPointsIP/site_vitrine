@@ -180,6 +180,48 @@ function toggleFaq(button) {
 // Animation système et interactions
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Gestion des flèches de scroll pour tabs-nav (mobile)
+    const tabsNav = document.querySelector('.tabs-nav');
+    const tabsFill = document.querySelector('.tabs-fill');
+
+    if (tabsNav && tabsFill) {
+        let currentState = 'scroll-right';
+
+        function updateScrollArrow() {
+            const scrollLeft = tabsNav.scrollLeft;
+            const maxScroll = tabsNav.scrollWidth - tabsNav.clientWidth;
+            const scrollPercentage = (scrollLeft / maxScroll) * 100;
+
+            const newState = scrollPercentage >= 90 ? 'scroll-left' : 'scroll-right';
+
+            // Seulement si l'état change
+            if (newState !== currentState) {
+                // Ajouter classe de transition
+                tabsFill.classList.add('transitioning');
+
+                // Après la transition, changer l'état
+                setTimeout(() => {
+                    tabsFill.classList.remove(currentState);
+                    tabsFill.classList.add(newState);
+                    currentState = newState;
+
+                    // Retirer la classe de transition pour permettre l'animation d'entrée
+                    setTimeout(() => {
+                        tabsFill.classList.remove('transitioning');
+                    }, 25);
+                }, 150);
+            }
+        }
+
+        // Écouter le scroll horizontal
+        tabsNav.addEventListener('scroll', updateScrollArrow);
+
+        // Initialiser au chargement
+        tabsFill.classList.add('scroll-right');
+        currentState = 'scroll-right';
+        updateScrollArrow();
+    }
+
     // Smooth scroll for all anchor links
     const scrollContainer = document.getElementById('scroll-container');
 

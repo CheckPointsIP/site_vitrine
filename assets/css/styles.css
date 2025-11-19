@@ -362,22 +362,73 @@ p {
     .tabs-fill {
         display: flex;
         position: absolute;
-        right: 0;
         top: 1rem;
         bottom: 1rem;
         width: 50px;
-        background: linear-gradient(to left, var(--secondary-color) 60%, transparent);
         align-items: center;
-        justify-content: flex-end;
         pointer-events: none;
         z-index: 101;
     }
 
-    .tabs-fill::after {
+    /* Flèche droite par défaut */
+    .tabs-fill.scroll-right {
+        right: 0;
+        justify-content: flex-end;
+        background: linear-gradient(to left, var(--secondary-color) 60%, transparent);
+    }
+
+    .tabs-fill.scroll-right::after {
         content: '→';
         color: white;
         font-size: 1.2rem;
         padding-right: 15px;
+        display: inline-block;
+        animation: slideInRight 0.25s ease;
+    }
+
+    /* Flèche à gauche quand on est scrollé à droite */
+    .tabs-fill.scroll-left {
+        left: 0;
+        justify-content: flex-start;
+        background: linear-gradient(to right, var(--secondary-color) 60%, transparent);
+    }
+
+    .tabs-fill.scroll-left::after {
+        content: '←';
+        color: white;
+        font-size: 1.2rem;
+        padding-left: 15px;
+        display: inline-block;
+        animation: slideInLeft 0.25s ease;
+    }
+
+    /* État de transition - masquer la flèche pendant le changement */
+    .tabs-fill.transitioning::after {
+        opacity: 0;
+        transform: scale(0.7);
+        transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    @keyframes slideInRight {
+        0% {
+            opacity: 0;
+            transform: translateX(-10px) scale(0.7);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+    }
+
+    @keyframes slideInLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(10px) scale(0.7);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
     }
 }
 
@@ -2042,12 +2093,11 @@ a, button, .btn, .feature-card, .pricing-card, .support-btn, .faq-question {
     gap: 15px;
     background: var(--bg-light);
     border-left: 3px solid var(--primary-color);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: border-left-color 0.3s ease;
 }
 
 .solution-benefits li:hover {
     border-left-color: var(--accent-color);
-    background: var(--overlay-light);
 }
 
 .solution-benefits i {
