@@ -2,6 +2,19 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+
+    <!-- Base path dynamique : auto-détecte local vs GitHub Pages -->
+    <script>
+        (function() {
+            const isLocal = window.location.protocol === 'file:';
+            const baseUrl = isLocal
+                ? window.location.href.replace(/pages\/[^\/]*$/, '')
+                : '/site_vitrine/';
+            document.write('<base href="' + baseUrl + '">');
+        })();
+    </script>
+
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <title>Panel Admin - Plan B CRM Analytics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -567,7 +580,7 @@
     </style>
 
     <!-- Cookie Consent -->
-    <link rel="stylesheet" href="/site_vitrine/assets/css/cookie-consent.css">
+    <link rel="stylesheet" href="assets/css/cookie-consent.css">
 </head>
 <body>
 
@@ -679,8 +692,8 @@
     </div>
 
     <!-- Cookie Consent Script (AVANT analytics pour le bloquer si refus) -->
-    <script src="/site_vitrine/assets/js/cookie-consent.js"></script>
-    <script src="/site_vitrine/assets/js/analytics-tracker.js"></script>
-    <script src="/site_vitrine/assets/js/admin-dashboard.js"></script>
+    <script src="assets/js/cookie-consent.js"></script>
+    <script src="assets/js/analytics-tracker.js"></script>
+    <script src="assets/js/admin-dashboard.js"></script>
 </body>
 </html>

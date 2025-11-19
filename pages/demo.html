@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8">
 
+    <!-- Base path dynamique : auto-détecte local vs GitHub Pages -->
+    <script>
+        (function() {
+            const isLocal = window.location.protocol === 'file:';
+            const baseUrl = isLocal
+                ? window.location.href.replace(/pages\/[^\/]*$/, '')
+                : '/site_vitrine/';
+            document.write('<base href="' + baseUrl + '">');
+        })();
+    </script>
+
     <!-- Script anti-flash pour le dark mode -->
     <script>
         (function() {
@@ -18,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="/site_vitrine/assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <style>
         /* Animations Bauhaus au chargement */
         @keyframes fadeInUp {
@@ -45,7 +56,7 @@
     </style>
 
     <!-- Cookie Consent -->
-    <link rel="stylesheet" href="/site_vitrine/assets/css/cookie-consent.css">
+    <link rel="stylesheet" href="assets/css/cookie-consent.css">
 </head>
 <body>
     <!-- Hero Section Bauhaus -->
@@ -63,7 +74,7 @@
             <div class="video-demo">
                 <h3>Aperçu du CRM en action</h3>
                 <div class="video-wrapper">
-                    <img src="/site_vitrine/assets/images/video-thumbnail.svg"
+                    <img src="assets/images/video-thumbnail.svg"
                          alt="Vidéo de démonstration Plan B CRM"
                          class="video-placeholder">
                     <div class="video-overlay">
@@ -182,7 +193,7 @@
         </div>
     </footer>
 
-    <script src="/site_vitrine/assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
     <script>
         // Animation Hero au chargement - Style Bauhaus
         document.addEventListener('DOMContentLoaded', function() {
@@ -234,7 +245,7 @@
 
     <!-- Analytics Tracker -->
     <!-- Cookie Consent Script (AVANT analytics pour le bloquer si refus) -->
-    <script src="/site_vitrine/assets/js/cookie-consent.js"></script>
-    <script src="/site_vitrine/assets/js/analytics-tracker.js"></script>
+    <script src="assets/js/cookie-consent.js"></script>
+    <script src="assets/js/analytics-tracker.js"></script>
 </body>
 </html>
