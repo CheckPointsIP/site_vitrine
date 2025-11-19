@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-
-    <!-- Base path dynamique : auto-détecte local vs GitHub Pages -->
-    <script>
-        (function() {
-            const isLocal = window.location.protocol === 'file:';
-            const baseUrl = isLocal
-                ? window.location.href.replace(/pages\/[^\/]*$/, '')
-                : '/site_vitrine/';
-            document.write('<base href="' + baseUrl + '">');
-        })();
-    </script>
-
-    <!-- Script anti-flash pour le dark mode -->
+    <meta charset="UTF-8"><!-- Script anti-flash pour le dark mode -->
     <script>
         (function() {
             const theme = localStorage.getItem('theme') ||
@@ -1022,7 +1009,7 @@
     </style>
 
     <!-- Cookie Consent -->
-    <link rel="stylesheet" href="assets/css/cookie-consent.css">
+    <link rel="stylesheet" href="../assets/css/cookie-consent.css">
 </head>
 <body>
     <!-- Scrollbar personnalisée - Thumb arrondi seul -->
@@ -2208,7 +2195,7 @@
 
     <!-- Analytics Tracker -->
     <!-- Cookie Consent Script (AVANT analytics pour le bloquer si refus) -->
-    <script src="assets/js/cookie-consent.js"></script>
-    <script src="assets/js/analytics-tracker.js"></script>
+    <script src="../assets/js/cookie-consent.js"></script>
+    <script src="../assets/js/analytics-tracker.js"></script>
 </body>
 </html>

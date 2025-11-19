@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-
-    <!-- Base path dynamique : auto-détecte local vs GitHub Pages -->
-    <script>
-        (function() {
-            const isLocal = window.location.protocol === 'file:';
-            const baseUrl = isLocal
-                ? window.location.href.replace(/pages\/[^\/]*$/, '')
-                : '/site_vitrine/';
-            document.write('<base href="' + baseUrl + '">');
-        })();
-    </script>
-
-    <!-- Script anti-flash pour le dark mode -->
+    <meta charset="UTF-8"><!-- Script anti-flash pour le dark mode -->
     <script>
         (function() {
             const theme = localStorage.getItem('theme') ||
@@ -38,8 +25,8 @@
     <!-- Fonts & Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/cookie-consent.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/cookie-consent.css">
 
     <style>
         /* Styles spécifiques page confidentialité */
@@ -544,7 +531,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/cookie-consent.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/cookie-consent.js"></script>
 </body>
 </html>
