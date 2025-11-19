@@ -216,6 +216,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // Écouter le scroll horizontal
         tabsNav.addEventListener('scroll', updateScrollArrow);
 
+        // Scroll horizontal avec la molette de souris (PC)
+        tabsNav.addEventListener('wheel', function(e) {
+            // Vérifier si le contenu déborde horizontalement
+            if (tabsNav.scrollWidth > tabsNav.clientWidth) {
+                e.preventDefault();
+                // Convertir le scroll vertical en horizontal
+                tabsNav.scrollLeft += e.deltaY;
+            }
+        }, { passive: false });
+
         // Initialiser au chargement
         tabsFill.classList.add('scroll-right');
         currentState = 'scroll-right';
