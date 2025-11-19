@@ -7,11 +7,14 @@
 (function() {
     'use strict';
 
+    // Mode DEBUG (actif uniquement en local)
+    const IS_LOCAL = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
     // Configuration
     const CONFIG = {
         apiEndpoint: 'http://localhost:3000/api/analytics', // Backend Node.js
         localStorage: true, // Utiliser localStorage comme backup
-        debugMode: true, // Mode debug pour console.log
+        debugMode: IS_LOCAL, // Mode debug actif uniquement en local
         sessionTimeout: 30 * 60 * 1000, // 30 minutes
         sendToServer: true // Activer l'envoi au serveur
     };

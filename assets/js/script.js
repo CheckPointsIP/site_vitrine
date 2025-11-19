@@ -1,5 +1,21 @@
 /**
  * ========================================
+ * CONFIGURATION DEBUG
+ * Désactive les console.log en production
+ * ========================================
+ */
+const IS_LOCAL = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const DEBUG = IS_LOCAL; // Active les logs uniquement en local
+
+// Fonction de log qui respecte le mode DEBUG
+const debugLog = (...args) => {
+    if (DEBUG) {
+        console.log(...args);
+    }
+};
+
+/**
+ * ========================================
  * DARK MODE SYSTEM
  * Détecte les préférences système + toggle manuel
  * Persistance dans localStorage
@@ -341,14 +357,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Scroll Spy - Activer l'onglet correspondant à la section visible
     const navButtons = document.querySelectorAll('.tabs-nav .tab-button[href^="#"]');
-    console.log('Scroll Spy: Boutons trouvés:', navButtons.length);
+    debugLog('Scroll Spy: Boutons trouvés:', navButtons.length);
 
     const sections = Array.from(navButtons).map(btn => {
         const id = btn.getAttribute('href').substring(1);
         return document.getElementById(id);
     }).filter(section => section !== null);
 
-    console.log('Scroll Spy: Sections trouvées:', sections.length, sections.map(s => s.id));
+    debugLog('Scroll Spy: Sections trouvées:', sections.length, sections.map(s => s.id));
 
     if (sections.length > 0) {
         const observerOptions = {
@@ -362,13 +378,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 .filter(entry => entry.isIntersecting)
                 .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-            console.log('Scroll Spy: Callback déclenché, sections visibles:', visibleSections.length);
+            debugLog('Scroll Spy: Callback déclenché, sections visibles:', visibleSections.length);
 
             if (visibleSections.length > 0) {
                 const mostVisible = visibleSections[0];
                 const newActiveId = mostVisible.target.id;
 
-                console.log('Scroll Spy: Section la plus visible ->', newActiveId, 'Ratio:', mostVisible.intersectionRatio);
+                debugLog('Scroll Spy: Section la plus visible ->', newActiveId, 'Ratio:', mostVisible.intersectionRatio);
 
                 // Retirer active de tous les boutons
                 navButtons.forEach(btn => btn.classList.remove('active'));
@@ -380,9 +396,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (activeButton) {
                     activeButton.classList.add('active');
-                    console.log('Scroll Spy: ✓ Bouton activé ->', newActiveId);
+                    debugLog('Scroll Spy: ✓ Bouton activé ->', newActiveId);
                 } else {
-                    console.warn('Scroll Spy: ✗ Bouton non trouvé pour', newActiveId);
+                    if (DEBUG) console.warn('Scroll Spy: ✗ Bouton non trouvé pour', newActiveId);
                 }
             }
         }, observerOptions);
@@ -390,10 +406,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Observer toutes les sections
         sections.forEach(section => {
             scrollSpyObserver.observe(section);
-            console.log('Scroll Spy: Observer ajouté pour', section.id);
+            debugLog('Scroll Spy: Observer ajouté pour', section.id);
         });
     } else {
-        console.warn('Scroll Spy: Aucune section trouvée !');
+        if (DEBUG) console.warn('Scroll Spy: Aucune section trouvée !');
     }
 });
 

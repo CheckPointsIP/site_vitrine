@@ -7,6 +7,11 @@
 (function() {
     'use strict';
 
+    // Mode DEBUG (actif uniquement en local)
+    const IS_LOCAL = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const DEBUG = IS_LOCAL;
+    const debugLog = (...args) => { if (DEBUG) console.log(...args); };
+
     // Configuration
     const CONFIG = {
         cookieName: 'planb_cookie_consent',
@@ -74,20 +79,20 @@
             }
 
             // Les cookies fonctionnels sont toujours actifs
-            console.log('Cookie consent applied:', consent);
+            debugLog('Cookie consent applied:', consent);
         }
 
         enableAnalytics() {
             // Activer analytics-tracker.js si présent
             if (window.AnalyticsTracker) {
-                console.log('Analytics enabled');
+                debugLog('Analytics enabled');
                 // Le tracker est déjà chargé et actif
             }
         }
 
         disableAnalytics() {
             // Bloquer analytics
-            console.log('Analytics disabled by user');
+            debugLog('Analytics disabled by user');
 
             // Option 1: Empêcher le chargement du script analytics-tracker.js
             // (nécessite de charger ce script après le consent)
@@ -101,12 +106,12 @@
         }
 
         enableMarketing() {
-            console.log('Marketing cookies enabled');
+            debugLog('Marketing cookies enabled');
             // Activer pixels marketing, Google Ads, etc.
         }
 
         disableMarketing() {
-            console.log('Marketing cookies disabled');
+            debugLog('Marketing cookies disabled');
             // Bloquer pixels marketing
         }
 
